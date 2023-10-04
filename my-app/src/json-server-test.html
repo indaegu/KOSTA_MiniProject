@@ -6,23 +6,72 @@
     <title>Document</title>
 </head>
 <body>
-    데이터가져오기
+    <button onclick="deleteData()">데이터삭제하기</button>
+    <button onclick="getData()">데이터가져오기</button>
+    <button onclick="postData()">데이터추가하기</button>
+    <button onclick="putData()">데이터수정하기</button>
     <script>
-        function getData(){
+        function deleteData() {
             const xhr = new XMLHttpRequest();
-            xhr.open('GET', 'http://localhost"3000/posts');
-            xhr.setRequestHeader('content-type','application/json');
+            xhr.open("DELETE", "http://localhost:3000/posts/2");
             xhr.send();
+            xhr.onload = () => {
+                if (xhr.status === 200) {
+                    const res = JSON.parse(xhr.response);
+                    console.log(res);
+                } else {
+                    console.log(xhr.status, xhr.statusText);
+                }
+            }
+        }
+        function getData() {
+            const xhr = new XMLHttpRequest(); // XMLHttpRequest 객체 생성
+            xhr.open("GET", "http://localhost:3000/posts");
+            xhr.setRequestHeader("content-type", "application/json");
+            xhr.send();
+            // 서버로 부터 응답 받으면 실행
+            xhr.onload = () => {
+            if (xhr.status === 200) {
+                const res = JSON.parse(xhr.response);
+                console.log(res);
+            } else {
+            console.log(xhr.status, xhr.statusText);
+            }
+        }
+    }
+        function postData(){
+            const xhr = new XMLHttpRequest();
+            xhr.open('POST', 'http://localhost:3000/posts');
+            xhr.setRequestHeader('content-type','application/json');
+            const data = {title : "javascript", author : 'tpicode'};
+            xhr.send(JSON.stringify(data));
             xhr.onload = () => {
                 if(xhr.status === 200){
                     const res =JSON.parse(xhr.response);
+                    res.array.forEach(element => {
+                        console.log(element);
+                    });
                     console.log(res[0]);
                 }else {
-                    console.log
+                    console.log(xhr.status, xhr.statusText);
+                }
+            }
+        }
+        function putData() {
+            const xhr = new XMLHttpRequest();
+            xhr.open("PUT", "http://localhost:3000/posts/2");
+            xhr.setRequestHeader("content-type", "application/json; charset=UTF-8");
+            const data = { title: "HTML", author: "Heung Min SONI" };
+            xhr.send(JSON.stringify(data));
+            xhr.onload = () => {
+                if (xhr.status === 200) {
+                    const res = JSON.parse(xhr.response);
+                    console.log(res);
+                } else {
+                    console.log(xhr.status, xhr.statusText);
                 }
             }
         }
     </script>
-    
 </body>
 </html>
