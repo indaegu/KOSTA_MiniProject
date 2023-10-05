@@ -5,7 +5,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         <p>
-          App.js 파일
+          App.js 파일 수정
         </p>
       </header>
     </div>
