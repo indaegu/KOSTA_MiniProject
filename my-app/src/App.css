@@ -1,38 +1,310 @@
-.App {
-  text-align: center;
+.main-container {
+  font-family: Arial, sans-serif;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.categories {
+  width: 100%;
   display: flex;
-  flex-direction: column;
+  justify-content: space-around;
+  margin-top: 10px;
+}
+
+
+.category-item {
+  position: relative;
+}
+/* 검색바 스타일 */
+.search-bar {
+  margin-right: 20px;
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid #aaa;
+  outline: none;  /* 클릭 시 테두리 제거 */
+  margin-bottom: 10px;  /* 카테고리와의 간격 */
+}
+
+/* 로그인, 로그아웃 버튼 스타일 */
+.user-info {
+  margin-right: 20px;  /* 오른쪽 여백 추가 */
+  margin-left: 20px;  /* 카테고리와의 간격 */
+}
+.user-info button {
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #555;
+  color: white;
+  cursor: pointer;
+  margin-left: 10px;  /* 로그인 정보와 버튼 사이 여백 추가 */
+}
+.user-info button:hover {
+  background-color: #777;
+}
+
+
+
+.category-dropdown {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);  /* 카테고리 아이템의 중앙에 정렬 */
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  z-index: 1;  /* 다른 요소 위에 오도록 z-index 설정 */
+  white-space: nowrap;  /* 한글 줄바꿈 오류 해결 */
+}
+/* 카테고리 메뉴 간격 조절 */
+.categories {
+  justify-content: space-between;
+  margin: 10px 50px;  /* 양옆 여백 추가 */
+}
+
+/* 카테고리 드롭다운 링크 스타일 */
+.category-dropdown a {
+  color: black;
+  text-decoration: none;  /* 밑줄 제거 */
+}
+
+.category-dropdown a:hover {
+  text-decoration: underline;  /* 마우스 오버 시 밑줄 추가 */
+}
+
+.category-item:hover .category-dropdown {
+  display: block;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background-color: #6136cf;
+  color: white;
+  height: 150px;   /* 헤더의 높이를 조정 */
+}
+.header-right {
+  display: flex;
+  flex-direction: column; /* 헤더의 주 방향을 위아래로 변경 */
+  justify-content: space-between; /* 상단과 하단의 요소들을 멀리 배치 */
+  align-items: center; /* 중앙에 요소들을 정렬 */
+  padding: 20px;
+  background-color: #6136cf;
+  color: white;
+  height: 150px;
+}
+
+
+.logo {
+  cursor: pointer;
+}
+.logo img {
+  max-width: 100%;  
+  max-height: 120px;  /* 로고 이미지의 최대 높이를 헤더 높이의 대부분으로 제한 */
+  height: auto;    
+}
+.logo-container {
+  flex: 1;  
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+
+
+.user-info .username {
+  margin-right: 10px;
+}
+
+nav a {
+  margin: 0 10px;
+  text-decoration: none;
+  color: white;
+  cursor: pointer;
+}
+
+.sliding-banner {
+  height: 400px;
+  background-color: lightgray;
+  margin: 20px 0;
+  display: flex;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+}
+
+.sliding-banner img {
+  max-width: 100%;  /* 슬라이딩 배너 이미지의 최대 너비를 슬라이딩 배너 컨테이너의 100%로 제한 */
+  max-height: 100%; /* 이미지의 최대 높이를 200px로 제한 (컨테이너의 높이와 동일) */
+  height: auto;    /* 이미지의 높이를 자동으로 조절하여 원본 비율 유지 */
+}
+
+.content {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+.ranking-summary, .wrong-questions {
+  width: 49%;
+  background-color: #f5f5f5;
+  padding: 5px;
+  border-radius: 10px;
+}
+
+h2 {
+  border-bottom: 2px solid #ddd;
+  padding-bottom: 10px;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+button {
+  margin-top: 20px;
+  cursor: pointer;
+}
+
+
+
+.chatbot-modal {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  width: 300px;
+  height: 500px;
+  background-color: #f5f5f5;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+}
+
+/*검색창*/
+.search-bar {
+  margin-right: 20px;
+  padding: 10px 20px;
+  width: 700px;
+  height: 50px;
+  border-radius: 25px;
+  border: 1px solid #00a550;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  font-size: 25px;
+  font-family: Arial, sans-serif;
+  color: #777;
+  outline: none;
+  transition: box-shadow 0.3s ease;
+  margin-bottom: 10px;
+}
+
+/* 검색창에 포커스 됐을 때의 스타일 */
+.search-bar:focus {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* placeholder 스타일 */
+.search-bar::placeholder {
+  color: #aaa;
+  font-weight: normal;
+}
+
+
+/* 로그인, 로그아웃 버튼 스타일 */
+.user-info {
+  margin-right: 20px;
+  margin-left: 20px;
+}
+
+.user-info button {
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #555;
+  color: white;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+
+.user-info button:hover {
+    background-color: #777;
+}
+
+/* 카테고리 메뉴 간격 조절 */
+.categories {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+.category-item {
+  position: relative;
+}
+
+
+/* 카테고리 드롭다운 링크 스타일 */
+.category-dropdown {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  z-index: 1;
+  white-space: nowrap;
+}
+.category-dropdown a {
+  color: black;
+  text-decoration: none;
+}
+
+
+.category-dropdown a:hover {
+    text-decoration: underline;  /* 마우스 오버 시 밑줄 추가 */
+}
+
+.category-item:hover .category-dropdown {
+  display: block;
+}
+
+
+/* 푸터 사이트맵 스타일 */
+/* 푸터 스타일 */
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;  /* 항목들을 위쪽에 정렬 */
+  background-color: #2432b1;
+  padding: 20px 50px;  /* 양옆 여백 추가 */
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.footer-section {
+  flex-basis: 25%;  /* 각 섹션은 전체 너비의 약 1/4를 차지 */
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.footer-section h4 {
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.footer-section ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.footer-section ul li {
+  margin-bottom: 5px;
+}
+
+.footer-section ul li a {
+  text-decoration: none;
+  color: white;
+  transition: color 0.3s ease;  /* 색상 변경에 애니메이션 효과 추가 */
+}
+
+.footer-section ul li a:hover {
+  color: #aaa;  /* 링크 호버시 색상 변경 */
 }
