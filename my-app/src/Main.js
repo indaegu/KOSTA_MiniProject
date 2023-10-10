@@ -25,11 +25,11 @@ const Main = () => {
                     </div>
                 </div>
                 <input type="text" placeholder="검색어를 입력해 주세요" className="search-bar" />
+                <div className="user-info">
+                    LoggedInUser <button>Logout</button>
+                </div>
 
                 <div className="header-right">
-                    <div className="user-info">
-                        LoggedInUser <button>Logout</button>
-                    </div>
                     <nav className="categories">
                         <div className="category-item">
                             언어

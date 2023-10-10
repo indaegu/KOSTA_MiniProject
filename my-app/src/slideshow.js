@@ -1,45 +1,49 @@
-var slides = document.querySelectorAll("#slides > img");
-var prev = document.getElementById("prev");
-var next = document.getElementById("next");
+import React, { useState, useEffect } from "react";
+import "./App.css";
 
-var current = 0;
-// autoSlidesShow();
-showSlides(current);
+function Slideshow() {
+  const [current, setCurrent] = useState(0);
+  const slides = [
+    "banner1.png",
+    "banner2.jpg",
+    "banner3.jpg"
+  ];
 
-prev.onclick = prevSlide;
-next.onclick = nextSlide;
+  useEffect(() => {
+    const slideInterval = setInterval(() => {
+      nextSlide();
+    }, 3000); // 5초마다 슬라이드 변경
 
-function showSlides(n){
-    for(var i = 0; i < slides.length; i++){
-        slides[i].style.display ="none"; // 배열의 모든 이미지를 감춘다
-    }
-    slides[n].style.display = "block"; //n 번째의 이미지만 화면에 표시
+    return () => clearInterval(slideInterval);
+  }, [current]);
+
+  const prevSlide = () => {
+    setCurrent(current === 0 ? slides.length - 1 : current - 1);
+  };
+
+  const nextSlide = () => {
+    setCurrent(current === slides.length - 1 ? 0 : current + 1);
+  };
+
+
+  return (
+    <div className="slideShow">
+      <div className="slides" style={{ transform: `translateX(-${current * 33.3333}%)` }}>
+        {slides.map((slide, index) => (
+          <img key={index} src={slide} alt={`Slide ${index}`} />
+        ))}
+      </div>
+      <div className="slideCounter">
+        {current + 1} / {slides.length}  {/* 현재 슬라이드 번호와 전체 슬라이드 수를 표시 */}
+      </div>
+      <button className="button" id="prev" onClick={prevSlide}>
+        &laquo;
+      </button>
+      <button className="button" id="next" onClick={nextSlide}>
+        &raquo;
+      </button>
+    </div>
+  );
 }
 
-function prevSlide(){
-   if(current > 0) current -= 1; //current 값이 0보다 크면 이전으로 간다.
-   else current = slides.length -1; // 첫번째 이미지라면 마지막 위치로
-   showSlides(current); // 현재 위치한 이미지를 표시
-}
-
-function nextSlide(){
-    if(current < slides.length -1) current += 1; //current 값이 0보다 크면 이전으로 간다.
-    else current =0; // 마지막 이미지라면 첫번째 위치로
-    showSlides(current); // 현재 위치한 이미지를 표시
- }
-
-//  function autoSlidesShow(){ // 자동 슬라이드 쇼 기능
-//     var slides = document.querySelectorAll("#slides > img");
-//     for(var i = 0; i < slides.length; i++){
-//         slides[i].style.display ="none"; // 배열의 모든 이미지를 감춘다
-//     }
-//     current++; // 다음 페이지로 이동
-//     if(current>slides.length) // 마지막 페이지에 도달하면
-//     current = 1; //
-
-//     slides[current - 1].style.display = "block"; //현재에 해당하는 이미지를 출력
-//     setTimeout(autoSlidesShow,2000); //2초마다 실행해서 사진을 넘김
-// }
-
-
- 
+export default Slideshow;

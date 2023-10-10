@@ -1,310 +1,305 @@
 .main-container {
-  font-family: Arial, sans-serif;
-}
-.categories {
-  width: 100%;
-  display: flex;
-  justify-content: space-around;
-  margin-top: 10px;
+  font-family: Arial, sans-serif; /* 웹페이지 전체의 폰트 설정 */
 }
 
 
-.category-item {
-  position: relative;
-}
-/* 검색바 스타일 */
-.search-bar {
-  margin-right: 20px;
-  padding: 5px;
-  border-radius: 5px;
-  border: 1px solid #aaa;
-  outline: none;  /* 클릭 시 테두리 제거 */
-  margin-bottom: 10px;  /* 카테고리와의 간격 */
-}
-
-/* 로그인, 로그아웃 버튼 스타일 */
-.user-info {
-  margin-right: 20px;  /* 오른쪽 여백 추가 */
-  margin-left: 20px;  /* 카테고리와의 간격 */
-}
-.user-info button {
-  padding: 5px 10px;
-  border: none;
-  border-radius: 5px;
-  background-color: #555;
-  color: white;
-  cursor: pointer;
-  margin-left: 10px;  /* 로그인 정보와 버튼 사이 여백 추가 */
-}
-.user-info button:hover {
-  background-color: #777;
-}
-
-
-
-.category-dropdown {
-  display: none;
-  position: absolute;
-  top: 100%;
-  left: 50%;
-  transform: translateX(-50%);  /* 카테고리 아이템의 중앙에 정렬 */
-  background-color: white;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  padding: 10px;
-  z-index: 1;  /* 다른 요소 위에 오도록 z-index 설정 */
-  white-space: nowrap;  /* 한글 줄바꿈 오류 해결 */
-}
-/* 카테고리 메뉴 간격 조절 */
-.categories {
-  justify-content: space-between;
-  margin: 10px 50px;  /* 양옆 여백 추가 */
-}
-
-/* 카테고리 드롭다운 링크 스타일 */
-.category-dropdown a {
-  color: black;
-  text-decoration: none;  /* 밑줄 제거 */
-}
-
-.category-dropdown a:hover {
-  text-decoration: underline;  /* 마우스 오버 시 밑줄 추가 */
-}
-
-.category-item:hover .category-dropdown {
-  display: block;
-}
-
+/* 헤더 영역 */
 .header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px;
-  background-color: #6136cf;
-  color: white;
-  height: 150px;   /* 헤더의 높이를 조정 */
+  display: flex;                  /* 헤더 내부의 아이템들을 세로로 배치하기 위해 flex 사용 */
+  flex-direction: column;         /* 헤더 내부의 아이템들을 세로로 배치 */
+  justify-content: flex-start;    /* 헤더 내부의 아이템들을 상단으로 정렬 */
+  align-items: center;            /* 헤더 내부의 아이템들을 가로 방향 중앙으로 정렬 */
+  padding: 20px;                  /* 헤더의 내부 패딩 설정 */
+  background-color: #6136cf;      /* 헤더의 배경색 설정 */
+  color: white;                   /* 헤더의 글자색 설정 */
 }
-.header-right {
-  display: flex;
-  flex-direction: column; /* 헤더의 주 방향을 위아래로 변경 */
-  justify-content: space-between; /* 상단과 하단의 요소들을 멀리 배치 */
-  align-items: center; /* 중앙에 요소들을 정렬 */
-  padding: 20px;
-  background-color: #6136cf;
-  color: white;
-  height: 150px;
+
+/* 로고, 검색바, 사용자 정보를 포함하는 상단 섹션 스타일 */
+.top-section {
+  width: 100%;                    /* 상단 섹션의 너비를 최대로 설정 */
+  display: flex;                  /* 상단 섹션 내부의 아이템들을 한 행에 배치 */
+  justify-content: space-between; /* 상단 섹션 내부의 아이템들 사이에 동일한 간격을 유지 */
+  align-items: center;            /* 상단 섹션 내부의 아이템들을 중앙으로 정렬 */
 }
 
 
+/* 로그인된 사용자 정보 및 로그아웃 버튼 영역 스타일 */
+.user-info {
+  flex-grow: 1;                   /* 사용자 정보 영역이 남은 공간을 1의 비율로 차지하도록 설정 */
+  display: flex;                  /* 사용자 정보와 버튼을 수평으로 정렬하기 위해 flex 사용 */
+  justify-content: flex-end;      /* 사용자 정보와 버튼을 오른쪽으로 정렬 */
+  align-items: center;            /* 내부 요소들을 수직 방향 중앙으로 정렬 */
+}
+
+.user-info span, .user-info button {
+  font-size: 16px;                /* 글자 크기 설정 */
+  line-height: 1.5;               /* 라인 높이 설정 */
+}
+
+.user-info button {
+  padding: 5px 10px;              /* 버튼 내부의 패딩 설정 */
+  border: none;                   /* 버튼의 테두리 제거 */
+  border-radius: 5px;             /* 버튼의 모서리 둥글게 설정 */
+  background-color: #555;         /* 버튼의 배경색 설정 */
+  color: white;                   /* 버튼의 글자색 설정 */
+  cursor: pointer;                /* 마우스를 버튼에 올렸을 때 포인터 모양이 바뀜 */
+  margin-left: 10px;              /* 버튼의 좌측 여백 설정 */
+  vertical-align: middle;         /* 유저님 텍스트와 버튼을 동일한 수직 위치에 정렬 */
+  font-family: Arial, sans-serif; /* 폰트 설정 */
+  box-sizing: border-box;         /* 박스의 크기를 패딩과 테두리를 포함하여 계산 */
+  outline: none;                  /* 버튼에 포커스됐을 때 외곽선 제거 */
+  font-weight: normal;            /* 폰트 두께 설정 */
+}
+
+.user-info span {
+  vertical-align: middle;         /* 유저님 텍스트와 버튼을 동일한 수직 위치에 정렬 */
+}
+
+.user-info button:hover {
+  background-color: #777;         /* 마우스를 버튼에 올렸을 때의 배경색 설정 */
+}
+
+
+
+
+/* 로고 영역 스타일 */
 .logo {
-  cursor: pointer;
+  flex-grow: 1;                   /* 로고 영역이 남은 공간을 1의 비율로 차지하도록 설정 */
+  display: flex;                  /* 로고를 중앙으로 정렬하기 위해 flex 사용 */
+  align-items: center;            /* 로고를 세로 방향 중앙으로 정렬 */
 }
 .logo img {
-  max-width: 100%;  
-  max-height: 120px;  /* 로고 이미지의 최대 높이를 헤더 높이의 대부분으로 제한 */
-  height: auto;    
-}
-.logo-container {
-  flex: 1;  
-  display: flex;
-  align-items: center;
-  height: 100%;
+  max-width: 100%;                /* 로고 이미지의 최대 너비 설정 */
+  max-height: 100px;              /* 로고 이미지의 최대 높이 설정 */
+  height: 100%;                   /* 로고 이미지의 높이를 원본 비율에 맞게 자동 조정 */
 }
 
 
 
-.user-info .username {
-  margin-right: 10px;
-}
-
-nav a {
-  margin: 0 10px;
-  text-decoration: none;
-  color: white;
-  cursor: pointer;
-}
-
-.sliding-banner {
-  height: 400px;
-  background-color: lightgray;
-  margin: 20px 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.sliding-banner img {
-  max-width: 100%;  /* 슬라이딩 배너 이미지의 최대 너비를 슬라이딩 배너 컨테이너의 100%로 제한 */
-  max-height: 100%; /* 이미지의 최대 높이를 200px로 제한 (컨테이너의 높이와 동일) */
-  height: auto;    /* 이미지의 높이를 자동으로 조절하여 원본 비율 유지 */
-}
-
-.content {
-  display: flex;
-  justify-content: space-between;
-  padding: 20px;
-}
-
-.ranking-summary, .wrong-questions {
-  width: 49%;
-  background-color: #f5f5f5;
-  padding: 5px;
-  border-radius: 10px;
-}
-
-h2 {
-  border-bottom: 2px solid #ddd;
-  padding-bottom: 10px;
-}
-
-ul {
-  list-style: none;
-  padding: 0;
-}
-
-button {
-  margin-top: 20px;
-  cursor: pointer;
-}
-
-
-
-.chatbot-modal {
-  position: fixed;
-  right: 20px;
-  bottom: 20px;
-  width: 300px;
-  height: 500px;
-  background-color: #f5f5f5;
-  border: 1px solid #ddd;
-  border-radius: 10px;
-}
-
-/*검색창*/
-.search-bar {
-  margin-right: 20px;
-  padding: 10px 20px;
-  width: 700px;
-  height: 50px;
-  border-radius: 25px;
-  border: 1px solid #00a550;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  font-size: 25px;
-  font-family: Arial, sans-serif;
-  color: #777;
-  outline: none;
-  transition: box-shadow 0.3s ease;
-  margin-bottom: 10px;
-}
-
-/* 검색창에 포커스 됐을 때의 스타일 */
-.search-bar:focus {
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-/* placeholder 스타일 */
-.search-bar::placeholder {
-  color: #aaa;
-  font-weight: normal;
-}
-
-
-/* 로그인, 로그아웃 버튼 스타일 */
-.user-info {
-  margin-right: 20px;
-  margin-left: 20px;
-}
-
-.user-info button {
-  padding: 5px 10px;
-  border: none;
-  border-radius: 5px;
-  background-color: #555;
-  color: white;
-  cursor: pointer;
-  margin-left: 10px;
-}
-
-
-.user-info button:hover {
-    background-color: #777;
-}
-
-/* 카테고리 메뉴 간격 조절 */
+/* 카테고리 메뉴 영역 스타일 */
 .categories {
-  width: 100%;
-  display: flex;
-  justify-content: space-around;
+  width: 100%;                    /* 카테고리 메뉴의 너비를 최대로 설정 */
+  display: flex;                  /* 카테고리 메뉴 아이템들을 한 행에 배치 */
+  justify-content: space-around;  /* 카테고리 메뉴 아이템들 사이에 동일한 간격을 유지 */
+  margin-top: 10px;               /* 카테고리 메뉴의 상단 여백 설정 */
 }
+
 .category-item {
-  position: relative;
+  position: relative;             /* 카테고리 아이템의 위치를 상대 위치로 설정 (다른 요소에 영향을 받지 않음) */
 }
 
-
-/* 카테고리 드롭다운 링크 스타일 */
 .category-dropdown {
-  display: none;
-  position: absolute;
-  top: 100%;
-  left: 50%;
-  transform: translateX(-50%);
-  background-color: white;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  padding: 10px;
-  z-index: 1;
-  white-space: nowrap;
-}
-.category-dropdown a {
-  color: black;
-  text-decoration: none;
+  display: none;                  /* 기본적으로 드롭다운 메뉴는 보이지 않도록 설정 */
+  position: absolute;             /* 드롭다운 메뉴의 위치를 절대 위치로 설정 */
+  top: 100%;                      /* 드롭다운 메뉴의 상단 위치를 부모 요소의 높이만큼 아래로 설정 */
+  left: 50%;                      /* 드롭다운 메뉴의 좌측 위치를 부모 요소의 중앙에 위치하도록 설정 */
+  transform: translateX(-50%);    /* 드롭다운 메뉴를 좌측으로 50%만큼 이동하여 부모 요소의 중앙에 정확히 위치하도록 설정 */
+  background-color: white;        /* 드롭다운 메뉴의 배경색 설정 */
+  border: 1px solid #ccc;         /* 드롭다운 메뉴의 테두리 설정 */
+  border-radius: 5px;             /* 드롭다운 메뉴의 모서리 둥글게 설정 */
+  padding: 10px;                  /* 드롭다운 메뉴 내부의 패딩 설정 */
+  z-index: 1;                     /* 드롭다운 메뉴를 다른 요소 위에 보이도록 설정 */
+  white-space: nowrap;            /* 드롭다운 메뉴의 글자가 줄바꿈되지 않도록 설정 */
 }
 
+.category-dropdown a {
+  color: black;                   /* 드롭다운 메뉴 내부의 링크 글자색 설정 */
+  text-decoration: none;          /* 드롭다운 메뉴 내부의 링크 밑줄 제거 */
+}
 
 .category-dropdown a:hover {
-    text-decoration: underline;  /* 마우스 오버 시 밑줄 추가 */
+  text-decoration: underline;     /* 드롭다운 메뉴 내부의 링크에 마우스를 올렸을 때 밑줄 추가 */
 }
 
 .category-item:hover .category-dropdown {
-  display: block;
+  display: block;                 /* 카테고리 아이템에 마우스를 올렸을 때 드롭다운 메뉴를 보이도록 설정 */
 }
 
 
-/* 푸터 사이트맵 스타일 */
-/* 푸터 스타일 */
+
+/* 검색바 스타일 */
+.search-bar {
+  margin-right: 20px;             /* 검색바의 우측 여백 설정 */
+  padding: 10px 20px;             /* 검색바 내부의 패딩 설정 */
+  width: 500px;                   /* 검색바의 너비 설정 */
+  height: 50px;                   /* 검색바의 높이 설정 */
+  border-radius: 25px;            /* 검색바의 모서리 둥글게 설정 */
+  border: 1px solid #00a550;      /* 검색바의 테두리 설정 */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);  /* 검색바의 그림자 설정 */
+  font-size: 25px;                /* 검색바의 글자 크기 설정 */
+  font-family: Arial, sans-serif; /* 검색바의 폰트 설정 */
+  color: #777;                    /* 검색바의 글자색 설정 */
+  outline: none;                  /* 검색바에 포커스됐을 때 테두리 제거 */
+  transition: box-shadow 0.3s ease; /* 검색바의 그림자 효과 변화 애니메이션 설정 */
+  margin-bottom: 10px;            /* 검색바의 하단 여백 설정 */
+  flex-grow: 2;                   /* 검색바 영역이 남은 공간을 2의 비율로 차지하도록 설정 */
+  display: flex;                  /* 검색바를 중앙으로 정렬하기 위해 flex 사용 */
+  justify-content: center;        /* 검색바를 가로 방향 중앙으로 정렬 */
+}
+
+.search-bar:focus {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);  /* 검색바에 포커스 됐을 때의 그림자 효과 설정 */
+}
+
+.search-bar::placeholder {
+  color: #aaa;                    /* 검색바 내의 placeholder 글자색 설정 */
+  font-weight: normal;            /* 검색바 내의 placeholder 글자 두께 설정 */
+}
+
+
+
+/* 슬라이드 쇼 전체 컨테이너 설정 */
+.slideShow {
+  position: relative;             /* 절대 위치의 기준점 설정 */
+  width: 100%;                   /* 전체 너비 설정 */
+  max-width: 800px;              /* 최대 너비 설정 (필요에 따라 조정) */
+  margin: auto;                  /* 중앙 정렬 */
+  overflow: hidden;              /* 슬라이드 영역 밖의 이미지는 보이지 않게 설정 */
+  background-color: #f4f4f4;    /* 원하는 배경색 설정 (예: 회색) */
+
+}
+/* 슬라이드 순서 표시 스타일 */
+.slideCounter {
+  position: absolute;          /* 절대 위치 설정 */
+  top: 10px;                /* 슬라이드 하단에서 10px 위에 위치 */
+  left: 5%;                   /* 슬라이드 중앙에 위치 */
+  transform: translateX(-50%); /* 정확한 중앙 정렬을 위해 */
+  background-color: rgba(0, 0, 0, 0.6); /* 반투명한 배경색 */
+  color: white;                /* 글자색은 흰색 */
+  padding: 5px 10px;           /* 내부 패딩 */
+  border-radius: 20px;         /* 모서리 둥글게 */
+  font-size: 16px;             /* 글자 크기 */
+  z-index: 3;                  /* 다른 요소 위에 표시 */
+}
+
+/* 각각의 슬라이드 이미지 설정 */
+.slides {
+  position: relative;            /* 절대 위치의 기준점 설정 */
+  width: 300%;                   /* 3개의 슬라이드 이미지의 전체 너비 */
+  height: 400px;                 /* 슬라이드의 높이 */
+  overflow: hidden;              /* 슬라이드 영역 밖의 이미지는 보이지 않게 설정 */
+  transition: transform 0.5s ease-in-out; /* 애니메이션 효과 */
+  z-index: 1;                    /* z-index를 낮게 설정하여 버튼 아래에 위치 */
+}
+
+/* 슬라이드 이미지 스타일 설정 */
+.slides img {
+  width: 33.3333%;               /* 각 이미지는 전체 너비의 1/3 */
+  height: auto;                  /* 높이는 원본 비율에 맞게 조정 */
+  float: left;                   /* 이미지를 가로로 배열 */
+}
+
+/* 공통 버튼 스타일 */
+.button {
+  position: absolute;            /* 절대 위치 설정 */
+  top: 50%;                      /* 상단에서 50% 위치 (세로 중앙) */
+  transform: translateY(-50%);   /* 버튼을 정확히 중앙에 위치시키기 위해 */
+  background-color: rgba(0, 0, 0, 0.5); /* 반투명한 배경색 */
+  color: white;                  /* 글자색은 흰색 */
+  border: none;                  /* 테두리 제거 */
+  padding: 10px;                 /* 내부 패딩 */
+  cursor: pointer;               /* 마우스 커서를 손가락 모양으로 변경 */
+  z-index: 2;                    /* z-index를 높게 설정하여 이미지 위에 위치 */
+}
+
+/* 이전 버튼 스타일 */
+#prev {
+  left: 10px;                    /* 좌측에서 10px 떨어진 위치에 배치 */
+}
+
+/* 다음 버튼 스타일 */
+#next {
+  right: 10px;                   /* 우측에서 10px 떨어진 위치에 배치 */
+}
+
+
+
+
+.content {
+  display: flex;                  /* 컨텐츠 영역 내부의 아이템들을 한 행에 배치 */
+  justify-content: space-between; /* 컨텐츠 영역 내부의 아이템들 사이에 동일한 간격을 유지 */
+  padding: 20px;                  /* 컨텐츠 영역의 내부 패딩 설정 */
+}
+
+
+/* 랭킹 요약 영역 */
+.ranking-summary, .wrong-questions {
+  width: 49%;                     /* 두 요소의 너비를 각각 49%로 설정 */
+  background-color: #f5f5f5;      /* 두 요소의 배경색 설정 */
+  padding: 5px;                   /* 두 요소 내부의 패딩 설정 */
+  border-radius: 10px;            /* 두 요소의 모서리 둥글게 설정 */
+}
+
+
+
+/* 챗봇 모달 영역 */
+.chatbot-modal {
+  position: fixed;                /* 챗봇 모달의 위치를 고정 위치로 설정 */
+  right: 20px;                    /* 챗봇 모달의 우측 위치 설정 */
+  bottom: 20px;                   /* 챗봇 모달의 하단 위치 설정 */
+  width: 300px;                   /* 챗봇 모달의 너비 설정 */
+  height: 500px;                  /* 챗봇 모달의 높이 설정 */
+  background-color: #f5f5f5;      /* 챗봇 모달의 배경색 설정 */
+  border: 1px solid #ddd;         /* 챗봇 모달의 테두리 설정 */
+  border-radius: 10px;            /* 챗봇 모달의 모서리 둥글게 설정 */
+}
+
+
+
+/* 푸터 영역 */
 .footer {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;  /* 항목들을 위쪽에 정렬 */
-  background-color: #2432b1;
-  padding: 20px 50px;  /* 양옆 여백 추가 */
-  color: white;
+  display: flex;                  /* 푸터 내부의 아이템들을 한 행에 배치 */
+  justify-content: space-between; /* 푸터 내부의 아이템들 사이에 동일한 간격을 유지 */
+  align-items: flex-start;        /* 푸터 내부의 아이템들을 상단에 정렬 */
+  background-color: #2432b1;      /* 푸터의 배경색 설정 */
+  padding: 20px 50px;             /* 푸터의 내부 패딩 설정 */
+  color: white;                   /* 푸터의 글자색 설정 */
 }
 
 .footer-section {
-  flex-basis: 25%;  /* 각 섹션은 전체 너비의 약 1/4를 차지 */
+  flex-basis: 25%;                /* 각 푸터 섹션의 기본 너비를 부모 요소의 25%로 설정 */
 }
 
 .footer-section h4 {
-  margin-bottom: 10px;
-  font-weight: bold;
+  margin-bottom: 10px;            /* 푸터 섹션의 제목 하단 여백 설정 */
+  font-weight: bold;              /* 푸터 섹션의 제목 글자 두께 설정 */
 }
 
 .footer-section ul {
-  list-style-type: none;
-  padding: 0;
+  list-style-type: none;          /* 푸터 섹션 내의 목록 아이템 앞에 기호 제거 */
+  padding: 0;                     /* 푸터 섹션 내의 목록의 내부 패딩 제거 */
 }
 
 .footer-section ul li {
-  margin-bottom: 5px;
+  margin-bottom: 5px;             /* 푸터 섹션 내의 목록 아이템 하단 여백 설정 */
 }
 
 .footer-section ul li a {
-  text-decoration: none;
-  color: white;
-  transition: color 0.3s ease;  /* 색상 변경에 애니메이션 효과 추가 */
+  text-decoration: none;          /* 푸터 섹션 내의 링크 밑줄 제거 */
+  color: white;                   /* 푸터 섹션 내의 링크 글자색 설정 */
+  transition: color 0.3s ease;    /* 푸터 섹션 내의 링크 글자색 변경 애니메이션 설정 */
 }
 
 .footer-section ul li a:hover {
-  color: #aaa;  /* 링크 호버시 색상 변경 */
+  color: #aaa;                    /* 푸터 섹션 내의 링크에 마우스를 올렸을 때의 글자색 설정 */
 }
+
+
+/* 기타 영역 */
+h2 {
+  border-bottom: 2px solid #ddd;  /* h2 요소의 하단 테두리 설정 */
+  padding-bottom: 10px;           /* h2 요소의 하단 패딩 설정 */
+}
+
+ul {
+  list-style: none;               /* 목록 아이템 앞에 기호 제거 */
+  padding: 0;                     /* 목록의 내부 패딩 제거 */
+}
+
+nav a {
+  margin: 0 10px;                 /* 네비게이션 링크의 양쪽 여백 설정 */
+  text-decoration: none;          /* 네비게이션 링크의 밑줄 제거 */
+  color: white;                   /* 네비게이션 링크의 글자색 설정 */
+  cursor: pointer;                /* 네비게이션 링크에 마우스를 올렸을 때 포인터 모양이 바뀜 */
+}
+
