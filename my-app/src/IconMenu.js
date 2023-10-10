@@ -82,7 +82,7 @@ function IconMenu() {
                         <div className="question-title">{q.title}</div>
                         <div className="question-description">{q.description}</div>
                         <div className="question-stats">
-                            <span>응시자 수: {q.applicants}</span>
+                            <span>응시자 수: {q.applicants}명</span>
                             <span>오답률: {q.failureRate}</span>
                         </div>
                     </div>

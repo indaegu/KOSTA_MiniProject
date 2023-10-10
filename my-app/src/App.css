@@ -294,17 +294,6 @@
 }
 
 
-/* 챗봇 모달 영역 */
-.chatbot-modal {
-  position: fixed;                /* 챗봇 모달의 위치를 고정 위치로 설정 */
-  right: 20px;                    /* 챗봇 모달의 우측 위치 설정 */
-  bottom: 20px;                   /* 챗봇 모달의 하단 위치 설정 */
-  width: 300px;                   /* 챗봇 모달의 너비 설정 */
-  height: 500px;                  /* 챗봇 모달의 높이 설정 */
-  background-color: #f5f5f5;      /* 챗봇 모달의 배경색 설정 */
-  border: 1px solid #ddd;         /* 챗봇 모달의 테두리 설정 */
-  border-radius: 10px;            /* 챗봇 모달의 모서리 둥글게 설정 */
-}
 
 
 
@@ -427,7 +416,7 @@ nav a {
 }
 
 .question:hover {
-  transform: scale(1.05);
+  transform: scale(1.1);
 }
 
 /* 문제의 제목 스타일링 */
@@ -465,6 +454,98 @@ nav a {
 .close-icon:hover {
   transform: scale(1.2);
 }
+
+
+/* 챗봇 모달 영역 */
+.chatbot {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: flex-end;
+}
+
+.float-button {
+  background-color: #007bff;
+  color: #fff;
+  padding: 15px 25px;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  transition: transform 0.3s;
+}
+
+.float-button:hover {
+  transform: scale(1.05);
+}
+
+.chat-window {
+  width: 400px;
+  height: 500px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  overflow: auto;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.message {
+  padding: 10px;
+  margin: 5px;
+  border-radius: 10px;
+}
+
+.message.user {
+  background-color: #e6f7ff;
+  align-self: flex-end;
+}
+
+.message.bot {
+  background-color: #fff2e6;
+}
+
+.input-container {
+  display: flex;
+  padding: 10px;
+  border-top: 1px solid #ddd;
+  background-color: #f5f5f5;
+}
+
+.input-container input {
+  flex-grow: 1;
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+}
+
+.input-container button {
+  margin-left: 10px;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.loading-spinner {
+  width: 40px;
+  height: 40px;
+  margin: 20px auto;
+  border: 5px solid #eee;
+  border-top: 5px solid #007bff;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
 
 
 

@@ -4,6 +4,7 @@ import Footer from "./Footer";
 import Slideshow from "./slideshow";
 import { RankingSummary, WrongQuestions } from "./Rankingsummary";
 import IconMenu from "./IconMenu";
+import Chatbot from "./ChatBot";
 function App() {
     return (
         <div className="App">
@@ -14,6 +15,7 @@ function App() {
                 <WrongQuestions />
             </div>
             <IconMenu />
+            <Chatbot />
             <Footer />
         </div>
     );
