@@ -1,23 +1,16 @@
 import "./App.css";
-import Header from "./Header";
-import Footer from "./Footer";
-import Slideshow from "./slideshow";
-import { RankingSummary, WrongQuestions } from "./Rankingsummary";
-import IconMenu from "./IconMenu";
-import Chatbot from "./ChatBot";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Main from "./Main";
 function App() {
     return (
-        <div className="App">
-            <Header />
-            <Slideshow />
-            <div className="content">
-                <RankingSummary />
-                <WrongQuestions />
+        <BrowserRouter>
+            <div className="App">
+                <Routes>
+                    <Route path="/" element={<Main />} />
+                    <Route path="/Main" element={<Main />} />
+                </Routes>
             </div>
-            <IconMenu />
-            <Chatbot />
-            <Footer />
-        </div>
+        </BrowserRouter>
     );
 }
 
