@@ -12,7 +12,7 @@ const Header = () => {
             </div> 
             <nav className="categories">
                 <div className="category-item">
-                    언어
+                    언어 ▼
                     <div className="category-dropdown">
                         <a href="#">Java</a> <br />
                         <a href="#">Python</a> <br />
@@ -20,36 +20,24 @@ const Header = () => {
                     </div>
                 </div>
                 <div className="category-item">
-                    정보처리기사
+                    정보처리기사 ▼
                     <div className="category-dropdown">
-                        <a href="#">기출문제</a> <br />
-                        <a href="#">최신업데이트</a> <br />
+                        <a href="/QuestionList">기출 문제</a> <br />
                         <a href="#">시험 일정</a>
                     </div>
                 </div>
                 <div className="category-item">
-                    SQLD
+                    SQLD ▼
                     <div className="category-dropdown">
-                        <a href="#">기출문제</a> <br />
-                        <a href="#">최신업데이트</a> <br />
+                        <a href="#">기출 문제</a> <br />
                         <a href="#">시험 일정</a>
                     </div>
                 </div>
                 <div className="category-item">
-                    알고리즘
-                    <div className="category-dropdown">
-                        <a href="#">기출문제</a> <br />
-                        <a href="#">최신업데이트</a> <br />
-                        <a href="#">시험 일정</a>
-                    </div>
+                        <a href="#">알고리즘</a> <br />
                 </div>
                 <div className="category-item">
-                    CS
-                    <div className="category-dropdown">
-                        <a href="#">기출문제</a> <br />
-                        <a href="#">최신업데이트</a> <br />
-                        <a href="#">시험 일정</a>
-                    </div>
+                        <a href="#">CS</a> <br />
                 </div>
             </nav>
         </header>
