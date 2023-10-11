@@ -1,12 +1,17 @@
 import './App.css';
+import React from 'react';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import MyPage from './components/MyPage';
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <p>
-          App.js 파일 수정
-        </p>
+      <Router>
+       <Switch>
+         <Route path="/mypage" component={MyPage} />
+       </Switch>
+     </Router>
       </header>
     </div>
   );

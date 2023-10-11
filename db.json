@@ -23,6 +23,22 @@
       "postId": 1
     }
   ],
+  "users": [
+    {
+      "id": 1,
+      "nickname": "뤼튼",
+      "address": "서울시 강남구",
+      "email": "example@example.com"
+    }
+  ], 
+  "rankings": [
+    {
+      "id": 1,
+      "rank": 1,
+      "score": 100,
+      "nickname": "UserA"
+    }
+  ],
   "profile": {
     "name": "typicode"
   }
