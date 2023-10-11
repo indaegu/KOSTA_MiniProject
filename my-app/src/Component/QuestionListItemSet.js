@@ -1,4 +1,4 @@
-// QuestionList.js
+// QuestionList.js : 문제의 리스트 즉, 묶음을 다루기 위한 컴포넌트
 
 import React, { useState } from 'react';
 import QuestionListItem from './QuestionListItem';

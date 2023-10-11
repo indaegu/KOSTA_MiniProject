@@ -12,7 +12,7 @@ const QuestionList = () => {
             <Header />
             <Slideshow />
             <div className="content">
-            <QuestionListItemSet/>
+                <QuestionListItemSet />
             </div>
             <Chatbot />
             <Footer />
