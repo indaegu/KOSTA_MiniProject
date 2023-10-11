@@ -1,3 +1,4 @@
+// QuestionList.js : 페이지
 import React from 'react';
 import '../App.css';
 import Header from "../Component/Header";

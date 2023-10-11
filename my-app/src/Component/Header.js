@@ -3,7 +3,7 @@ const Header = () => {
         <header className="header">
             <div className="top-section">
                 <div className="logo">
-                    <a href="/Main"><img src='logo.png' alt="Logo" /></a>
+                    <a href="/Main"><img src='../logo.png' alt="Logo" /></a>
                 </div>
                 <input type="text" placeholder="검색어를 입력해 주세요" className="search-bar" />
                 <div className="user-info">

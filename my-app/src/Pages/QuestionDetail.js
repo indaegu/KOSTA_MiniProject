@@ -1,4 +1,4 @@
-// QuestionDetail.js
+// QuestionDetail.js : 문제 상세페이지
 import React from 'react';
 import '../App.css';
 import Header from "../Component/Header";
