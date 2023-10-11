@@ -547,6 +547,91 @@ nav a {
 }
 
 
+/* QuestionListItem.css */
+
+.question-list-item {
+  padding: 15px;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.question-list-item a {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+  font-size: 1.1rem;
+  display: block;
+}
+
+.question-list-item a:hover {
+  color: #007BFF;
+}
+
+
+/* QuestionList.css */
+
+.question-list-container {
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 20px 0;
+  overflow: auto;
+}
+
+.question-list-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.question-list-table th, .question-list-table td {
+  padding: 15px;
+  border: 1px solid #e5e5e5;
+  text-align: left;
+}
+
+.question-list-table th {
+  background-color: #f5f5f5;
+}
+
+.question-list-item a {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+}
+
+.question-list-item a:hover {
+  color: #007BFF;
+}
+
+
+
+/* Pagination.css */
+.pagination-nav {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.pagination {
+  list-style-type: none;
+  display: flex;
+}
+
+.page-item {
+  margin: 0 5px;
+}
+
+.page-link {
+  padding: 5px 10px;
+  border: 1px solid #e5e5e5;
+  color: #007BFF;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.page-link:hover {
+  background-color: #e5e5e5;
+}
+
 
 
 

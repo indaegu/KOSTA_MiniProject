@@ -15,8 +15,8 @@ const Header = () => {
                     언어 ▼
                     <div className="category-dropdown">
                         <a href="#">Java</a> <br />
-                        <a href="#">Spring</a> <br />
-                        <a href="#">JavaScript</a>
+                        <a href="#">JavaScript</a> <br />
+                        <a href="#">C</a>
                     </div>
                 </div>
                 <div className="category-item">
