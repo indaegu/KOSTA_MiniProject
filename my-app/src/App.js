@@ -4,7 +4,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Main from "./Pages/Main";
 import QuestionList from "./Pages/QuestionList";
 import MyPageMyInfo from "./Pages/MyPageMyInfo";
-
+import Login from "./Pages/Login";
 import QuestionDetail from "./Pages/QuestionDetail";
 import QuestionAnswer from "./Pages/QuestionAnswer";
 
@@ -13,6 +13,7 @@ function App() {
         <BrowserRouter>
             <div className="App">
                 <Routes>
+                    <Route path="/" element={<Login />} />
                     <Route path="/Main" element={<Main />} />
                     <Route path="/QuestionList" element={<QuestionList />} />
                     <Route path="/MyPageMyInfo" element={<MyPageMyInfo />} />

@@ -690,7 +690,7 @@ nav a {
   font-size: 2.5rem;
   margin-bottom: 20px;
   position: sticky;
-  top: 50px;
+  top: 40px;
   background-color: #ffffff;
   z-index: 10;
   padding: 10px 30px;
@@ -736,7 +736,7 @@ nav a {
 }
 
 .question-item {
-  position: relative;  /* 이 부분을 추가합니다. */
+  position: relative;  
   flex: 1;
   border-radius: 10px;  /* 모서리를 둥글게 만듭니다. */
   min-width: calc(50% - 20px);
