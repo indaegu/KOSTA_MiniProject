@@ -10,7 +10,7 @@
   justify-content: flex-start;    /* 내부 아이템들을 상단부터 시작하여 정렬 */
   align-items: center;            /* 내부 아이템들을 가로 축으로 중앙에 정렬 */
   padding: 20px;                  /* 헤더의 내부 여백 설정 */
-  background-color: #6136cf;      /* 헤더의 배경색 지정 */
+  background-color: #713cf5;      /* 헤더의 배경색 지정 */
   color: white;                   /* 헤더의 기본 텍스트 색상 지정 */
 }
 
