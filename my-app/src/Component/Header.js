@@ -7,8 +7,8 @@ const Header = () => {
                 </div>
                 <input type="text" placeholder="검색어를 입력해 주세요" className="search-bar" />
                 <div className="user-info">
-                    <span><a href="/MyPageMyInfo">유저님</a>| </span>  <button>Logout</button>   
-                </div>
+                    <span><a href="/MyPageMyInfo">유저님</a><a href="#">Logout</a> </span> 
+                </div>  
             </div> 
             <nav className="categories">
                 <div className="category-item">
@@ -34,10 +34,10 @@ const Header = () => {
                     </div>
                 </div>
                 <div className="category-item">
-                        <a href="#">알고리즘</a> <br />
+                    <a href="#">알고리즘</a> <br />
                 </div>
                 <div className="category-item">
-                        <a href="#">CS</a> <br />
+                    <a href="#">CS</a> <br />
                 </div>
             </nav>
         </header>
