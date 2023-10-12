@@ -6,6 +6,7 @@ import Chatbot from '../Component/ChatBot';
 
 const QuestionAnswer = () => {
     const [comment, setComment] = useState("");
+    
 
     // 더미 댓글 데이터
     const [comments, setComments] = useState([

@@ -7,7 +7,7 @@ const Header = () => {
                 </div>
                 <input type="text" placeholder="검색어를 입력해 주세요" className="search-bar" />
                 <div className="user-info">
-                    <span><a href="/MyPageMyInfo">유저님</a><a href="/">Logout</a> </span> 
+                    <span><a href="/MyPageMyInfo">마이페이지로</a><a href="/">Logout</a> </span> 
                 </div>  
             </div> 
             <nav className="categories">

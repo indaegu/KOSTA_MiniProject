@@ -17,8 +17,25 @@
     border-radius: 5px;
     box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.3);
     width: 300px;
+    display: flex;       /* flexbox를 사용하여 내부 요소들을 수평으로 나열 */
+    flex-direction: column; /* 기본적으로 요소들이 세로로 나열됨 */
+    align-items: center; /* 요소들을 가운데로 정렬 */
 }
 
 .modal-content p {
     margin-bottom: 20px;
+}
+
+/* 수정된 부분 */
+.modal-content button {
+    width: 80px;        /* 버튼의 너비를 동일하게 설정 */
+    margin-right: 10px; /* 오른쪽 버튼과의 간격 */
+}
+
+
+/* 버튼들을 수평으로 나열하기 위한 스타일 */
+.modal-content div.button-container {
+    display: flex;
+    justify-content: space-between; /* 버튼 사이에 공간을 균등하게 배분 */
+    width: 100%;
 }
