@@ -5,13 +5,15 @@ function Chatbot() {
     const [isOpen, setIsOpen] = useState(false);
     const [messages, setMessages] = useState([]);
     const [inputMessage, setInputMessage] = useState('');
-    const [isLoading, setIsLoading] = useState(false);  // 로딩 상태 추가
+    const [isLoading, setIsLoading] = useState(false);
+    
 
     const handleSend = async () => {
         setIsLoading(true);
-        setInputMessage(''); // 입력창 초기화
+        setInputMessage('');
         setMessages([...messages, { type: 'user', text: inputMessage }]);
-        const response = await fetch('http://localhost:3000/server', {
+    
+        await fetch('http://localhost:3000/sendMessage', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -21,10 +23,37 @@ function Chatbot() {
             })
         });
     
-        const data = await response.json();
-        setMessages(prevMessages => [...prevMessages, { type: 'bot', text: data.assistant }]);
-        setInputMessage(''); // 입력창 초기화
-        setIsLoading(false);
+        const sse = new EventSource('http://localhost:3000/server');
+    
+        sse.onmessage = (event) => {
+            try {
+                const data = JSON.parse(event.data);
+        
+                // 첫 번째 메시지는 보통 빈 내용이므로 확인하고 건너뛰기
+                if (data.choices[0].delta && data.choices[0].delta.content) {
+                    const content = data.choices[0].delta.content;
+        
+                    // 이전 메시지가 bot 타입이면 그 메시지와 합치기
+                    if (messages.length && messages[messages.length - 1].type === 'bot') {
+                        const prevMessages = [...messages];
+                        prevMessages[prevMessages.length - 1].text += content;
+                        setMessages(prevMessages);
+                    } else {
+                        // 그렇지 않으면 새로운 메시지로 추가
+                        setMessages(prevMessages => [...prevMessages, { type: 'bot', text: content }]);
+                    }
+                }
+        
+                setIsLoading(false);
+            } catch (error) {
+                console.error('Invalid JSON received:', event.data);
+            }
+        };
+        
+        sse.onerror = (error) => {
+            console.error('SSE failed:', error);
+            sse.close();
+        };
     };
 
     const handleKeyPress = (e) => {
@@ -36,7 +65,7 @@ function Chatbot() {
     return (
         <div className="chatbot">
             <button className="float-button" onClick={() => setIsOpen(!isOpen)}>
-                Chat
+                Gpt에게 물어보기
             </button>
             {isOpen && (
                 <div className="chat-window">
@@ -49,7 +78,7 @@ function Chatbot() {
                     <div className="input-container">
                         <input value={inputMessage} 
                         onChange={e => setInputMessage(e.target.value)} 
-                        onKeyPress={handleKeyPress} // Enter 키 이벤트 추가
+                        onKeyPress={handleKeyPress}
                         />
                         <button onClick={handleSend}>Send</button>
                     </div>

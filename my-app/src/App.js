@@ -4,6 +4,8 @@ import Main from "./Pages/Main";
 import QuestionList from "./Pages/QuestionList";
 import MyPageMyInfo from "./Pages/MyPageMyInfo";
 
+import QuestionDetail from "./Pages/QuestionDetail";
+import QuestionAnswer from "./Pages/QuestionAnswer";
 
 function App() {
     return (
@@ -13,6 +15,8 @@ function App() {
                     <Route path="/Main" element={<Main />} />
                     <Route path="/QuestionList" element={<QuestionList />} />
                     <Route path="/MyPageMyInfo" element={<MyPageMyInfo />} />
+                    <Route path="/QuestionDetail/:id" element={<QuestionDetail />} />
+                    <Route path="/QuestionAnswer" element={<QuestionAnswer />} />
                 </Routes>
             </div>
         </BrowserRouter>

@@ -1,9 +1,11 @@
+// QuestionList.js : 페이지
 import React from 'react';
 import '../App.css';
 import Header from "../Component/Header";
 import Footer from "../Component/Footer";
 import Slideshow from "../Component/slideshow";
 import Chatbot from "../Component/ChatBot";
+import QuestionListItemSet from '../Component/QuestionListItemSet';
 
 const QuestionList = () => {
     return (
@@ -11,7 +13,7 @@ const QuestionList = () => {
             <Header />
             <Slideshow />
             <div className="content">
-            문제리스트 담을 곳
+                <QuestionListItemSet />
             </div>
             <Chatbot />
             <Footer />

@@ -9,7 +9,6 @@ function IconMenu() {
         { name: "알고리즘", image: "icon3.png" },
         { name: "CS", image: "icon4.png" },
         { name: "JAVA", image: "icon5.png" },
-        { name: "Python", image: "icon6.png" },
         { name: "C", image: "icon7.png" },
         { name: "Javascript", image: "icon8.png" },
     ];
@@ -39,11 +38,6 @@ function IconMenu() {
             { title: '문제13', description: '기사 문제1 설명', applicants: 1000, failureRate: '70%' },
             { title: '문제14', description: '기사 문제2 설명', applicants: 1500, failureRate: '60%' },
             { title: '문제15', description: '기사 문제3 설명', applicants: 1200, failureRate: '50%' },
-        ],
-        'Python': [
-            { title: '문제16', description: '기사 문제1 설명', applicants: 1000, failureRate: '70%' },
-            { title: '문제17', description: '기사 문제2 설명', applicants: 1500, failureRate: '60%' },
-            { title: '문제18', description: '기사 문제3 설명', applicants: 1200, failureRate: '50%' },
         ],
         'C': [
             { title: '문제19', description: '기사 문제1 설명', applicants: 1000, failureRate: '70%' },
