@@ -166,7 +166,7 @@
 .slideShow {
   position: relative;             /* 절대 위치의 기준점 설정 */
   width: 100%;                   /* 전체 너비 설정 */
-  max-width: 800px;              /* 최대 너비 설정 (필요에 따라 조정) */
+  /* max-width: 800px;              최대 너비 설정 (필요에 따라 조정) */
   margin: auto;                  /* 중앙 정렬 */
   overflow: hidden;              /* 슬라이드 영역 밖의 이미지는 보이지 않게 설정 */
   background-color: #cf2626;    /* 원하는 배경색 설정 (예: 회색) */
@@ -190,7 +190,7 @@
 .slides {
   position: relative;            /* 절대 위치의 기준점 설정 */
   width: 300%;                   /* 3개의 슬라이드 이미지의 전체 너비 */
-  height: 400px;                 /* 슬라이드의 높이 */
+  /* height: 400px;                 슬라이드의 높이 */
   overflow: hidden;              /* 슬라이드 영역 밖의 이미지는 보이지 않게 설정 */
   transition: transform 0.5s ease-in-out; /* 애니메이션 효과 */
   z-index: 1;                    /* z-index를 낮게 설정하여 버튼 아래에 위치 */

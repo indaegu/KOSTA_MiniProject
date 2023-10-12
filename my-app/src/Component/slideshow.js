@@ -4,9 +4,9 @@ import '../App.css';
 function Slideshow() {
   const [current, setCurrent] = useState(0);
   const slides = [
-    "banner1.png",
     "banner2.jpg",
-    "banner3.jpg"
+    "banner3.jpg",
+    "banner4.jpg"
   ];
 
   useEffect(() => {
