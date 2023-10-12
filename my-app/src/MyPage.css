@@ -1,0 +1,109 @@
+p {
+  margin-left: 10px;
+  margin-top: 10px;
+  margin-bottom: 5px;
+}  
+
+.mypage {
+  display: flex;
+}
+
+.user-info {
+  flex-direction: column;
+}
+
+.label {
+  font-size: 15px;
+  line-height: 1;
+  letter-spacing: .2em;
+}
+
+input {
+  width: 100%;
+  border: 1;
+  border-radius: 25px;
+  padding: 10px 15px;
+  font-size: inherit;
+}
+
+@media (max-width:576px) { /* Small devices (landscape phones, less than or equal to576px) */
+  input {
+    width:60%;
+    font-size:14px; 
+  }
+}
+
+@media (min-width:577px) and (max-width:768px) { /* Medium devices (tablets, between577px and768px) */
+  input {
+    width:80%;
+    font-size:16px; 
+  }
+}
+
+@media (min-width :769px ) and (max-width :992px ){ /* Large devices(desktops,between769 px and992 px)*/
+  input{
+      width:80%;
+      font-size :18px ; 
+  }   
+}
+
+@media (min-width :993px ){ /* Extra large devices(large desktops,greater than993 px)*/
+  input{
+      width:100%;
+      font-size :20px ; 
+  }   
+}
+  
+.card {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 100%;
+  height: auto;
+}
+
+@media (min-width:576px) { /* Small devices (landscape phones, less than or equal to576px) */
+  .card {
+    width:80%;
+    height:auto; 
+  }
+}
+
+@media (min-width:768px) { /* Medium devices (tablets, less than or equal to768px) */
+  .card {
+    width:60%;
+    height:auto; 
+  }
+}
+  
+@media (min-width:992px) { /* Large devices (desktops, less than or equal to992px)*/
+  .card {
+    width:40%;
+    height:auto; 
+  }
+}
+  
+@media (min-width :1200px){ /* Extra large devices(large desktops, greater than1200 px)*/
+  .card{
+    width :20%; 
+    height :150 px ; 
+  }   
+}
+  
+.card-content {
+  padding: 8px;
+  margin: 10px;
+  font-weight:bold;
+  text-align:center;
+}
+  
+.card-ranking {
+  display:block; 
+}
+  
+.card-rank {
+  display:block; 
+}
+
+.card-score {
+  display:block; 
+}
