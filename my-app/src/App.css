@@ -3,151 +3,157 @@
 }
 
 
-/* 헤더 영역 */
+/* 헤더 전체 영역 스타일링 */
 .header {
-  display: flex;                  /* 헤더 내부의 아이템들을 세로로 배치하기 위해 flex 사용 */
-  flex-direction: column;         /* 헤더 내부의 아이템들을 세로로 배치 */
-  justify-content: flex-start;    /* 헤더 내부의 아이템들을 상단으로 정렬 */
-  align-items: center;            /* 헤더 내부의 아이템들을 가로 방향 중앙으로 정렬 */
-  padding: 20px;                  /* 헤더의 내부 패딩 설정 */
-  background-color: #6136cf;      /* 헤더의 배경색 설정 */
-  color: white;                   /* 헤더의 글자색 설정 */
+  display: flex;                  /* Flexbox를 사용하여 내부 아이템들을 효과적으로 정렬 */
+  flex-direction: column;         /* 헤더의 주 축을 세로로 설정 */
+  justify-content: flex-start;    /* 내부 아이템들을 상단부터 시작하여 정렬 */
+  align-items: center;            /* 내부 아이템들을 가로 축으로 중앙에 정렬 */
+  padding: 20px;                  /* 헤더의 내부 여백 설정 */
+  background-color: #6136cf;      /* 헤더의 배경색 지정 */
+  color: white;                   /* 헤더의 기본 텍스트 색상 지정 */
 }
 
-/* 로고, 검색바, 사용자 정보를 포함하는 상단 섹션 스타일 */
+/* 상단 섹션 (로고, 검색바, 사용자 정보) 스타일링 */
 .top-section {
-  width: 100%;                    /* 상단 섹션의 너비를 최대로 설정 */
-  display: flex;                  /* 상단 섹션 내부의 아이템들을 한 행에 배치 */
-  justify-content: space-between; /* 상단 섹션 내부의 아이템들 사이에 동일한 간격을 유지 */
-  align-items: center;            /* 상단 섹션 내부의 아이템들을 중앙으로 정렬 */
+  width: 100%;                    /* 상단 섹션의 너비를 부모 요소의 전체 너비로 설정 */
+  display: flex;                  /* Flexbox를 사용하여 내부 아이템들을 효과적으로 정렬 */
+  justify-content: space-between; /* 내부 아이템들 사이에 균일한 간격을 둠 */
+  align-items: center;            /* 내부 아이템들을 가로 축으로 중앙에 정렬 */
+  gap: 10px;                      /* 내부 아이템들 사이의 간격 설정 */
 }
 
-
-/* 로그인된 사용자 정보 및 로그아웃 버튼 영역 스타일 */
+/* 사용자 정보 및 로그아웃 버튼 스타일링 */
 .user-info {
-  flex-grow: 1;                   /* 사용자 정보 영역이 남은 공간을 1의 비율로 차지하도록 설정 */
-  display: flex;                  /* 사용자 정보와 버튼을 수평으로 정렬하기 위해 flex 사용 */
-  justify-content: flex-end;      /* 사용자 정보와 버튼을 오른쪽으로 정렬 */
-  align-items: center;            /* 내부 요소들을 수직 방향 중앙으로 정렬 */
-  position: relative; /* 이 설정은 부모 컨테이너에 적용되어야 합니다. */
-
-  
+  display: flex;                  /* Flexbox를 사용하여 "유저님" 텍스트와 "Logout" 버튼을 옆으로 정렬 */
+  align-items: center;            /* 내부 아이템들을 가로 축으로 중앙에 정렬 */
+  gap: 10px;                      /* "유저님" 텍스트와 "Logout" 버튼 사이의 간격 설정 */
 }
 
-.user-info span, .user-info button {
-  font-size: 16px;                /* 글자 크기 설정 */
-  line-height: 1.5;               /* 라인 높이 설정 */
+/* 사용자 정보와 로그아웃 버튼의 공통 스타일링 */
+.user-info a {
+  color: white;                   /* 텍스트 색상 설정 */
+  text-decoration: none;          /* 밑줄 제거 */
+  padding: 5px 15px;              /* 내부 여백 설정 */
+  border-radius: 5px;             /* 모서리 둥글게 설정 */
+  transition: background-color 0.3s ease; /* 배경색 변경 애니메이션 효과 설정 */
+  flex-direction: row;            /* "유저님" 텍스트와 "Logout" 버튼을 옆으로 정렬 */
+
 }
 
-.user-info button {
-  padding: 5px 10px;              /* 버튼 내부의 패딩 설정 */
-  border: none;                   /* 버튼의 테두리 제거 */
-  border-radius: 5px;             /* 버튼의 모서리 둥글게 설정 */
-  background-color: #555;         /* 버튼의 배경색 설정 */
-  color: white;                   /* 버튼의 글자색 설정 */
-  cursor: pointer;                /* 마우스를 버튼에 올렸을 때 포인터 모양이 바뀜 */
-  margin-left: 10px;              /* 버튼의 좌측 여백 설정 */
-  vertical-align: middle;         /* 유저님 텍스트와 버튼을 동일한 수직 위치에 정렬 */
-  font-family: Arial, sans-serif; /* 폰트 설정 */
-  box-sizing: border-box;         /* 박스의 크기를 패딩과 테두리를 포함하여 계산 */
-  outline: none;                  /* 버튼에 포커스됐을 때 외곽선 제거 */
-  font-weight: normal;            /* 폰트 두께 설정 */
+/* "유저님" 텍스트에 마우스 호버 시의 스타일링 */
+.user-info a[href="/MyPageMyInfo"]:hover {
+  background-color: #ff414d;      /* 배경색 변경 */
 }
 
-.user-info span {
-  vertical-align: middle;         /* 유저님 텍스트와 버튼을 동일한 수직 위치에 정렬 */
+/* "Logout" 버튼의 기본 및 호버 스타일링 */
+.user-info a[href="#"] {
+  background-color: #ff414d;
+}
+.user-info a[href="#"]:hover {
+  background-color: #e92c39;
 }
 
-.user-info button:hover {
-  background-color: #777;         /* 마우스를 버튼에 올렸을 때의 배경색 설정 */
-}
-
-
-
-
-/* 로고 영역 스타일 */
+/* 로고 영역 스타일링 */
 .logo {
-  flex-grow: 1;                   /* 로고 영역이 남은 공간을 1의 비율로 차지하도록 설정 */
-  display: flex;                  /* 로고를 중앙으로 정렬하기 위해 flex 사용 */
-  align-items: center;            /* 로고를 세로 방향 중앙으로 정렬 */
+  flex-grow: 1;                   /* 남은 공간을 로고 영역이 차지하게 설정 */
+  display: flex;                  /* 로고 이미지를 중앙에 정렬하기 위해 flex 사용 */
+  align-items: center;            /* 로고 이미지를 세로 방향 중앙에 정렬 */
 }
+
+/* 로고 이미지 스타일링 */
 .logo img {
-  max-width: 100%;                /* 로고 이미지의 최대 너비 설정 */
-  max-height: 100px;              /* 로고 이미지의 최대 높이 설정 */
-  height: 100%;                   /* 로고 이미지의 높이를 원본 비율에 맞게 자동 조정 */
+  max-width: 100%;                /* 이미지의 최대 너비 설정 */
+  max-height: 100px;              /* 이미지의 최대 높이 설정 */
+  height: 100%;                   /* 이미지 높이를 원본 비율에 맞게 조정 */
 }
 
-
-
-/* 카테고리 메뉴 영역 스타일 */
+/* 카테고리 메뉴 전체 영역 스타일링 */
 .categories {
-  width: 100%;                    /* 카테고리 메뉴의 너비를 최대로 설정 */
-  display: flex;                  /* 카테고리 메뉴 아이템들을 한 행에 배치 */
-  justify-content: space-around;  /* 카테고리 메뉴 아이템들 사이에 동일한 간격을 유지 */
-  margin-top: 10px;               /* 카테고리 메뉴의 상단 여백 설정 */
+  width: 100%;                    /* 메뉴의 전체 너비 설정 */
+  display: flex;                  /* 메뉴 아이템들을 한 줄로 정렬 */
+  justify-content: space-around;  /* 메뉴 아이템들 사이에 균일한 간격을 둠 */
+  margin-top: 10px;               /* 상단 여백 설정 */
 }
 
+/* 각 카테고리 메뉴 아이템 스타일링 */
 .category-item {
-  position: relative;             /* 카테고리 아이템의 위치를 상대 위치로 설정 (다른 요소에 영향을 받지 않음) */
+  position: relative;             /* 드롭다운 메뉴의 위치를 기준으로 설정하기 위해 상대 위치 사용 */
 }
 
+/* 드롭다운 메뉴 스타일링 */
 .category-dropdown {
-  display: none;                  /* 기본적으로 드롭다운 메뉴는 보이지 않도록 설정 */
-  position: absolute;             /* 드롭다운 메뉴의 위치를 절대 위치로 설정 */
-  top: 100%;                      /* 드롭다운 메뉴의 상단 위치를 부모 요소의 높이만큼 아래로 설정 */
-  left: 50%;                      /* 드롭다운 메뉴의 좌측 위치를 부모 요소의 중앙에 위치하도록 설정 */
-  transform: translateX(-50%);    /* 드롭다운 메뉴를 좌측으로 50%만큼 이동하여 부모 요소의 중앙에 정확히 위치하도록 설정 */
-  background-color: white;        /* 드롭다운 메뉴의 배경색 설정 */
-  border: 1px solid #ccc;         /* 드롭다운 메뉴의 테두리 설정 */
-  border-radius: 5px;             /* 드롭다운 메뉴의 모서리 둥글게 설정 */
-  padding: 10px;                  /* 드롭다운 메뉴 내부의 패딩 설정 */
-  z-index: 10;                     /* 드롭다운 메뉴를 다른 요소 위에 보이도록 설정 */
-  white-space: nowrap;            /* 드롭다운 메뉴의 글자가 줄바꿈되지 않도록 설정 */
+  display: none;                  /* 기본적으로 드롭다운 메뉴는 숨김 */
+  position: absolute;             /* 절대 위치를 사용하여 카테고리 아이템 아래에 위치 */
+  top: 100%;                      /* 카테고리 아이템의 바로 아래에 위치 */
+  left: 50%;                      /* 카테고리 아이템의 중앙에 위치 */
+  transform: translateX(-50%);    /* X 축으로 -50%만큼 이동하여 정확히 중앙에 위치 */
+  background-color: white;        /* 배경색 설정 */
+  border: 1px solid #ccc;         /* 테두리 설정 */
+  border-radius: 5px;             /* 모서리 둥글게 설정 */
+  padding: 10px;                  /* 내부 여백 설정 */
+  z-index: 10;                    /* 다른 요소 위에 표시되도록 z-index 설정 */
+  white-space: nowrap;            /* 텍스트 줄바꿈 방지 */
 }
 
+/* 드롭다운 메뉴의 링크 스타일링 */
 .category-dropdown a {
-  color: black;                   /* 드롭다운 메뉴 내부의 링크 글자색 설정 */
-  text-decoration: none;          /* 드롭다운 메뉴 내부의 링크 밑줄 제거 */
+  color: black;                   /* 텍스트 색상 설정 */
+  text-decoration: none;          /* 밑줄 제거*/
 }
 
+/* 드롭다운 메뉴의 링크에 마우스를 올렸을 때의 스타일링 */
 .category-dropdown a:hover {
-  text-decoration: underline;     /* 드롭다운 메뉴 내부의 링크에 마우스를 올렸을 때 밑줄 추가 */
+  text-decoration: underline;     /* 밑줄 추가하여 호버 효과 제공 */
 }
 
+/* 카테고리 아이템에 마우스를 올렸을 때의 드롭다운 메뉴 스타일링 */
 .category-item:hover .category-dropdown {
-  display: block;                 /* 카테고리 아이템에 마우스를 올렸을 때 드롭다운 메뉴를 보이도록 설정 */
+  display: block;                 /* 마우스를 올리면 드롭다운 메뉴 표시 */
 }
 
 
-
-/* 검색바 스타일 */
+/* 검색바 스타일링 */
 .search-bar {
-  margin-right: 20px;             /* 검색바의 우측 여백 설정 */
-  padding: 10px 20px;             /* 검색바 내부의 패딩 설정 */
-  width: 500px;                   /* 검색바의 너비 설정 */
-  height: 50px;                   /* 검색바의 높이 설정 */
-  border-radius: 25px;            /* 검색바의 모서리 둥글게 설정 */
-  border: 1px solid #00a550;      /* 검색바의 테두리 설정 */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);  /* 검색바의 그림자 설정 */
-  font-size: 25px;                /* 검색바의 글자 크기 설정 */
-  font-family: Arial, sans-serif; /* 검색바의 폰트 설정 */
-  color: #777;                    /* 검색바의 글자색 설정 */
-  outline: none;                  /* 검색바에 포커스됐을 때 테두리 제거 */
-  transition: box-shadow 0.3s ease; /* 검색바의 그림자 효과 변화 애니메이션 설정 */
-  margin-bottom: 10px;            /* 검색바의 하단 여백 설정 */
-  flex-grow: 2;                   /* 검색바 영역이 남은 공간을 2의 비율로 차지하도록 설정 */
-  display: flex;                  /* 검색바를 중앙으로 정렬하기 위해 flex 사용 */
-  justify-content: center;        /* 검색바를 가로 방향 중앙으로 정렬 */
+  position: relative;
+  max-width: 800px;               /* 검색바의 최대 너비 설정 */
+  width: 100%;                    /* 검색바의 너비를 부모 요소의 전체 너비로 설정 */
+  height: 50px;                   /* 검색바 높이 설정 */
+  border-radius: 25px;            /* 모서리 둥글게 설정 */
+  border: 1px solid #00a550;      /* 테두리 설정 */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 그림자 효과 설정 */
+  font-size: 25px;                /* 텍스트 크기 설정 */
+  color: #777;                    /* 텍스트 색상 설정 */
+  outline: none;                  /* 포커스 시 외곽선 제거 */
+  box-sizing: border-box;         /* padding과 border가 너비에 포함되도록 설정 */
 }
 
-.search-bar:focus {
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);  /* 검색바에 포커스 됐을 때의 그림자 효과 설정 */
-}
-
+/* 검색바 placeholder 스타일링 */
 .search-bar::placeholder {
-  color: #aaa;                    /* 검색바 내의 placeholder 글자색 설정 */
-  font-weight: normal;            /* 검색바 내의 placeholder 글자 두께 설정 */
+  color: #aaa;                    /* 텍스트 색상 설정 */
 }
+
+/* 반응형 디자인: 화면 너비가 768px 이하일 때의 스타일링 */
+@media (max-width: 768px) {
+  .top-section {
+    flex-direction: column;       /* 상단 섹션의 주 축을 세로로 변경 */
+    gap: 10px;                    /* 내부 아이템들 사이의 간격 설정 */
+  }
+
+  .user-info {
+    width: 100%;                  /* 사용자 정보 영역의 너비를 부모 요소의 전체 너비로 설정 */
+    justify-content: space-between; /* 내부 아이템들 사이에 균일한 간격을 둠 */
+  }
+  .logo img {
+    max-width: 70%;               /* 로고 이미지의 최대 너비를 조절 */
+  }
+
+  .search-bar {
+    padding: 10px 10px;           /* 검색바 내부 여백 조절 */
+  }
+}
+
+
 
 
 
@@ -412,6 +418,12 @@ nav a {
   transition: transform 0.3s ease;
   cursor: pointer;
   transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+   /* 카드의 높이를 동일하게 설정 */
+   min-height: 80px;  /* 예시 값으로, 실제 웹사이트에 맞게 조절할 필요가 있습니다. */
+   max-height: 100px;  /* 예시 값으로, 실제 웹사이트에 맞게 조절할 필요가 있습니다. */
+   min-width: 200px;  /* 예시 값으로, 실제 웹사이트에 맞게 조절할 필요가 있습니다. */
+   max-width: 300px;  /* 예시 값으로, 실제 웹사이트에 맞게 조절할 필요가 있습니다. */
+
 
 }
 

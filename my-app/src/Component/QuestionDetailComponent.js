@@ -2,6 +2,8 @@
 import React, { useState, useEffect, useRef } from 'react';  // useRef와 useEffect를 import 합니다.
 import '../App.css';
 import { Link } from "react-router-dom";
+import Modal from './Modal'; // 새로운 모달 컴포넌트를 import 합니다.
+
 
 
 const QuestionDetailComponent = () => {
@@ -14,8 +16,10 @@ const QuestionDetailComponent = () => {
     const [gradedQuestions, setGradedQuestions] = useState([]);
     const [favoredQuestions, setFavoredQuestions] = useState([]);
     const [favoriteFeedback, setFavoriteFeedback] = useState({});
+    const [isModalOpen, setIsModalOpen] = useState(false); // 모달의 상태
+    const [modalQuestionId, setModalQuestionId] = useState(null); // 모달에 표시될 문제의 ID
 
-    
+
 
 
     const prevScoreRef = useRef();  // 이전 점수를 추적하기 위한 ref
@@ -43,17 +47,18 @@ const QuestionDetailComponent = () => {
     }, [score]);
 
     const [questions, setQuestions] = useState([
-        { id: 1, number: 'Q1', content: '아래 내용을 확인하여 알맞는 답을 작성하시오.\n2 계층(데이터링크 계층)에서 구현되는 터널링 기술 중 하나\nL2F와 PPTP가 결합된 프로토콜로 VPN과 인터넷 서비스 제공자(ISP)가 이용\nIPsec을 함께 사용하면 PPTP보다 훨씬 안전하지만 보안보다 익명화에 더 적합', score: 3, answer: 'L2TP' },
-        { id: 2, number: 'Q2', content: '문제 내용 2', score: 2, answer: 'B' },
-        { id: 3, number: 'Q3', content: '문제 내용 2', score: 1, answer: 'B' },
-        { id: 4, number: 'Q4', content: '문제 내용 2', score: 3, answer: 'B' },
-        { id: 5, number: 'Q5', content: '문제 내용 2', score: 1, answer: 'B' },
-        { id: 6, number: 'Q6', content: '문제 내용 2', score: 2, answer: 'B' },
-        { id: 7, number: 'Q7', content: '문제 내용 2', score: 1, answer: 'B' },
-        { id: 8, number: 'Q8', content: '문제 내용 2', score: 1, answer: 'B' },
-        { id: 9, number: 'Q9', content: '문제 내용 2', score: 3, answer: 'B' },
-        { id: 10, number: 'Q10', content: '문제 내용 2', score: 3, answer: 'B' },
-    ]);
+        { id: 1, number: 'Q1', content: '설명을 읽고 알맞는 답을 작성하시오.\n\n2 계층(데이터링크 계층)에서 구현되는 터널링 기술 중 하나\nL2F와 PPTP가 결합된 프로토콜로 VPN과 인터넷 서비스 제공자(ISP)가 이용\nIPsec을 함께 사용하면 PPTP보다 훨씬 안전하지만 보안보다 익명화에 더 적합하다.', score: 3, answer: 'L2TP' },
+        { id: 2, number: 'Q2', content: '설명을 읽고 알맞는 답을 작성하시오.\n\n데이터베이스에서 중복을 방지하기 위한 제약 조건은?', score: 1, answer: 'PRIMARY KEY' },
+        { id: 3, number: 'Q3', content: '설명을 읽고 알맞는 답을 작성하시오.\n\n유닉스 계열의 운영체제에서 권한을 변경하는 명령어는?', score: 3, answer: 'chmod' },
+        { id: 4, number: 'Q4', content: '설명을 읽고 알맞는 답을 작성하시오.\n\n웹 브라우저에서 서버로 요청하는 메서드 중 데이터를 생성하라는 의미를 가진 것은?', score: 2, answer: 'POST' },
+        { id: 5, number: 'Q5', content: '설명을 읽고 알맞는 답을 작성하시오.\n\n소프트웨어 개발 방법론 중 고객의 요구사항 변경에 유연하게 대응하는 방법론을 영어로 작성하시오', score: 3, answer: 'Agile' },
+        { id: 6, number: 'Q6', content: '설명을 읽고 알맞는 답을 작성하시오.\n\n프로그래밍에서 변수나 함수의 사용 범위를 결정하는 것은?', score: 2, answer: 'Scope' },
+        { id: 7, number: 'Q7', content: '설명을 읽고 알맞는 답을 작성하시오.\n\nHTML에서 웹 페이지의 배경색을 설정하는 속성은?', score: 2, answer: 'background-color' },
+        { id: 8, number: 'Q8', content: '설명을 읽고 알맞는 답을 작성하시오.\n\n객체 지향 프로그래밍에서 객체 간의 메시지 전송을 나타내는 다이어그램은?', score: 1, answer: 'Sequence Diagram' },
+        { id: 9, number: 'Q9', content: '설명을 읽고 알맞는 답을 작성하시오.\n\n컴퓨터 그래픽스에서 물체의 외형을 표현하는 기법은?', score: 3, answer: 'Wireframe' },
+        { id: 10, number: 'Q10', content: '문제 내용 2', score: 3, answer: 'B' }
+    ]
+    );
     const handleCheckAnswer = (questionId, questionScore, correctAnswer) => {
         if (gradedQuestions.includes(questionId)) {
             return;  // 이미 채점된 문제면 함수를 종료
@@ -104,7 +109,7 @@ const QuestionDetailComponent = () => {
             feedback = "즐겨찾기 되었습니다!";
         }
         setFavoriteFeedback({ [questionId]: feedback });
-    
+
         // 2초 후 피드백 메시지를 숨깁니다.
         setTimeout(() => {
             setFavoriteFeedback(prevFeedback => ({
@@ -114,9 +119,39 @@ const QuestionDetailComponent = () => {
         }, 2000);
     };
 
+    const handleDiscussionClick = (questionId, questionScore) => {
+        if (!gradedQuestions.includes(questionId)) {
+            setIsModalOpen(true);
+            setModalQuestionId(questionId);
+        } else {
+            // 이미 채점된 경우, 직접 해설 페이지로 이동합니다.
+            window.location.href = `/QuestionAnswer`;
+        }
+    };
+
+    const handleModalConfirm = (questionScore) => {
+        setIsModalOpen(false);
+        setScore(score - questionScore);
+        window.location.href = `/QuestionAnswer`;
+    };
+
+    const handleModalCancel = () => {
+        setIsModalOpen(false);
+    };
+
     return (
         <div className="question-detail-container">
-            <h1>정보처리기사 20년 1회</h1>
+            {isModalOpen && (
+                <>
+                    {console.log("Modal should be visible now")} {/* 이 로그를 추가 */}
+                    <Modal
+                        message="채점하기전 해설 및 토론버튼을 누르면 점수가 차감됩니다!"
+                        onConfirm={() => handleModalConfirm(questions.find(q => q.id === modalQuestionId).score)}
+                        onCancel={handleModalCancel}
+                    />
+                </>
+            )}
+            <h1>정보처리기사 23년 3회</h1>
             <div className={`score-board ${scoreClass}`} data-text={`Score: ${score}`}></div>
             <div className="questions-grid">
                 {questions.map(question => (
@@ -142,8 +177,10 @@ const QuestionDetailComponent = () => {
                             {feedbackMessages[question.id]}
                         </div>
                         {/* <Link to={`/QuestionAnswer:${question.id}`}> */}
-                        <Link to={`/QuestionAnswer`}>
-                            <button style={{ marginRight: '10px' }}>해설 및 토론</button>
+                        <Link to="#" onClick={(e) => { e.preventDefault(); handleDiscussionClick(question.id, question.score); }}>
+                            <button style={{ marginRight: '10px' }}>
+                                해설 및 토론
+                            </button>
                         </Link>
                         <button onClick={() => handleFavorite(question.id)}>즐겨찾기</button>
                         <div
@@ -162,7 +199,7 @@ const QuestionDetailComponent = () => {
             </div>
         </div>
     );
-    
+
 }
 
 export default QuestionDetailComponent;

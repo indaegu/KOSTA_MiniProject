@@ -8,25 +8,23 @@ import '../App.css';
 
 const QuestionListItemSet = () => {
     const [questions, setQuestions] = useState([
-        // Sample Data. 이 부분은 실제 데이터로 교체해야 합니다.
-        { id: 1, number: 'Q1', title: '문제 제목 1', date: '2023-10-10' },
-        { id: 2, number: 'Q2', title: '문제 제목 2', date: '2023-10-10' },
-        { id: 3, number: 'Q3', title: '문제 제목 3', date: '2023-10-10' },
-        { id: 4, number: 'Q4', title: '문제 제목 4', date: '2023-10-10' },
-        { id: 5, number: 'Q5', title: '문제 제목 5', date: '2023-10-10' },
-        { id: 6, number: 'Q6', title: '문제 제목 6', date: '2023-10-10' },
-        { id: 7, number: 'Q7', title: '문제 제목 7', date: '2023-10-10' },
-        { id: 8, number: 'Q8', title: '문제 제목 8', date: '2023-10-10' },
-        { id: 9, number: 'Q9', title: '문제 제목 9', date: '2023-10-10' },
-        { id: 10, number: 'Q10', title: '문제 제목 10', date: '2023-10-10' },
-        { id: 11, number: 'Q11', title: '문제 제목 11', date: '2023-10-10' },
-        { id: 12, number: 'Q12', title: '문제 제목 12', date: '2023-10-10' },
-        { id: 13, number: 'Q13', title: '문제 제목 13', date: '2023-10-10' },
-        { id: 14, number: 'Q14', title: '문제 제목 14', date: '2023-10-10' },
-        { id: 15, number: 'Q15', title: '문제 제목 15', date: '2023-10-10' },
-
-
-    ]);
+        { id: 1, number: 'Q1', title: '정보처리기사 23년 3회차 실기 단답형', date: '2023-10-10' },
+        { id: 2, number: 'Q2', title: '정보처리기사 23년 2회차 실기 단답형', date: '2023-10-10' },
+        { id: 3, number: 'Q3', title: '정보처리기사 23년 1회차 실기 단답형', date: '2023-10-10' },
+        { id: 4, number: 'Q4', title: '정보처리기사 22년 3회차 실기 단답형', date: '2023-10-10' },
+        { id: 5, number: 'Q5', title: '정보처리기사 22년 2회차 실기 단답형', date: '2023-10-10' },
+        { id: 6, number: 'Q6', title: '정보처리기사 22년 1회차 실기 단답형', date: '2023-10-10' },
+        { id: 7, number: 'Q7', title: '정보처리기사 21년 3회차 실기 단답형', date: '2023-10-10' },
+        { id: 8, number: 'Q8', title: '정보처리기사 21년 2회차 실기 단답형', date: '2023-10-10' },
+        { id: 9, number: 'Q9', title: '정보처리기사 21년 1회차 실기 단답형', date: '2023-10-10' },
+        { id: 10, number: 'Q10', title: '정보처리기사 20년 3회차 실기 단답형', date: '2023-10-10' },
+        { id: 11, number: 'Q11', title: '정보처리기사 20년 2회차 실기 단답형', date: '2023-10-10' },
+        { id: 12, number: 'Q12', title: '정보처리기사 20년 1회차 실기 단답형', date: '2023-10-10' },
+        { id: 13, number: 'Q13', title: '정보처리기사 19년 3회차 실기 단답형', date: '2023-10-10' },
+        { id: 14, number: 'Q14', title: '정보처리기사 19년 2회차 실기 단답형', date: '2023-10-10' },
+        { id: 15, number: 'Q15', title: '정보처리기사 19년 1회차 실기 단답형', date: '2023-10-10' }
+    ]
+    );
 
     const [currentPage, setCurrentPage] = useState(1);
     const questionsPerPage = 10;

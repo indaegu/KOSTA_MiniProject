@@ -1,6 +1,8 @@
 // QuestionDetail.js : 문제 상세페이지
 import React from 'react';
 import '../App.css';
+import '../Modal.css';
+
 import Header from "../Component/Header";
 import Footer from "../Component/Footer";
 import QuestionDetailComponent from '../Component/QuestionDetailComponent';
