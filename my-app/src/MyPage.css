@@ -196,3 +196,32 @@
 #quit-button:hover{
      background-color:#0056b3;    
 }
+
+.question-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.question-table th,
+.question-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+.question-table tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.question-table tr:hover {
+  background-color: #ddd;
+}
+
+.question-table th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+}
+
+#select-tag {
+  margin: 10px;
+}
