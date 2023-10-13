@@ -15,7 +15,7 @@ const QuestionList = () => {
             <div className="content">
                 <QuestionListItemSet />
             </div>
-            <Chatbot />
+            {/* <Chatbot /> */}
             <Footer />
         </div>
     );
