@@ -21,15 +21,20 @@ const Header = () => {
                 <div className="logo">
                     <a href="/Main"><img src='../logo.png' alt="Logo" /></a>
                 </div>
-                <input
-                    type="text"
-                    placeholder="검색어를 입력해 주세요"
-                    className="search-bar"
-                    value={searchKeyword}
-                    onChange={(e) => setSearchKeyword(e.target.value)}
-                    onKeyPress={handleKeyPress}
-                />
-                <button onClick={handleSearch}>검색</button>
+                <div className="search-container">
+                    <input
+                        type="text"
+                        placeholder="검색어를 입력해 주세요"
+                        className="search-bar"
+                        value={searchKeyword}
+                        onChange={(e) => setSearchKeyword(e.target.value)}
+                        onKeyPress={handleKeyPress}
+                    />
+                    <button onClick={handleSearch} className="search-button">
+                        <img src="searchicon.png" alt="검색" className="search-icon" />
+                    </button>
+                </div>
+
                 <div className="user-info">
                     <span><a href="/MyPageMyInfo">마이페이지로</a><a href="/">Logout</a> </span>
                 </div>
