@@ -10,7 +10,7 @@
   justify-content: flex-start;    /* 내부 아이템들을 상단부터 시작하여 정렬 */
   align-items: center;            /* 내부 아이템들을 가로 축으로 중앙에 정렬 */
   padding: 20px;                  /* 헤더의 내부 여백 설정 */
-  background-color: #713cf5;      /* 헤더의 배경색 지정 */
+  background-color: white;      /* 헤더의 배경색 지정 */
   color: white;                   /* 헤더의 기본 텍스트 색상 지정 */
 }
 
@@ -43,12 +43,12 @@
 
 /* "유저님" 텍스트 스타일링 */
 .user-info a[href="/MyPageMyInfo"] {
-  text-decoration: underline;
+  background-color: #23f331;      /* 배경색 변경 */
 }
 
 /* "유저님" 텍스트에 마우스 호버 시의 스타일링 */
 .user-info a[href="/MyPageMyInfo"]:hover {
-  background-color: #d4f323c9;      /* 배경색 변경 */
+  background-color: #0270ff;      /* 배경색 변경 */
 }
 
 /* "Logout" 버튼의 기본 및 호버 스타일링 */
@@ -79,11 +79,18 @@
   display: flex;                  /* 메뉴 아이템들을 한 줄로 정렬 */
   justify-content: space-around;  /* 메뉴 아이템들 사이에 균일한 간격을 둠 */
   margin-top: 10px;               /* 상단 여백 설정 */
+  color: black;
 }
 
 /* 각 카테고리 메뉴 아이템 스타일링 */
 .category-item {
   position: relative;             /* 드롭다운 메뉴의 위치를 기준으로 설정하기 위해 상대 위치 사용 */
+  color: black;
+}
+/* 각 카테고리 메뉴 아이템 스타일링 */
+.category-item a{
+  position: relative;             /* 드롭다운 메뉴의 위치를 기준으로 설정하기 위해 상대 위치 사용 */
+  color: black;
 }
 
 /* 드롭다운 메뉴 스타일링 */
@@ -119,6 +126,12 @@
 
 
 /* 검색바 스타일링 */
+.search-container {
+  position: relative;
+  max-width: 800px;
+  width: 100%;
+}
+
 .search-bar {
   position: relative;
   max-width: 800px;               /* 검색바의 최대 너비 설정 */
@@ -130,12 +143,30 @@
   font-size: 25px;                /* 텍스트 크기 설정 */
   color: #777;                    /* 텍스트 색상 설정 */
   outline: none;                  /* 포커스 시 외곽선 제거 */
+  padding-right: 50px; /* 아이콘의 공간을 확보하기 위해 패딩 추가 */
+
   box-sizing: border-box;         /* padding과 border가 너비에 포함되도록 설정 */
 }
 
 /* 검색바 placeholder 스타일링 */
 .search-bar::placeholder {
   color: #aaa;                    /* 텍스트 색상 설정 */
+}
+.search-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  margin: 0;
+      position: absolute;
+    right: 20px; /* 오른쪽 패딩 값 */
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.search-icon {
+  width: 40px;  /* 원하는 크기로 조절하세요 */
+  height: 40px; /* 원하는 크기로 조절하세요 */
 }
 
 /* 반응형 디자인: 화면 너비가 768px 이하일 때의 스타일링 */
@@ -157,6 +188,7 @@
     padding: 10px 10px;           /* 검색바 내부 여백 조절 */
   }
 }
+
 
 
 
@@ -775,6 +807,8 @@ button {
   color: white;
   cursor: pointer;
   transition: background-color 0.3s ease-in-out;
+  white-space: nowrap;
+
 }
 
 button:hover {

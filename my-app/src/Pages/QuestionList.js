@@ -11,7 +11,7 @@ const QuestionList = () => {
     return (
         <div className="main-container">
             <Header />
-            <Slideshow />
+            {/* <Slideshow /> */}
             <div className="content">
                 <QuestionListItemSet />
             </div>
