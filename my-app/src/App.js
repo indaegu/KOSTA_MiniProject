@@ -8,6 +8,7 @@ import MyPageInfoEdit from "./Pages/MyPageInfoEdit";
 import Login from "./Pages/Login";
 import QuestionDetail from "./Pages/QuestionDetail";
 import QuestionAnswer from "./Pages/QuestionAnswer";
+import SearchResult from "./Pages/SearchResultPage";
 
 function App() {
     return (
@@ -21,6 +22,7 @@ function App() {
                     <Route path="/MyPageInfoEdit" element={<MyPageInfoEdit />} />
                     <Route path="/QuestionDetail/:id" element={<QuestionDetail />} />
                     <Route path="/QuestionAnswer" element={<QuestionAnswer />} />
+                    <Route path="/SearchResult" element={<SearchResult />} />
                 </Routes>
             </div>
         </BrowserRouter>

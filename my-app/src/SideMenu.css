@@ -4,7 +4,7 @@
     background-color: rgb(240, 239, 239);
     padding: 0;
     padding-top: 10px;
-	margin: 0;
+   margin: 0;
     width: 100%;
     height: auto;
     overflow: auto;
@@ -25,29 +25,29 @@
 }
 
 @media screen and (min-width: 768px) {
-	.sidebar {
-	    width: 200px;
-	    height: 100%;
-	}
+   .sidebar {
+       width: 200px;
+       height: 100%;
+   }
 }
 
 .sidebar-menu {
-	margin-bottom: 2rem;
+   margin-bottom: 2rem;
 }
 
 .sidebar-list {
-	list-style-type:none; 
-	padding-left :10px; 
-	padding-right :10px; 
+   list-style-type:none; 
+   padding-left :10px; 
+   padding-right :10px; 
 }
 
 .sidebar-list-item {
-	padding-top :10px; 
-	padding-bottom :10px; 
-	cursor:pointer;  
-	display:flex;  
-	align-items:center ;  
-	border-radius :5px;
+   padding-top :10px; 
+   padding-bottom :10px; 
+   cursor:pointer;  
+   display:flex;  
+   align-items:center ;  
+   border-radius :5px;
 }
 
 .sidebar-list-item-quit {
@@ -56,5 +56,5 @@
 
 .sidebar-list-item.active,
 .sidebar-list-item:hover{
-	background-color :rgb(212,209,235);   
+   background-color :rgb(212,209,235);   
 }

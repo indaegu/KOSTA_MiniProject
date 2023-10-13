@@ -162,6 +162,7 @@
 
 
 
+
 /* 슬라이드 쇼 전체 컨테이너 설정 */
 .slideShow {
   position: relative;             /* 절대 위치의 기준점 설정 */
@@ -775,6 +776,8 @@ button {
   color: white;
   cursor: pointer;
   transition: background-color 0.3s ease-in-out;
+  white-space: nowrap;
+
 }
 
 button:hover {
