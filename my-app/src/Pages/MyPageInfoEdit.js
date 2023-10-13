@@ -12,7 +12,7 @@ const MyPageInfoEdit = () => {
             <Header />            
             <div className="content">
                 <SideMenu />
-                    <div className="user-info">
+                    <div className="my-page-info">
                         {/* 수정할 닉네임, 비밀번호, 주소 입력 */}
                         <div>
                             <p id="p-tag" className="label">닉네임</p>
