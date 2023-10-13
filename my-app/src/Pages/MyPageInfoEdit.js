@@ -9,31 +9,27 @@ import SideMenu from "../Component/SideMenu";
 const MyPageInfoEdit = () => {
     return (
         <div className="main-container">
-            <Header />            
+            <Header />
             <div className="content">
                 <SideMenu />
-                    <div className="my-page-info">
-                        {/* 수정할 닉네임, 비밀번호, 주소 입력 */}
-                        <div>
-                            <p id="p-tag" className="label">닉네임</p>
-                            <input id="input-tag" type="text"/>
-                        </div>
-                        <div>
-                            <p id="p-tag" className="label">비밀번호</p>
-                            <input id="input-tag" type="password" />
-                        </div>
-                        <div>
-                            <p id="p-tag" className="label">비밀번호 확인</p>
-                            <input id="input-tag" type="password" />
-                        </div>
-                        <div>
-                            <p id="p-tag" className="label">주소</p>
-                            <input id="input-tag" type="text" />
-                        </div>
+                <div className="my-page-info">
+                    {/* 수정할 닉네임, 비밀번호, 주소 입력 */}
+                    <div>
+                        <p id="p-tag" className="label">닉네임</p>
+                        <input id="input-tag" type="text" />
                     </div>
                     <div>
-                        <button id="button-tag">111</button>
+                        <p id="p-tag" className="label">비밀번호</p>
+                        <input id="input-tag" type="password" />
                     </div>
+                    <div>
+                        <p id="p-tag" className="label">비밀번호 확인</p>
+                        <input id="input-tag" type="password" />
+                    </div>
+                    <div id="button-div">
+                        <button id="button-tag">수정</button>
+                    </div>
+                </div>
             </div>
             <Footer />
         </div>

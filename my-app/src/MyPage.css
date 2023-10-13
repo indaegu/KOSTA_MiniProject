@@ -11,7 +11,6 @@
 .my-page-info {
   margin-left: 25%;
   padding: 1px 16px;
-  flex-direction: column;
 }
 
 .label {
@@ -26,6 +25,10 @@
   border-radius: 25px;
   padding: 10px 15px;
   font-size: inherit;
+}
+
+#button-div {
+  text-align: center;
 }
 
 #button-tag {

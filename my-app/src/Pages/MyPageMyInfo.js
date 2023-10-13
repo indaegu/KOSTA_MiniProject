@@ -11,7 +11,6 @@ const MyPageMyInfo = () => {
         {
           id: 1,
           nickname: "뤼튼",
-          address: "서울시 강남구",
           email: "example@example.com",
           ranking: 48,
           rank: 3,
@@ -44,14 +43,10 @@ const MyPageMyInfo = () => {
                 <SideMenu />
                 {dummyData.map((user) => (
                     <div key={user.id} className="my-page-info">
-                        {/* 닉네임, 주소, 이메일 조회 */}
+                        {/* 닉네임, 이메일 조회 */}
                         <div>
                             <p id="p-tag" className="label">닉네임</p>
                             <input id="input-tag" type="text" value={user.nickname} readOnly />
-                        </div>
-                        <div>
-                            <p id="p-tag" className="label">주소</p>
-                            <input id="input-tag" type="text" value={user.address} readOnly />
                         </div>
                         <div>
                             <p id="p-tag" className="label">이메일</p>
