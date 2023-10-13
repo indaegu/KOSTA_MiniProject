@@ -178,7 +178,7 @@ function SearchResultPage() {
     return (
         <div className="main-container">
             <Header setSearchResults={setSearchResults} />
-            <Slideshow />
+            {/* <Slideshow /> */}
             <SearchResultComponent results={searchResults.slice((currentPage - 1) * questionsPerPage, currentPage * questionsPerPage)} />
             <Pagination totalQuestions={searchResults.length} questionsPerPage={questionsPerPage} paginate={paginate} />
             <Chatbot />
