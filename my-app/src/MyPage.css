@@ -1,8 +1,12 @@
+#h-tag {
+  text-align: center;
+}
+
 #p-tag {
   margin-left: 10px;
   margin-top: 10px;
   margin-bottom: 5px;
-}  
+}
 
 .mypage {
   display: flex;
@@ -137,4 +141,58 @@
 
 .card-score {
   display:block; 
+}
+
+.quit-page-content {
+  display: flex;
+  flex-direction: column;
+  margin-left: 25%;
+  width: 30%; /* content 영역의 전체 너비를 사용 */
+  padding: 1px 16px;
+}
+
+#textarea-tag {
+  height: 200px; /* textarea 높이 조절 */
+  margin-top: 20px; /* 상단 여백 추가 */
+  padding-left: 10px;
+  resize: none;
+  font-family: 'Gungsuh', serif;
+}
+
+@media (max-width:576px) { /* Small devices (landscape phones, less than or equal to576px) */
+  #textarea-tag {
+    width:100%;
+  }
+}
+
+@media (min-width:577px) and (max-width:768px) { /* Medium devices (tablets, between577px and768px) */
+  #textarea-tag {
+    width:100%;
+  }
+}
+
+@media (min-width :769px ) and (max-width :992px ){ /* Large devices(desktops,between769 px and992 px)*/
+  #textarea-tag {
+      width:100%;
+  }   
+}
+
+@media (min-width :993px ){ /* Extra large devices(large desktops,greater than993 px)*/
+  #textarea-tag {
+      width:100%;
+  }   
+}
+
+#quit-button{
+    margin-top :20PX ; 
+    padding :5PX ; 
+    border:none ; 
+    border-radius :5PX ;
+    background-color:#007BFF;   
+    color:white;   
+    cursor:pointer ;   
+}
+  
+#quit-button:hover{
+     background-color:#0056b3;    
 }

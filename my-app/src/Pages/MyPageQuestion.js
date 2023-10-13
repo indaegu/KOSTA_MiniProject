@@ -1,4 +1,3 @@
-
 import React from 'react';
 import '../App.css';
 import '../MyPage.css';
@@ -13,6 +12,7 @@ const MyPageQuestion = () => {
             <Header />            
             <div className="content">
                 <SideMenu />
+                
             </div>
             <Footer />
         </div>

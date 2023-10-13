@@ -43,6 +43,7 @@ const MyPageMyInfo = () => {
                 <SideMenu />
                 {dummyData.map((user) => (
                     <div key={user.id} className="my-page-info">
+                        <h3 id="h-tag">내 정보</h3>
                         {/* 닉네임, 이메일 조회 */}
                         <div>
                             <p id="p-tag" className="label">닉네임</p>

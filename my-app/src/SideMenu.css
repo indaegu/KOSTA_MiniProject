@@ -10,6 +10,11 @@
     overflow: auto;
 }
 
+#a-tag {
+    color: var(--black); /* Link 컴포넌트 때문에 기본적용되던 css 방지를 위함 */
+    text-decoration: none;
+}
+
 @media (max-width:576px) { /* Small devices (landscape phones, less than or equal to576px) */
     .sidebar {
       width: 100px;

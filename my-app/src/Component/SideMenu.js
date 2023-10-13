@@ -6,10 +6,10 @@ const SideMenu = () => {
         <div className="sidebar">
             <div className="sidebar-menu">
                 <ul className="sidebar-list">
-                    <li className="sidebar-list-item"><a href="/MyPageMyInfo">내 정보</a></li>
-                    <li className="sidebar-list-item"><a href="/MyPageInfoEdit">정보 수정</a></li>
-                    <li className="sidebar-list-item"><a href="/MyPageQuestion">제출한 문제 리스트</a></li>
-                    <li className="sidebar-list-item sidebar-list-item-quit"><a href="/MyPageQuit"> 탈퇴</a></li>
+                    <a id="a-tag" href="/MyPageMyInfo"><li className="sidebar-list-item">내 정보</li></a>
+                    <a id="a-tag" href="/MyPageInfoEdit"><li className="sidebar-list-item">정보 수정</li></a>
+                    <a id="a-tag" href="/MyPageQuestion"><li className="sidebar-list-item">제출한 문제 리스트</li></a>
+                    <a id="a-tag" href="/MyPageQuit"><li className="sidebar-list-item sidebar-list-item-quit">탈퇴</li></a>
                 </ul>
             </div>
         </div>

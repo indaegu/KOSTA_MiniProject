@@ -13,18 +13,19 @@ const MyPageInfoEdit = () => {
             <div className="content">
                 <SideMenu />
                 <div className="my-page-info">
+                    <h3 id="h-tag">정보 수정</h3>
                     {/* 수정할 닉네임, 비밀번호, 주소 입력 */}
                     <div>
                         <p id="p-tag" className="label">닉네임</p>
-                        <input id="input-tag" type="text" />
+                        <input id="input-tag" type="text" placeholder="닉네임을 입력하세요." />
                     </div>
                     <div>
                         <p id="p-tag" className="label">비밀번호</p>
-                        <input id="input-tag" type="password" />
+                        <input id="input-tag" type="password" placeholder="비밀번호를 입력하세요." />
                     </div>
                     <div>
                         <p id="p-tag" className="label">비밀번호 확인</p>
-                        <input id="input-tag" type="password" />
+                        <input id="input-tag" type="password" placeholder="비밀번호를 입력하세요." />
                     </div>
                     <div id="button-div">
                         <button id="button-tag">수정</button>
