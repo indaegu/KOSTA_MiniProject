@@ -1,4 +1,4 @@
-p {
+#p-tag {
   margin-left: 10px;
   margin-top: 10px;
   margin-bottom: 5px;
@@ -20,7 +20,7 @@ p {
   letter-spacing: .2em;
 }
 
-input {
+#input-tag {
   width: 100%;
   border: 1;
   border-radius: 25px;
@@ -28,7 +28,7 @@ input {
   font-size: inherit;
 }
 
-button {
+#button-tag {
   margin-right: 5px;
   padding: 5px 15px;
   margin: 0 7px;  /* 좌우 간격 추가 */
@@ -40,17 +40,17 @@ button {
   transition: background-color 0.3s ease-in-out;
 }
 
-button:hover {
+#button-tag:hover {
   background-color: #0056b3;
 }
 
-button:disabled {
+#button-tag:disabled {
   background-color: #c0c0c0;
   cursor: not-allowed;
 }
 
 
-button:last-child {
+#button-tag:last-child {
   margin-right: 0;
 }
 

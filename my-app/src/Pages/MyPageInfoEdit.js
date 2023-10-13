@@ -15,24 +15,24 @@ const MyPageInfoEdit = () => {
                     <div className="user-info">
                         {/* 수정할 닉네임, 비밀번호, 주소 입력 */}
                         <div>
-                            <p className="label">닉네임</p>
-                            <input type="text"/>
+                            <p id="p-tag" className="label">닉네임</p>
+                            <input id="input-tag" type="text"/>
                         </div>
                         <div>
                             <p className="label">비밀번호</p>
-                            <input type="password" />
+                            <input id="p-tag" id="input-tag" type="password" />
                         </div>
                         <div>
-                            <p className="label">비밀번호 확인</p>
-                            <input type="password" />
+                            <p id="p-tag" className="label">비밀번호 확인</p>
+                            <input id="input-tag" type="password" />
                         </div>
                         <div>
-                            <p className="label">주소</p>
-                            <input type="text" />
+                            <p id="p-tag" className="label">주소</p>
+                            <input id="input-tag" type="text" />
                         </div>
                     </div>
                     <div>
-                        <button>111</button>
+                        <button id="button-tag">111</button>
                     </div>
             </div>
             <Footer />

@@ -46,16 +46,16 @@ const MyPageMyInfo = () => {
                     <div key={user.id} className="user-info">
                         {/* 닉네임, 주소, 이메일 조회 */}
                         <div>
-                            <p className="label">닉네임</p>
-                            <input type="text" value={user.nickname} readOnly />
+                            <p id="p-tag" className="label">닉네임</p>
+                            <input id="input-tag" type="text" value={user.nickname} readOnly />
                         </div>
                         <div>
-                            <p className="label">주소</p>
-                            <input type="text" value={user.address} readOnly />
+                            <p id="p-tag" className="label">주소</p>
+                            <input id="input-tag" type="text" value={user.address} readOnly />
                         </div>
                         <div>
-                            <p className="label">이메일</p>
-                            <input type="email" value={user.email} readOnly />
+                            <p id="p-tag" className="label">이메일</p>
+                            <input id="input-tag" type="email" value={user.email} readOnly />
                         </div>
                         <br/>
                         {/* 카드형 UI로 순위와 점수와 닉네임 조회 */}
