@@ -55,28 +55,28 @@
 }
 
 @media (max-width:576px) { /* Small devices (landscape phones, less than or equal to576px) */
-  input {
+  #input-tag {
     width:100%;
     font-size:14px; 
   }
 }
 
 @media (min-width:577px) and (max-width:768px) { /* Medium devices (tablets, between577px and768px) */
-  input {
+  #input-tag {
     width:100%;
     font-size:16px; 
   }
 }
 
 @media (min-width :769px ) and (max-width :992px ){ /* Large devices(desktops,between769 px and992 px)*/
-  input{
+  #input-tag {
       width:100%;
       font-size :18px ; 
   }   
 }
 
 @media (min-width :993px ){ /* Extra large devices(large desktops,greater than993 px)*/
-  input{
+  #input-tag {
       width:100%;
       font-size :20px ; 
   }   

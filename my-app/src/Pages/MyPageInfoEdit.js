@@ -19,8 +19,8 @@ const MyPageInfoEdit = () => {
                             <input id="input-tag" type="text"/>
                         </div>
                         <div>
-                            <p className="label">비밀번호</p>
-                            <input id="p-tag" id="input-tag" type="password" />
+                            <p id="p-tag" className="label">비밀번호</p>
+                            <input id="input-tag" type="password" />
                         </div>
                         <div>
                             <p id="p-tag" className="label">비밀번호 확인</p>
