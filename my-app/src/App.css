@@ -226,7 +226,6 @@
 
 .content {
   display: flex;                  /* 컨텐츠 영역 내부의 아이템들을 한 행에 배치 */
-  justify-content: space-between; /* 컨텐츠 영역 내부의 아이템들 사이에 동일한 간격을 유지 */
   padding: 20px;                  /* 컨텐츠 영역의 내부 패딩 설정 */
 }
 

@@ -22,7 +22,7 @@ const MyPageMyInfo = () => {
     const Card = ({ ranking, rank, score, nickname }) => {
         return (
           <div className="card" title={`
-랭크 안내(기본 100점)
+랭크 안내(기본 100점) 
 1 점수 150점이상 
 2 점수 200점이상 
 3 점수 300점이상
