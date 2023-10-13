@@ -51,11 +51,11 @@ const QuestionDetailComponent = () => {
         { id: 2, number: 'Q2', content: '설명을 읽고 알맞는 답을 작성하시오.\n\n데이터베이스에서 중복을 방지하기 위한 제약 조건은?', score: 1, answer: 'PRIMARY KEY' },
         { id: 3, number: 'Q3', content: '설명을 읽고 알맞는 답을 작성하시오.\n\n유닉스 계열의 운영체제에서 권한을 변경하는 명령어는?', score: 3, answer: 'chmod' },
         { id: 4, number: 'Q4', content: '설명을 읽고 알맞는 답을 작성하시오.\n\n웹 브라우저에서 서버로 요청하는 메서드 중 데이터를 생성하라는 의미를 가진 것은?', score: 2, answer: 'POST' },
-        { id: 5, number: 'Q5', content: '설명을 읽고 알맞는 답을 작성하시오.\n\n소프트웨어 개발 방법론 중 고객의 요구사항 변경에 유연하게 대응하는 방법론을 영어로 작성하시오', score: 3, answer: 'Agile' },
-        { id: 6, number: 'Q6', content: '설명을 읽고 알맞는 답을 작성하시오.\n\n프로그래밍에서 변수나 함수의 사용 범위를 결정하는 것은?', score: 2, answer: 'Scope' },
+        { id: 5, number: 'Q5', content: '설명을 읽고 알맞는 답을 작성하시오.\n\n소프트웨어 개발 방법론 중 고객의 요구사항 변경에 유연하게 대응하는 방법론을 영어로 작성하시오', score: 3, answer: 'agile' },
+        { id: 6, number: 'Q6', content: '설명을 읽고 알맞는 답을 작성하시오.\n\n프로그래밍에서 변수나 함수의 사용 범위를 결정하는 것은?', score: 2, answer: 'scope' },
         { id: 7, number: 'Q7', content: '설명을 읽고 알맞는 답을 작성하시오.\n\nHTML에서 웹 페이지의 배경색을 설정하는 속성은?', score: 2, answer: 'background-color' },
-        { id: 8, number: 'Q8', content: '설명을 읽고 알맞는 답을 작성하시오.\n\n객체 지향 프로그래밍에서 객체 간의 메시지 전송을 나타내는 다이어그램은?', score: 1, answer: 'Sequence Diagram' },
-        { id: 9, number: 'Q9', content: '설명을 읽고 알맞는 답을 작성하시오.\n\n컴퓨터 그래픽스에서 물체의 외형을 표현하는 기법은?', score: 3, answer: 'Wireframe' },
+        { id: 8, number: 'Q8', content: '설명을 읽고 알맞는 답을 작성하시오.\n\n객체 지향 프로그래밍에서 객체 간의 메시지 전송을 나타내는 다이어그램은?', score: 1, answer: 'sequence diagram' },
+        { id: 9, number: 'Q9', content: '설명을 읽고 알맞는 답을 작성하시오.\n\n컴퓨터 그래픽스에서 물체의 외형을 표현하는 기법은?', score: 3, answer: 'wireframe' },
         { id: 10, number: 'Q10', content: '문제 내용 2', score: 3, answer: 'B' }
     ]
     );
@@ -143,7 +143,6 @@ const QuestionDetailComponent = () => {
         <div className="question-detail-container">
             {isModalOpen && (
                 <>
-                    {console.log("Modal should be visible now")} {/* 이 로그를 추가 */}
                     <Modal
                         message="채점하기전 해설 및 토론버튼을 누르면 점수가 차감됩니다!"
                         onConfirm={() => handleModalConfirm(questions.find(q => q.id === modalQuestionId).score)}
@@ -163,7 +162,7 @@ const QuestionDetailComponent = () => {
                             type="text"
                             placeholder="정답 입력"
                             value={userAnswers[question.id] || ""}
-                            onChange={(e) => setUserAnswers({ ...userAnswers, [question.id]: e.target.value.toUpperCase() })}
+                            onChange={(e) => setUserAnswers({ ...userAnswers, [question.id]: e.target.value })}
                         />
                         <button
                             onClick={() => handleCheckAnswer(question.id, question.score, question.answer)}

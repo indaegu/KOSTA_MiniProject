@@ -31,6 +31,7 @@ function IconMenu() {
         'CS': [
             { title: '운영체제 기초', description: '프로세스, 스레드, 메모리 관리 등의 운영체제 기본 개념에 대한 문제입니다.', applicants: 1000, failureRate: '70%' },
             { title: '컴퓨터 네트워크', description: 'TCP/IP, OSI 모델, 라우팅 방식 등의 네트워크 기본 개념에 관한 질문입니다.', applicants: 1500, failureRate: '60%' },
+            { title: '시스템 프로그래밍', description: '시스템 호출, 셸 프로그래밍 등의 시스템 프로그래밍에 관한 문제입니다.', applicants: 1200, failureRate: '50%' },
         ],
         'JAVA': [
             { title: 'Java 기본 문법', description: 'Java의 변수, 연산자, 제어문에 관한 기본 문법 문제입니다.', applicants: 1000, failureRate: '70%' },
@@ -38,7 +39,6 @@ function IconMenu() {
             { title: 'Java API 활용', description: 'Java의 기본 클래스 라이브러리 활용에 관한 문제입니다.', applicants: 1200, failureRate: '50%' },
         ],
         'C': [
-            { title: 'C 기본 문법', description: 'C의 데이터 타입, 포인터, 구조체 등의 기본 문법에 관한 문제입니다.', applicants: 1000, failureRate: '70%' },
             { title: 'C 기본 문법', description: 'C의 데이터 타입, 포인터, 구조체 등의 기본 문법에 관한 문제입니다.', applicants: 1000, failureRate: '70%' },
             { title: '메모리 관리', description: '동적 메모리 할당 및 해제, 메모리 누수 등의 메모리 관리에 관한 문제입니다.', applicants: 1500, failureRate: '60%' },
             { title: 'C 파일 처리', description: 'C에서의 파일 입출력 함수와 파일 관리에 대한 문제입니다.', applicants: 1200, failureRate: '50%' },

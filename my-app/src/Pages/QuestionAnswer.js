@@ -4,10 +4,9 @@ import Header from "../Component/Header";
 import Footer from "../Component/Footer";
 import Chatbot from '../Component/ChatBot';
 
+
 const QuestionAnswer = () => {
     const [comment, setComment] = useState("");
-
-    // 더미 댓글 데이터
     const [comments, setComments] = useState([
         {
             id: 1,
@@ -39,7 +38,7 @@ const QuestionAnswer = () => {
         ]
     });
 
-    const explanationRef = useRef(null); // 복사하기 위한 ref
+    const explanationRef = useRef(null);
 
     const handleCopyExplanation = () => {
         const textarea = document.createElement('textarea');
@@ -74,9 +73,7 @@ const QuestionAnswer = () => {
             <div className="breadcrumb">
                 홈 ▷ 문제 리스트 ▷ 문제 상세 ▷ 문제 해설
             </div>
-
             <h2 className="qa-title">문제 번호: 1 - 문제 제목</h2>
-
             <div className="qa-explanation-box">
                 <p ref={explanationRef}>
                     {explanation.question}<br />
@@ -87,7 +84,6 @@ const QuestionAnswer = () => {
                 <button className="edit-request-btn">수정 요청</button>
                 <button onClick={handleCopyExplanation}>문제해설복사하기</button>
             </div>
-
             <div className="comment-section">
                 <textarea
                     placeholder="댓글을 입력하세요..."
@@ -96,7 +92,6 @@ const QuestionAnswer = () => {
                 />
                 <button onClick={handleCommentSubmit}>댓글 작성</button>
             </div>
-
             <div className="comment-list">
                 {comments.map(comment => (
                     <div key={comment.id} className="comment-item">
