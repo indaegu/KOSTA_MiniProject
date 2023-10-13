@@ -19,7 +19,8 @@ const Header = () => {
         <header className="header">
             <div className="top-section">
                 <div className="logo">
-                    <a href="/Main"><img src='../logo.png' alt="Logo" /></a>
+                    <a href="/Main"><img src="/logo.png" alt="Logo" />
+                    </a>
                 </div>
                 <div className="search-container">
                     <input
@@ -31,7 +32,7 @@ const Header = () => {
                         onKeyPress={handleKeyPress}
                     />
                     <button onClick={handleSearch} className="search-button">
-                        <img src="searchicon.png" alt="검색" className="search-icon" />
+                        <img src="/searchicon.png" alt="검색" className="search-icon" />
                     </button>
                 </div>
 

@@ -17,7 +17,7 @@ const Main = () => {
                 <WrongQuestions />
             </div>
             <IconMenu />
-            <Chatbot />
+            {/* <Chatbot /> */}
             <Footer />
         </div>
     );
