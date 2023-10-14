@@ -69,6 +69,9 @@ const Header = () => {
                 <div className="category-item">
                     <a href="#">CS</a> <br />
                 </div>
+                <div className="category-item">
+                    <a href="/RankingList">랭킹</a> <br />
+                </div>
             </nav>
         </header>
     )

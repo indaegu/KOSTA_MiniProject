@@ -1,0 +1,112 @@
+/* RankingTable.css */
+.ranking-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.ranking-table th,
+.ranking-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+.ranking-table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.ranking-table th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+}
+
+.top-rankings {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.top-ranking {
+    margin-right: 20px;
+}
+
+.rank-1 {
+    order: 2;
+    color:#FFD700; /* gold */
+}
+
+.rank-2 {
+    order: 1;
+    color: silver;
+}
+
+.rank-3 {
+    order: 3;
+    color: #cd7f32;
+    /* bronze */
+}
+
+.ranking-card {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .ranking-card-image {
+    width: 25%; /* Adjust as needed */
+    height: auto; /* Keeps aspect ratio */
+  }
+  
+  @media (min-width:576px) { /* Small devices (landscape phones, less than or equal to576px) */
+    .ranking-card {
+      width:100%;
+      height:auto; 
+    }
+  }
+  
+  @media (min-width:768px) { /* Medium devices (tablets, less than or equal to768px) */
+    .ranking-card {
+      width:100%;
+      height:auto; 
+    }
+  }
+    
+  @media (min-width:992px) { /* Large devices (desktops, less than or equal to992px)*/
+    .ranking-card {
+      width:100%;
+      height:auto; 
+    }
+  }
+    
+  @media (min-width :1200px){ /* Extra large devices(large desktops, greater than1200 px)*/
+    .ranking-card{
+      width :100%; 
+      height :150 px ; 
+    }   
+  }
+    
+  .ranking-card-content {
+    padding: 8px;
+    margin: 10px;
+    font-weight:bold;
+    text-align:center;
+  }
+  
+  .ranking-card-ranking {
+    display:block; 
+  }
+
+  .ranking-card-nickname {
+    display:block; 
+  }
+    
+  .ranking-card-rank {
+    display:block; 
+  }
+  
+  .ranking-card-score {
+    display:block; 
+  }

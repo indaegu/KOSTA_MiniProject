@@ -20,17 +20,17 @@ const MyPageMyInfo = () => {
 
     const Card = ({ ranking, rank, score, nickname }) => {
         return (
-          <div className="card" title={`
+          <div className="my-page-card" title={`
 랭크 안내(기본 100점) 
 1 점수 150점이상 
 2 점수 200점이상 
 3 점수 300점이상
             `}>
-            <div className="card-content">
-              <span className="card-nickname">{nickname}</span>
-              <span className="card-ranking">{ranking}</span>
-              <span className="card-rank">{rank}</span>
-              <span className="card-score">{score}</span>
+            <div className="my-page-card-content">
+              <span className="my-page-card-nickname">{nickname}</span>
+              <span className="my-page-card-ranking">{ranking}</span>
+              <span className="my-page-card-rank">{rank}</span>
+              <span className="my-page-card-score">{score}</span>
             </div>
           </div>
         );

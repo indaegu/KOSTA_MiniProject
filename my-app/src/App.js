@@ -3,6 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Main from "./Pages/Main";
 import QuestionList from "./Pages/QuestionList";
+import RankingList from "./Pages/RankingList";
 import MyPageMyInfo from "./Pages/MyPageMyInfo";
 import MyPageInfoEdit from "./Pages/MyPageInfoEdit";
 import MyPageQuestion from "./Pages/MyPageQuestion";
@@ -20,6 +21,7 @@ function App() {
                     <Route path="/" element={<Login />} />
                     <Route path="/Main" element={<Main />} />
                     <Route path="/QuestionList" element={<QuestionList />} />
+                    <Route path="/RankingList" element={<RankingList />} />
                     <Route path="/MyPageMyInfo" element={<MyPageMyInfo />} />
                     <Route path="/MyPageInfoEdit" element={<MyPageInfoEdit />} />
                     <Route path="/MyPageQuestion" element={<MyPageQuestion />} />
