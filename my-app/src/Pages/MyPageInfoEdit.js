@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom'; // react-router-dom에서 useNavigate import
 import '../App.css';
 import '../MyPage.css';
@@ -12,31 +12,20 @@ const MyPageInfoEdit = () => {
 
     const navigate = useNavigate(); // useNavigate 훅 사용
 
-    const handleBeforeUnload = (e) => {
-        e.preventDefault();
-        e.returnValue = '';
-    };
-
-    useEffect(() => {
-        if (showPopup) {
-            window.addEventListener('beforeunload', handleBeforeUnload);
-        } else {
-            window.removeEventListener('beforeunload', handleBeforeUnload);
-        }
-
-        return () => {
-            window.removeEventListener('beforeunload', handleBeforeUnload);
-        };
-    }, [showPopup]);
 
     const handleEditClick = () => {
         // 수정 버튼이 클릭되면 팝업 창을 표시합니다.
         setShowPopup(true);
     };
     
-    const handleConfirmClick = () => {
+    const handleYesClick = () => {  // 예 버튼 클릭 시 이벤트 핸들러
         setShowPopup(false);
-        navigate('/main'); // main.js(홈)으로 이동
+        navigate('/main');  // main.js로 이동
+    };
+
+    const handleNoClick = () => {  // 아니오 버튼 클릭 시 이벤트 핸들러
+        setShowPopup(false);
+        navigate('/MypageInfoEdit');  // MypageInfoEdit.js로 이동
     };
 
     return (
@@ -68,11 +57,12 @@ const MyPageInfoEdit = () => {
             {/* 조건부 렌더링으로 팝업 창을 표시합니다. */}
             {showPopup && (
                 <div className="popup-container">
-                   {/* .popup-content 클래스를 적용하여 스타일링 합니다. */}
-                   <div className="popup-content"> 
-                        회원 수정이 완료되었습니다.
-                        {/* 확인 버튼에 onClick 이벤트 핸들러 추가 */}
-                        <button className="popup-button" onClick={handleConfirmClick}>확인</button>
+                    <div className="popup-content">
+                        정보를 수정하시겠습니까?
+                        <div className="popup-button-container">
+                            <button className="popup-button" onClick={handleYesClick}>예</button>
+                            <button className="popup-button" onClick={handleNoClick}>아니오</button>
+                        </div>
                     </div>
                 </div>
             )}

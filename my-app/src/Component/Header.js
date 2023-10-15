@@ -70,7 +70,11 @@ const Header = () => {
                     <a href="#">CS</a> <br />
                 </div>
                 <div className="category-item">
-                    <a href="/RankingList">랭킹</a> <br />
+                    랭킹 ▼
+                    <div className="category-dropdown">
+                        <a href="/RankingUserList">유저</a> <br />
+                        <a href="/RankingQuestionList">문제</a>
+                    </div>
                 </div>
             </nav>
         </header>

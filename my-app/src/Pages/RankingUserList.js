@@ -35,7 +35,7 @@ const Card = ({ ranking, nickname, rank, score, image }) => {
     );
 };
 
-const RankingList = () => {
+const RankingUserList = () => {
     const topThreeImages = [
         "gold.png",
         "silver.png",
@@ -96,4 +96,4 @@ const RankingList = () => {
     );
 }
 
-export default RankingList;
+export default RankingUserList;

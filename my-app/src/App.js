@@ -3,7 +3,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Main from "./Pages/Main";
 import QuestionList from "./Pages/QuestionList";
-import RankingList from "./Pages/RankingList";
+import RankingUserList from "./Pages/RankingUserList";
+import RankingQuestionList from "./Pages/RankingQuestionList";
 import MyPageMyInfo from "./Pages/MyPageMyInfo";
 import MyPageInfoEdit from "./Pages/MyPageInfoEdit";
 import MyPageQuestion from "./Pages/MyPageQuestion";
@@ -12,6 +13,7 @@ import Login from "./Pages/Login";
 import QuestionDetail from "./Pages/QuestionDetail";
 import QuestionAnswer from "./Pages/QuestionAnswer";
 import SearchResult from "./Pages/SearchResultPage";
+import MyPageQuitComplete from "./Pages/MyPageQuitComplete";
 
 function App() {
     return (
@@ -21,11 +23,13 @@ function App() {
                     <Route path="/" element={<Login />} />
                     <Route path="/Main" element={<Main />} />
                     <Route path="/QuestionList" element={<QuestionList />} />
-                    <Route path="/RankingList" element={<RankingList />} />
+                    <Route path="/RankingUserList" element={<RankingUserList />} />
+                    <Route path="/RankingQuestionList" element={<RankingQuestionList />} />
                     <Route path="/MyPageMyInfo" element={<MyPageMyInfo />} />
                     <Route path="/MyPageInfoEdit" element={<MyPageInfoEdit />} />
                     <Route path="/MyPageQuestion" element={<MyPageQuestion />} />
                     <Route path="/MyPageQuit" element={<MyPageQuit />} />
+                    <Route path="/MyPageQuitComplete" element={<MyPageQuitComplete />} />
                     <Route path="/MyPage" element={<MyPageMyInfo />} />
                     <Route path="/QuestionDetail/:id" element={<QuestionDetail />} />
                     <Route path="/QuestionAnswer" element={<QuestionAnswer />} />

@@ -19,7 +19,7 @@ function RankingSummary() {
 
     return (
         <section className="ranking-summary">
-            <h2>랭킹 요약 <a href="#" className="more-link">+More</a></h2>
+            <h2>랭킹 요약 <a href="/RankingUserList" className="more-link">+More</a></h2>
             <table>
                 <thead>
                     <tr>
@@ -63,7 +63,7 @@ function WrongQuestions() {
 
     return (
         <section className="wrong-questions">
-            <h2>자주 틀린 문제 <a href="#" className="more-link">+More</a></h2>
+            <h2>자주 틀린 문제 <a href="/RankingQuestionList" className="more-link">+More</a></h2>
             <table>
                 <thead>
                     <tr>

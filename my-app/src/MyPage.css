@@ -167,6 +167,12 @@
   align-items: center;
 }
 
+.popup-button-container {
+  display: flex; /* 가로 방향으로 배치하기 위해 flex 사용 */
+  justify-content: space-around; /* 버튼 사이에 공간을 동일하게 분배 */
+  width: 100%; /* 부모 요소인 .popup-content의 너비를 차지하도록 설정 */
+}
+
 /* 팝업창 내부의 버튼 크기 조절 */
 .popup-button {
   width :80px; /* 버튼 너비 설정 */
@@ -257,4 +263,22 @@
 
 #select-tag {
   margin: 10px;
+}
+
+.quit-complete-content {
+  display: flex;
+  flex-direction: column; /* Flexbox의 방향을 세로로 설정 */
+  justify-content: center; /* 가로 방향 중앙 정렬 */
+  align-items: center; /* 세로 방향 중앙 정렬 */
+  
+  height: calc(100vh - 100px); /* 뷰포트 높이에서 헤더와 푸터의 높이를 제외한 값으로 설정. 
+                                  이때, 100px은 헤더와 푸터의 높이의 예시값이므로 실제 레이아웃에 맞게 조절하세요. */
+
+  font-size: 1.5em; /* 폰트 크기 설정 */
+}
+
+.quit-span-tag {
+  color: gray;
+  margin-top: 10px;
+  font-size: 0.5em; /* 폰트 크기 설정 */
 }
