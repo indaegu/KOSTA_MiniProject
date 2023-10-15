@@ -13,6 +13,7 @@ import Login from "./Pages/Login";
 import QuestionDetail from "./Pages/QuestionDetail";
 import QuestionAnswer from "./Pages/QuestionAnswer";
 import SearchResult from "./Pages/SearchResultPage";
+import MyPageInfoEditComplete from "./Pages/MyPageInfoEditComplete";
 import MyPageQuitComplete from "./Pages/MyPageQuitComplete";
 
 function App() {
@@ -27,6 +28,7 @@ function App() {
                     <Route path="/RankingQuestionList" element={<RankingQuestionList />} />
                     <Route path="/MyPageMyInfo" element={<MyPageMyInfo />} />
                     <Route path="/MyPageInfoEdit" element={<MyPageInfoEdit />} />
+                    <Route path="/MyPageInfoEditComplete" element={<MyPageInfoEditComplete />} />
                     <Route path="/MyPageQuestion" element={<MyPageQuestion />} />
                     <Route path="/MyPageQuit" element={<MyPageQuit />} />
                     <Route path="/MyPageQuitComplete" element={<MyPageQuitComplete />} />

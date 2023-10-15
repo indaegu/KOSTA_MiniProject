@@ -20,7 +20,7 @@ const MyPageInfoEdit = () => {
     
     const handleYesClick = () => {  // 예 버튼 클릭 시 이벤트 핸들러
         setShowPopup(false);
-        navigate('/main');  // main.js로 이동
+        navigate('/MyPageInfoEditComplete');  // MyPageInfoEditComplete.js로 이동
     };
 
     const handleNoClick = () => {  // 아니오 버튼 클릭 시 이벤트 핸들러

@@ -265,7 +265,7 @@
   margin: 10px;
 }
 
-.quit-complete-content {
+.complete-content {
   display: flex;
   flex-direction: column; /* Flexbox의 방향을 세로로 설정 */
   justify-content: center; /* 가로 방향 중앙 정렬 */
@@ -277,7 +277,7 @@
   font-size: 1.5em; /* 폰트 크기 설정 */
 }
 
-.quit-span-tag {
+.complete-span-tag {
   color: gray;
   margin-top: 10px;
   font-size: 0.5em; /* 폰트 크기 설정 */
