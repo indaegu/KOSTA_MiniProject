@@ -8,6 +8,7 @@ import RankingQuestionList from "./Pages/RankingQuestionList";
 import MyPageMyInfo from "./Pages/MyPageMyInfo";
 import MyPageInfoEdit from "./Pages/MyPageInfoEdit";
 import MyPageQuestion from "./Pages/MyPageQuestion";
+import MyPageFavoredQuestion from "./Pages/MyPageFavoredQuestion";
 import MyPageQuit from "./Pages/MyPageQuit";
 import Login from "./Pages/Login";
 import QuestionDetail from "./Pages/QuestionDetail";
@@ -30,6 +31,7 @@ function App() {
                     <Route path="/MyPageInfoEdit" element={<MyPageInfoEdit />} />
                     <Route path="/MyPageInfoEditComplete" element={<MyPageInfoEditComplete />} />
                     <Route path="/MyPageQuestion" element={<MyPageQuestion />} />
+                    <Route path="/MyPageFavoredQuestion" element={<MyPageFavoredQuestion />} />
                     <Route path="/MyPageQuit" element={<MyPageQuit />} />
                     <Route path="/MyPageQuitComplete" element={<MyPageQuitComplete />} />
                     <Route path="/MyPage" element={<MyPageMyInfo />} />
