@@ -8,7 +8,9 @@ import Footer from "../Component/Footer";
 
 function RankingUserList() {
     let [users, setUsers] = useState([]);
-
+    const [loggedInUser, setLoggedInUser] = useState(null); // 추가
+    const loggedInUserId = localStorage.getItem('userId'); //추가
+    let [myRankings, setMyRankings] = useState([]);
     useEffect(() => {
         fetch("http://localhost:3001/users")
             .then(res => {
@@ -18,79 +20,36 @@ function RankingUserList() {
                 if (Array.isArray(data)) { // data가 배열인지 확인
                     // score 기준으로 내림차순 정렬
                     const sortedData = data.sort((a, b) => b.score - a.score);
-                    // 각 유저에게 랭킹 정보와 rank 추가
+                    // 각 유저에게 랭킹 정보 추가
                     const rankedData = sortedData.map((user, index) => {
-                        let rank;
-                        if (user.score >= 200) {
-                            rank = 3;
-                        } else if (user.score >= 150) {
-                            rank = 2;
-                        } else if (user.score >= 100) {
-                            rank = 1;
-                        } else {
-                            rank = 0;
-                        }
-
-                        return { ...user, ranking: index + 1, rank };
+                        return { ...user, ranking: index + 1 };
                     });
                     setUsers(rankedData);
-                } else {
-                    console.error('Received data is not an array');
-                }
-            })
-            .catch(error => console.error('Error:', error));
-    }, []);
-
-    const myId = 1; // 본인의 ID를 설정합니다.
-    let [myRankings, setMyRankings] = useState([]);
-
-    useEffect(() => {
-        fetch("http://localhost:3001/users")
-            .then(res => {
-                return res.json();
-            })
-            .then(data => {
-                if (Array.isArray(data)) {
-                    const sortedData = data.sort((a, b) => b.score - a.score);
-                    const rankedData = sortedData.map((user, index) => {
-                        let rank;
-                        if (user.score >= 200) {
-                            rank = 3;
-                        } else if (user.score >= 150) {
-                            rank = 2;
-                        } else if (user.score >= 100) {
-                            rank = 1;
-                        } else {
-                            rank = 0;
-                        }
-
-                        return { ...user, ranking: index + 1, rank };
-                    });
-
-                    // 내 랭킹을 찾아서 그 주변의 랭킹만 가져옵니다.
-                    const myIndex = rankedData.findIndex(user => user.id === myId);
-                    let startIdx, endIdx;
-
-                    if (myIndex === 0) { // 첫 번째 순위인 경우
-                        startIdx = myIndex;
-                        endIdx = Math.min(rankedData.length - 1, myIndex + 1);
-                    } else if (myIndex === rankedData.length - 1) { // 마지막 순위인 경우
-                        startIdx = Math.max(0, myIndex - 1);
-                        endIdx = myIndex;
-                    } else { // 그 외의 경우
-                        startIdx = Math.max(0, myIndex - 1);
-                        endIdx = Math.min(rankedData.length - 1, myIndex + 1);
+                /// 로그인된 사용자의 랭킹 찾기 및 저장
+                const myRankingIndex = rankedData.findIndex(user => user.id === parseInt(loggedInUserId));
+                
+                if(myRankingIndex !== -1){
+                    let surroundingRankings = [];
+                    if(myRankingIndex > 0){
+                        surroundingRankings.push(rankedData[myRankingIndex-1]); // Add the user above me.
                     }
-
-                    setMyRankings(rankedData.slice(startIdx, endIdx + 1));
-
-                } else {
-                    console.error('Received data is not an array');
-                }
-            })
-            .catch(error => console.error('Error:', error));
-    }, []);
-
+                    
+                    surroundingRankings.push(rankedData[myRankingIndex]); // Add me.
+                    
+                    if(myRankingIndex < rankedData.length-1){
+                        surroundingRankings.push(rankedData[myRankingIndex+1]); // Add the user below me.
+                    }
+                    
+                    setMyRankings(surroundingRankings); 
+                 } else{
+                     console.error('Could not find the logged in user in the rankings');
+                 }
+            } else {
+               console.error('Received data is not an array');
+            }
+        })
+        .catch(error => console.error('Error:', error));
+}, []);
 
     const Card = ({ ranking, nickname, rank, score, image }) => {
         return (
