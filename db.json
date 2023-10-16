@@ -22,7 +22,7 @@
     },
     {
       "id": 5,
-      "name": "정보처리",
+      "name": "InfoProcessing",
       "parent_id": null
     },
     {
@@ -49,6 +49,42 @@
       "title": "Javascript 고급 문제",
       "category_id": 4,
       "created_at": "2023-08-25"
+    },
+    {
+      "id": 16,
+      "title": "InfoProcessing 문제세트 1",
+      "category_id": 5,
+      "created_at": "2023-10-16"
+    },
+    {
+      "id": 17,
+      "title": "InfoProcessing 문제세트 2",
+      "category_id": 5,
+      "created_at": "2023-10-16"
+    },
+    {
+      "id": 18,
+      "title": "InfoProcessing 문제세트 3",
+      "category_id": 5,
+      "created_at": "2023-10-16"
+    },
+    {
+      "id": 19,
+      "title": "SQL 문제세트 1",
+      "category_id": 6,
+      "created_at": "2023-10-16"
+    },
+    {
+      "id": 20,
+      "title": "SQL 문제세트 2",
+      "category_id": 6,
+      "created_at": "2023-10-16"
+    },
+    {
+      "id": 21,
+      "title": "SQL 문제세트 3",
+      "category_id": 6,
+      "created_at": "2023-10-16"
     }
   ],
   "problems": [
@@ -81,6 +117,247 @@
       "problem_set_id": 3,
       "wrong_count": 1,
       "attempt_count": 4
+    },
+    {
+      "id": 4,
+      "content": "C 언어에서 포인터의 기본 자료형은?",
+      "score": 15,
+      "answer": "int*",
+      "explanation": "C 언어의 포인터 자료형은 변수 타입 뒤에 *를 붙입니다.",
+      "problem_set_id": 2,
+      "wrong_count": 3,
+      "attempt_count": 8
+    },
+    {
+      "id": 5,
+      "content": "C 언어에서 포인터의 기본 자료형은?",
+      "score": 15,
+      "answer": "int*",
+      "explanation": "C 언어의 포인터 자료형은 변수 타입 뒤에 *를 붙입니다.",
+      "problem_set_id": 2,
+      "wrong_count": 3,
+      "attempt_count": 8
+    },
+    {
+      "id": 6,
+      "content": "C 언어에서 포인터의 기본 자료형은?",
+      "score": 15,
+      "answer": "int*",
+      "explanation": "C 언어의 포인터 자료형은 변수 타입 뒤에 *를 붙입니다.",
+      "problem_set_id": 2,
+      "wrong_count": 3,
+      "attempt_count": 8
+    },
+    {
+      "id": 7,
+      "content": "C 언어에서 포인터의 기본 자료형은?",
+      "score": 15,
+      "answer": "int*",
+      "explanation": "C 언어의 포인터 자료형은 변수 타입 뒤에 *를 붙입니다.",
+      "problem_set_id": 2,
+      "wrong_count": 3,
+      "attempt_count": 8
+    },
+    {
+      "id": 8,
+      "content": "C 언어에서 포인터의 기본 자료형은?",
+      "score": 15,
+      "answer": "int*",
+      "explanation": "C 언어의 포인터 자료형은 변수 타입 뒤에 *를 붙입니다.",
+      "problem_set_id": 2,
+      "wrong_count": 3,
+      "attempt_count": 8
+    },
+    {
+      "id": 9,
+      "content": "정보처리기사 관련 문제 내용 1 여기선 1+1은?",
+      "score": 15,
+      "answer": "2",
+      "explanation": "1+1은 2일 확률이 굉장히 높습니다!",
+      "problem_set_id": 16,
+      "wrong_count": 3,
+      "attempt_count": 8
+    },
+    {
+      "id": 10,
+      "content": "정보처리기사 관련 문제 내용 1",
+      "score": 15,
+      "answer": "해당문제의 정답 1",
+      "explanation": "해당 문제의 해설 1",
+      "problem_set_id": 16,
+      "wrong_count": 3,
+      "attempt_count": 8
+    },
+    {
+      "id": 11,
+      "content": "정보처리기사 관련 문제 내용 1",
+      "score": 15,
+      "answer": "해당문제의 정답 1",
+      "explanation": "해당 문제의 해설 1",
+      "problem_set_id": 16,
+      "wrong_count": 3,
+      "attempt_count": 8
+    },
+    {
+      "id": 12,
+      "content": "정보처리기사 관련 문제 내용 1",
+      "score": 15,
+      "answer": "해당문제의 정답 1",
+      "explanation": "해당 문제의 해설 1",
+      "problem_set_id": 16,
+      "wrong_count": 3,
+      "attempt_count": 8
+    },
+    {
+      "id": 13,
+      "content": "정보처리기사 관련 문제 내용 1",
+      "score": 15,
+      "answer": "해당문제의 정답 1",
+      "explanation": "해당 문제의 해설 1",
+      "problem_set_id": 16,
+      "wrong_count": 3,
+      "attempt_count": 8
+    },
+    {
+      "id": 14,
+      "content": "정보처리기사 관련 문제 내용 1",
+      "score": 15,
+      "answer": "해당문제의 정답 1",
+      "explanation": "해당 문제의 해설 1",
+      "problem_set_id": 16,
+      "wrong_count": 3,
+      "attempt_count": 8
+    },
+    {
+      "id": 15,
+      "content": "정보처리기사 관련 문제 내용 1",
+      "score": 15,
+      "answer": "해당문제의 정답 1",
+      "explanation": "해당 문제의 해설 1",
+      "problem_set_id": 16,
+      "wrong_count": 3,
+      "attempt_count": 8
+    },
+
+    {
+      "id": 64,
+      "content": "SQL 문제 1 (SQL 문제세트 1)",
+      "score": 10,
+      "answer": "Answer",
+      "explanation": "Explanation for SQL 문제 1",
+      "problem_set_id": 19,
+      "wrong_count": 2,
+      "attempt_count": 5
+    },
+    {
+      "id": 65,
+      "content": "SQL 문제 2 (SQL 문제세트 1)",
+      "score": 10,
+      "answer": "Answer",
+      "explanation": "Explanation for SQL 문제 2",
+      "problem_set_id": 19,
+      "wrong_count": 2,
+      "attempt_count": 5
+    },
+    {
+      "id": 66,
+      "content": "SQL 문제 3 (SQL 문제세트 1)",
+      "score": 10,
+      "answer": "Answer",
+      "explanation": "Explanation for SQL 문제 3",
+      "problem_set_id": 19,
+      "wrong_count": 2,
+      "attempt_count": 5
+    },
+    {
+      "id": 67,
+      "content": "SQL 문제 4 (SQL 문제세트 1)",
+      "score": 10,
+      "answer": "Answer",
+      "explanation": "Explanation for SQL 문제 4",
+      "problem_set_id": 19,
+      "wrong_count": 2,
+      "attempt_count": 5
+    },
+    {
+      "id": 68,
+      "content": "SQL 문제 1 (SQL 문제세트 2)",
+      "score": 10,
+      "answer": "Answer",
+      "explanation": "Explanation for SQL 문제 1",
+      "problem_set_id": 20,
+      "wrong_count": 2,
+      "attempt_count": 5
+    },
+    {
+      "id": 69,
+      "content": "SQL 문제 2 (SQL 문제세트 2)",
+      "score": 10,
+      "answer": "Answer",
+      "explanation": "Explanation for SQL 문제 2",
+      "problem_set_id": 20,
+      "wrong_count": 2,
+      "attempt_count": 5
+    },
+    {
+      "id": 70,
+      "content": "SQL 문제 3 (SQL 문제세트 2)",
+      "score": 10,
+      "answer": "Answer",
+      "explanation": "Explanation for SQL 문제 3",
+      "problem_set_id": 20,
+      "wrong_count": 2,
+      "attempt_count": 5
+    },
+    {
+      "id": 71,
+      "content": "SQL 문제 4 (SQL 문제세트 2)",
+      "score": 10,
+      "answer": "Answer",
+      "explanation": "Explanation for SQL 문제 4",
+      "problem_set_id": 20,
+      "wrong_count": 2,
+      "attempt_count": 5
+    },
+    {
+      "id": 72,
+      "content": "SQL 문제 1 (SQL 문제세트 3)",
+      "score": 10,
+      "answer": "Answer",
+      "explanation": "Explanation for SQL 문제 1",
+      "problem_set_id": 21,
+      "wrong_count": 2,
+      "attempt_count": 5
+    },
+    {
+      "id": 73,
+      "content": "SQL 문제 2 (SQL 문제세트 3)",
+      "score": 10,
+      "answer": "Answer",
+      "explanation": "Explanation for SQL 문제 2",
+      "problem_set_id": 21,
+      "wrong_count": 2,
+      "attempt_count": 5
+    },
+    {
+      "id": 74,
+      "content": "SQL 문제 3 (SQL 문제세트 3)",
+      "score": 10,
+      "answer": "Answer",
+      "explanation": "Explanation for SQL 문제 3",
+      "problem_set_id": 21,
+      "wrong_count": 2,
+      "attempt_count": 5
+    },
+    {
+      "id": 75,
+      "content": "SQL 문제 4 (SQL 문제세트 3)",
+      "score": 10,
+      "answer": "Answer",
+      "explanation": "Explanation for SQL 문제 4",
+      "problem_set_id": 21,
+      "wrong_count": 2,
+      "attempt_count": 5
     }
   ],
   "users": [

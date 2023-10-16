@@ -1,33 +1,47 @@
-// QuestionList.js : 문제의 리스트 즉, 묶음을 다루기 위한 컴포넌트
-
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 import QuestionListItem from './QuestionListItem';
 import Pagination from './PageNation';
 
 import '../App.css';
 
 const QuestionListItemSet = () => {
-    const [questions, setQuestions] = useState([
-        { id: 1, number: 'Q1', title: '정보처리기사 23년 3회차 실기 단답형', date: '2023-10-10' },
-        { id: 2, number: 'Q2', title: '정보처리기사 23년 2회차 실기 단답형', date: '2023-10-10' },
-        { id: 3, number: 'Q3', title: '정보처리기사 23년 1회차 실기 단답형', date: '2023-10-10' },
-        { id: 4, number: 'Q4', title: '정보처리기사 22년 3회차 실기 단답형', date: '2023-10-10' },
-        { id: 5, number: 'Q5', title: '정보처리기사 22년 2회차 실기 단답형', date: '2023-10-10' },
-        { id: 6, number: 'Q6', title: '정보처리기사 22년 1회차 실기 단답형', date: '2023-10-10' },
-        { id: 7, number: 'Q7', title: '정보처리기사 21년 3회차 실기 단답형', date: '2023-10-10' },
-        { id: 8, number: 'Q8', title: '정보처리기사 21년 2회차 실기 단답형', date: '2023-10-10' },
-        { id: 9, number: 'Q9', title: '정보처리기사 21년 1회차 실기 단답형', date: '2023-10-10' },
-        { id: 10, number: 'Q10', title: '정보처리기사 20년 3회차 실기 단답형', date: '2023-10-10' },
-        { id: 11, number: 'Q11', title: '정보처리기사 20년 2회차 실기 단답형', date: '2023-10-10' },
-        { id: 12, number: 'Q12', title: '정보처리기사 20년 1회차 실기 단답형', date: '2023-10-10' },
-        { id: 13, number: 'Q13', title: '정보처리기사 19년 3회차 실기 단답형', date: '2023-10-10' },
-        { id: 14, number: 'Q14', title: '정보처리기사 19년 2회차 실기 단답형', date: '2023-10-10' },
-        { id: 15, number: 'Q15', title: '정보처리기사 19년 1회차 실기 단답형', date: '2023-10-10' }
-    ]
-    );
-
+    const [questions, setQuestions] = useState([]);
+    const [categories, setCategories] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
-    const questionsPerPage = 10;
+    const questionsPerPage = 5;
+    const { category } = useParams();
+
+    useEffect(() => {
+        // 먼저 카테고리 리스트를 가져옵니다.
+        const xhrCategories = new XMLHttpRequest();
+        xhrCategories.open('GET', 'http://localhost:3001/categories', true);
+        xhrCategories.onload = function () {
+            if (this.status === 200) {
+                setCategories(JSON.parse(this.responseText));
+            } else {
+                console.error("Failed to fetch categories.");
+            }
+        };
+        xhrCategories.send();
+    }, []);
+
+    useEffect(() => {
+        // 카테고리 이름을 ID로 변환합니다.
+        const categoryId = categories.find(cat => cat.name === category)?.id;
+        if (!categoryId) return;  // 카테고리 ID를 찾지 못하면 API 호출을 중단합니다.
+
+        const xhr = new XMLHttpRequest();
+        xhr.open('GET', `http://localhost:3001/problem_sets?category_id=${categoryId}`, true);
+        xhr.onload = function () {
+            if (this.status === 200) {
+                setQuestions(JSON.parse(this.responseText));
+            } else {
+                console.error("Failed to fetch questions.");
+            }
+        };
+        xhr.send();
+    }, [category, categories]);  // category 값 또는 categories 값이 변경될 때마다 useEffect를 다시 실행합니다.
 
     const indexOfLastQuestion = currentPage * questionsPerPage;
     const indexOfFirstQuestion = indexOfLastQuestion - questionsPerPage;

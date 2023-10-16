@@ -24,7 +24,7 @@ function App() {
                 <Routes>
                     <Route path="/" element={<Login />} />
                     <Route path="/Main" element={<Main />} />
-                    <Route path="/QuestionList" element={<QuestionList />} />
+                    <Route path="/QuestionList/:category" element={<QuestionList />} /> {/* 수정된 부분 */}
                     <Route path="/RankingUserList" element={<RankingUserList />} />
                     <Route path="/RankingQuestionList" element={<RankingQuestionList />} />
                     <Route path="/MyPageMyInfo" element={<MyPageMyInfo />} />
@@ -36,7 +36,7 @@ function App() {
                     <Route path="/MyPageQuitComplete" element={<MyPageQuitComplete />} />
                     <Route path="/MyPage" element={<MyPageMyInfo />} />
                     <Route path="/QuestionDetail/:id" element={<QuestionDetail />} />
-                    <Route path="/QuestionAnswer" element={<QuestionAnswer />} />
+                    <Route path="/QuestionAnswer/:id" element={<QuestionAnswer />} />
                     <Route path="/SearchResult" element={<SearchResult />} />
                 </Routes>
             </div>

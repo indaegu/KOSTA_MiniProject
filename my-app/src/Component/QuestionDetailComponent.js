@@ -6,7 +6,7 @@ import Modal from './Modal'; // 새로운 모달 컴포넌트를 import 합니�
 
 
 
-const QuestionDetailComponent = () => {
+const QuestionDetailComponent = ({ setId }) => {
     const [score, setScore] = useState(100);
     const [ListScore, setListScore] = useState(0);
     const [userAnswers, setUserAnswers] = useState({});
@@ -18,6 +18,9 @@ const QuestionDetailComponent = () => {
     const [favoriteFeedback, setFavoriteFeedback] = useState({});
     const [isModalOpen, setIsModalOpen] = useState(false); // 모달의 상태
     const [modalQuestionId, setModalQuestionId] = useState(null); // 모달에 표시될 문제의 ID
+    const [questions, setQuestions] = useState([]); // 초기 값을 빈 배열로 설정
+    const [problemSet, setProblemSet] = useState(null); // 문제 세트 정보를 저장할 상태 변수 추가
+
 
 
 
@@ -46,19 +49,33 @@ const QuestionDetailComponent = () => {
         prevScoreRef.current = score;  // 현재 점수를 ref에 저장합니다.
     }, [score]);
 
-    const [questions, setQuestions] = useState([
-        { id: 1, number: 'Q1', content: '설명을 읽고 알맞는 답을 작성하시오.\n\n2 계층(데이터링크 계층)에서 구현되는 터널링 기술 중 하나\nL2F와 PPTP가 결합된 프로토콜로 VPN과 인터넷 서비스 제공자(ISP)가 이용\nIPsec을 함께 사용하면 PPTP보다 훨씬 안전하지만 보안보다 익명화에 더 적합하다.', score: 3, answer: 'L2TP' },
-        { id: 2, number: 'Q2', content: '설명을 읽고 알맞는 답을 작성하시오.\n\n데이터베이스에서 중복을 방지하기 위한 제약 조건은?', score: 1, answer: 'PRIMARY KEY' },
-        { id: 3, number: 'Q3', content: '설명을 읽고 알맞는 답을 작성하시오.\n\n유닉스 계열의 운영체제에서 권한을 변경하는 명령어는?', score: 3, answer: 'chmod' },
-        { id: 4, number: 'Q4', content: '설명을 읽고 알맞는 답을 작성하시오.\n\n웹 브라우저에서 서버로 요청하는 메서드 중 데이터를 생성하라는 의미를 가진 것은?', score: 2, answer: 'POST' },
-        { id: 5, number: 'Q5', content: '설명을 읽고 알맞는 답을 작성하시오.\n\n소프트웨어 개발 방법론 중 고객의 요구사항 변경에 유연하게 대응하는 방법론을 영어로 작성하시오', score: 3, answer: 'agile' },
-        { id: 6, number: 'Q6', content: '설명을 읽고 알맞는 답을 작성하시오.\n\n프로그래밍에서 변수나 함수의 사용 범위를 결정하는 것은?', score: 2, answer: 'scope' },
-        { id: 7, number: 'Q7', content: '설명을 읽고 알맞는 답을 작성하시오.\n\nHTML에서 웹 페이지의 배경색을 설정하는 속성은?', score: 2, answer: 'background-color' },
-        { id: 8, number: 'Q8', content: '설명을 읽고 알맞는 답을 작성하시오.\n\n객체 지향 프로그래밍에서 객체 간의 메시지 전송을 나타내는 다이어그램은?', score: 1, answer: 'sequence diagram' },
-        { id: 9, number: 'Q9', content: '설명을 읽고 알맞는 답을 작성하시오.\n\n컴퓨터 그래픽스에서 물체의 외형을 표현하는 기법은?', score: 3, answer: 'wireframe' },
-        { id: 10, number: 'Q10', content: '문제 내용 2', score: 3, answer: 'B' }
-    ]
-    );
+    useEffect(() => {
+        const xhr = new XMLHttpRequest();
+        xhr.open('GET', `http://localhost:3001/problems?problem_set_id=${setId}`, true); // 문제 세트 ID와 관련된 문제를 가져오도록 엔드포인트를 수정
+        xhr.onload = function () {
+            if (this.status === 200) {
+                setQuestions(JSON.parse(this.responseText));
+            } else {
+                console.error("Failed to fetch questions.");
+            }
+        };
+        xhr.send();
+    }, [setId]);
+
+    // 문제 세트 정보를 가져오는 요청
+    const xhrProblemSet = new XMLHttpRequest();
+    xhrProblemSet.open('GET', `http://localhost:3001/problem_sets/${setId}`, true);
+    xhrProblemSet.onload = function () {
+        if (this.status === 200) {
+            setProblemSet(JSON.parse(this.responseText));
+        } else {
+            console.error("Failed to fetch problem set.");
+        }
+    };
+    xhrProblemSet.send();
+
+
+
     const handleCheckAnswer = (questionId, questionScore, correctAnswer) => {
         if (gradedQuestions.includes(questionId)) {
             return;  // 이미 채점된 문제면 함수를 종료
@@ -150,7 +167,7 @@ const QuestionDetailComponent = () => {
                     />
                 </>
             )}
-            <h1>정보처리기사 23년 3회</h1>
+            <h1>{problemSet?.title || "제목 없음"}</h1>
             <div className={`score-board ${scoreClass}`} data-text={`Score: ${score}`}></div>
             <div className="questions-grid">
                 {questions.map(question => (
@@ -175,8 +192,7 @@ const QuestionDetailComponent = () => {
                         >
                             {feedbackMessages[question.id]}
                         </div>
-                        {/* <Link to={`/QuestionAnswer:${question.id}`}> */}
-                        <Link to="#" onClick={(e) => { e.preventDefault(); handleDiscussionClick(question.id, question.score); }}>
+                        <Link to={`/QuestionAnswer/${question.id}`}  onClick={(e) => { e.preventDefault(); handleDiscussionClick(question.id, question.score); }}>
                             <button style={{ marginRight: '10px' }}>
                                 해설 및 토론
                             </button>
