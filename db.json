@@ -1,29 +1,198 @@
 {
-  "posts": [
+  "categories": [
     {
       "id": 1,
-      "title": "json-server",
-      "author": "typicode"
+      "name": "언어",
+      "parent_id": null
     },
     {
-      "title": "javascript",
-      "author": "tpicode",
-      "id": 3
+      "id": 2,
+      "name": "Java",
+      "parent_id": 1
     },
     {
-      "title": "javascript",
-      "author": "tpicode",
+      "id": 3,
+      "name": "C",
+      "parent_id": 1
+    },
+    {
+      "id": 4,
+      "name": "Javascript",
+      "parent_id": 1
+    },
+    {
+      "id": 5,
+      "name": "정보처리",
+      "parent_id": null
+    },
+    {
+      "id": 6,
+      "name": "SQL",
+      "parent_id": null
+    }
+  ],
+  "problem_sets": [
+    {
+      "id": 1,
+      "title": "Java 기초 문제",
+      "category_id": 2,
+      "created_at": "2023-10-15"
+    },
+    {
+      "id": 2,
+      "title": "C 언어 중급 문제",
+      "category_id": 3,
+      "created_at": "2023-09-12"
+    },
+    {
+      "id": 3,
+      "title": "Javascript 고급 문제",
+      "category_id": 4,
+      "created_at": "2023-08-25"
+    }
+  ],
+  "problems": [
+    {
+      "id": 1,
+      "content": "Java의 기본 자료형은?",
+      "score": 10,
+      "answer": "int",
+      "explanation": "Java의 기본 자료형 중 하나는 int입니다.",
+      "problem_set_id": 1,
+      "wrong_count": 2,
+      "attempt_count": 5
+    },
+    {
+      "id": 2,
+      "content": "C 언어에서 포인터의 기본 자료형은?",
+      "score": 15,
+      "answer": "int*",
+      "explanation": "C 언어의 포인터 자료형은 변수 타입 뒤에 *를 붙입니다.",
+      "problem_set_id": 2,
+      "wrong_count": 3,
+      "attempt_count": 8
+    },
+    {
+      "id": 3,
+      "content": "Javascript에서 배열을 생성하는 방법은?",
+      "score": 5,
+      "answer": "[]",
+      "explanation": "Javascript에서 배열은 []를 사용하여 생성합니다.",
+      "problem_set_id": 3,
+      "wrong_count": 1,
+      "attempt_count": 4
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "email": "user1@example.com",
+      "nickname": "UserOne",
+      "password": "hashed_password1",
+      "score": 50,
+      "rank": "3",
+      "is_deleted": false
+    },
+    {
+      "id": 2,
+      "email": "user2@example.com",
+      "nickname": "UserTwo",
+      "password": "hashed_password2",
+      "score": 150,
+      "rank": "2",
+      "is_deleted": false
+    },
+    {
+      "id": 3,
+      "email": "user3@example.com",
+      "nickname": "UserThree",
+      "password": "hashed_password3",
+      "score": 250,
+      "rank": "1",
+      "is_deleted": false
+    },
+    {
+      "email": "asd123@gmail.com",
+      "nickname": "성창민",
+      "password": "123",
       "id": 4
     }
   ],
   "comments": [
     {
       "id": 1,
-      "body": "some comment",
-      "postId": 1
+      "user_id": 1,
+      "problem_id": 1,
+      "content": "이 문제는 정말 도움이 됐습니다!",
+      "created_at": "2023-10-15T10:00:00Z"
+    },
+    {
+      "id": 2,
+      "user_id": 2,
+      "problem_id": 2,
+      "content": "포인터는 항상 어렵네요...",
+      "created_at": "2023-10-15T11:00:00Z"
+    },
+    {
+      "id": 3,
+      "user_id": 3,
+      "problem_id": 3,
+      "content": "Javascript는 재미있어요!",
+      "created_at": "2023-10-15T12:00:00Z"
     }
   ],
-  "profile": {
-    "name": "typicode"
-  }
+  "favorite_problems": [
+    {
+      "user_id": 1,
+      "problem_id": 2
+    },
+    {
+      "user_id": 2,
+      "problem_id": 1
+    },
+    {
+      "user_id": 3,
+      "problem_id": 3
+    }
+  ],
+  "user_solutions": [
+    {
+      "user_id": 1,
+      "problem_id": 1,
+      "is_correct": true
+    },
+    {
+      "user_id": 2,
+      "problem_id": 2,
+      "is_correct": false
+    },
+    {
+      "user_id": 3,
+      "problem_id": 3,
+      "is_correct": true
+    }
+  ],
+  "edit_requests": [
+    {
+      "id": 1,
+      "user_id": 1,
+      "problem_id": 2,
+      "title": "포인터에 대한 설명 추가 요청",
+      "content": "포인터의 개념과 사용법에 대한 설명을 조금 더 추가해주실 수 있나요?"
+    },
+    {
+      "id": 2,
+      "user_id": 2,
+      "problem_id": 1,
+      "title": "Java 자료형에 대한 설명 수정 요청",
+      "content": "Java의 다른 기본 자료형에 대한 설명도 포함되면 좋겠습니다."
+    },
+    {
+      "id": 3,
+      "user_id": 3,
+      "problem_id": 3,
+      "title": "Javascript 배열에 대한 추가 정보 요청",
+      "content": "배열의 메서드와 사용법에 대한 설명을 추가해주실 수 있을까요?"
+    }
+  ]
 }

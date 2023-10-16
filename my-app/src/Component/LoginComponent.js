@@ -2,19 +2,53 @@ import React, { useEffect, useState } from 'react';
 import styles from '../Login.module.css';
 
 function LoginComponent() {
-    const [isSignIn, setIsSignIn] = useState(false);
+    const [isSignIn, setIsSignIn] = useState(true);
     const [showModal, setShowModal] = useState(false);
-
-    useEffect(() => {
-        setIsSignIn(true);
-    }, []);
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const [username, setUsername] = useState("");
+    const [confirmPassword, setConfirmPassword] = useState("");
 
     const toggle = () => {
         setIsSignIn(!isSignIn);
     }
 
     const handleSignUpClick = () => {
-        setShowModal(true);
+        if (password !== confirmPassword) {
+            alert("Passwords do not match!");
+            return;
+        }
+
+        const xhr = new XMLHttpRequest();
+        xhr.open('POST', 'http://localhost:3001/users', true);
+        xhr.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
+        xhr.onload = function () {
+            if (this.status === 201) {
+                setShowModal(true);
+            } else {
+                alert("회원가입 실패");
+            }
+        };
+        xhr.send(JSON.stringify({
+            email,
+            nickname: username,
+            password
+        }));
+    }
+
+    const handleLoginClick = () => {
+        const xhr = new XMLHttpRequest();
+        xhr.open('GET', `http://localhost:3001/users?email=${email}&password=${password}`, true);
+        xhr.onload = function () {
+            const users = JSON.parse(this.responseText);
+            if (users.length > 0) {
+                alert("로그인 성공");
+                window.location.href = '/Main';
+            } else {
+                alert("존재하지 않는 계정입니다!");
+            }
+        };
+        xhr.send();
     }
 
     return (
@@ -25,19 +59,19 @@ function LoginComponent() {
                         <div className={`${styles.form} ${styles['sign-up']}`}>
                             <div className={styles['input-group']}>
                                 <i className='bx bxs-user'></i>
-                                <input type="text" placeholder="Username" />
+                                <input type="text" placeholder="Username" value={username} onChange={e => setUsername(e.target.value)} />
                             </div>
                             <div className={styles['input-group']}>
                                 <i className='bx bx-mail-send'></i>
-                                <input type="email" placeholder="Email" />
+                                <input type="email" placeholder="Email" value={email} onChange={e => setEmail(e.target.value)} />
                             </div>
                             <div className={styles['input-group']}>
                                 <i className='bx bxs-lock-alt'></i>
-                                <input type="password" placeholder="Password" />
+                                <input type="password" placeholder="Password" value={password} onChange={e => setPassword(e.target.value)} />
                             </div>
                             <div className={styles['input-group']}>
                                 <i className='bx bxs-lock-alt'></i>
-                                <input type="password" placeholder="Confirm password" />
+                                <input type="password" placeholder="Confirm password" value={confirmPassword} onChange={e => setConfirmPassword(e.target.value)} />
                             </div>
                             <button onClick={handleSignUpClick} className={styles.pointer}>
                                 회원가입
@@ -70,13 +104,13 @@ function LoginComponent() {
                         <div className={`${styles.form} ${styles['sign-in']}`}>
                             <div className={styles['input-group']}>
                                 <i className='bx bxs-user'></i>
-                                <input type="email" placeholder="Email" />
+                                <input type="email" placeholder="Email" value={email} onChange={e => setEmail(e.target.value)} />
                             </div>
                             <div className={styles['input-group']}>
                                 <i className='bx bxs-lock-alt'></i>
-                                <input type="password" placeholder="Password" />
+                                <input type="password" placeholder="Password" value={password} onChange={e => setPassword(e.target.value)} />
                             </div>
-                            <button type="button" onClick={() => window.location.href = '/Main'} className={styles.pointer}>
+                            <button type="button" onClick={handleLoginClick} className={styles.pointer}>
                                 로그인
                             </button>
                             <p>
