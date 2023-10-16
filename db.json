@@ -363,11 +363,10 @@
   "users": [
     {
       "id": 1,
-      "email": "user1@example.com",
+      "email": "1",
       "nickname": "UserOne",
-      "password": "hashed_password1",
+      "password": "1",
       "score": 50,
-      "rank": "3",
       "is_deleted": false
     },
     {
@@ -375,77 +374,96 @@
       "email": "user2@example.com",
       "nickname": "UserTwo",
       "password": "hashed_password2",
-      "score": 150,
-      "rank": "2",
+      "score": 200,
       "is_deleted": false
     },
     {
       "id": 3,
       "email": "user3@example.com",
-      "nickname": "UserThree",
+      "nickname": "Admin",
       "password": "hashed_password3",
       "score": 250,
-      "rank": "1",
       "is_deleted": false
     },
     {
+      "id": 4,
       "email": "asd123@gmail.com",
       "nickname": "성창민",
       "password": "123",
-      "id": 4
+      "score": 220,
+      "is_deleted": false
     },
     {
-      "email": "1",
-      "nickname": "1",
-      "password": "1",
-      "id": 5
+      "id": 4,
+      "email": "asd123@gmail.com",
+      "nickname": "이동건",
+      "password": "123",
+      "score": 210,
+      "is_deleted": false
+    },
+    {
+      "id": 5,
+      "email": "asd123@gmail.com",
+      "nickname": "UserFour",
+      "password": "123",
+      "score": 190,
+      "is_deleted": false
     },
     {
       "id": 6,
-      "nickname": "",
-      "email": "",
-      "rank": "",
-      "score": ""
+      "email": "asd123@gmail.com",
+      "nickname": "UserFive",
+      "password": "123",
+      "score": 180,
+      "is_deleted": false
     },
     {
       "id": 7,
-      "nickname": "",
-      "email": "",
-      "rank": "",
-      "score": ""
+      "email": "asd123@gmail.com",
+      "nickname": "UserSix",
+      "password": "123",
+      "score": 175,
+      "is_deleted": false
     },
     {
       "id": 8,
-      "nickname": "",
-      "email": "",
-      "rank": "",
-      "score": ""
+      "email": "asd123@gmail.com",
+      "nickname": "UserSeven",
+      "password": "123",
+      "score": 170,
+      "is_deleted": false
     },
     {
       "id": 9,
-      "nickname": "",
-      "email": "",
-      "rank": "",
-      "score": ""
+      "email": "asd123@gmail.com",
+      "nickname": "UserEight",
+      "password": "123",
+      "score": 160,
+      "is_deleted": false
     },
     {
       "id": 10,
-      "nickname": "",
-      "email": "",
-      "rank": "",
-      "score": ""
+      "email": "asd123@gmail.com",
+      "nickname": "UserNine",
+      "password": "123",
+      "score": 150,
+      "is_deleted": false
     },
     {
       "id": 11,
-      "nickname": "",
-      "email": "",
-      "score": ""
+      "email": "asd123@gmail.com",
+      "nickname": "UserTen",
+      "password": "123",
+      "score": 120,
+      "is_deleted": false
     },
     {
       "id": 12,
-      "nickname": "",
-      "email": "",
-      "score": ""
+      "email": "asd123@gmail.com",
+      "nickname": "UserEleven",
+      "password": "123",
+      "score": 90,
+      "is_deleted": false
     },
     {
       "id": 13,

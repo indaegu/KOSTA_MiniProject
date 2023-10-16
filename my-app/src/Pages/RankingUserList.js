@@ -1,54 +1,119 @@
 // RankingList.js : 페이지
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import '../App.css';
 import '../Ranking.css';
 import Header from "../Component/Header";
 import Footer from "../Component/Footer";
 //import Chatbot from "../Component/ChatBot";
 
-const rankings = [
-    { nickname: 'UserF', rank: 2, score: 247 },
-    { nickname: 'UserG', rank: 2, score: 245 },
-    { nickname: 'UserJ', rank: 2, score: 222 },
-    { nickname: 'UserH', rank: 2, score: 237 },
-    { nickname: 'UserE', rank: 2, score: 249 },
-    { nickname: 'UserC', rank: 3, score: 320 },
-    { nickname: 'UserB', rank: 3, score: 430 },
-    { nickname: 'UserD', rank: 3, score: 299 },
-    { nickname: 'UserI', rank: 2, score: 233 },
-    { nickname: 'UserA', rank: 3, score: 500 },
-].sort((a, b) => b.score - a.score); // Sort by score in descending order
+function RankingUserList() {
+    let [users, setUsers] = useState([]);
 
-const myRankings = [
-    { nickname: 'UserJ', rank: 2, score: 222 },
-    { nickname: '창민', rank: 2, score: 213 },
-    { nickname: '동건', rank: 2, score: 180 },
-].sort((a, b) => b.score - a.score); // Sort by score in descending order
+    useEffect(() => {
+        fetch("http://localhost:3001/users")
+            .then(res => {
+                return res.json();
+            })
+            .then(data => {
+                if (Array.isArray(data)) { // data가 배열인지 확인
+                    // score 기준으로 내림차순 정렬
+                    const sortedData = data.sort((a, b) => b.score - a.score);
+                    // 각 유저에게 랭킹 정보와 rank 추가
+                    const rankedData = sortedData.map((user, index) => {
+                        let rank;
+                        if (user.score >= 200) {
+                            rank = 3;
+                        } else if (user.score >= 150) {
+                            rank = 2;
+                        } else if (user.score >= 100) {
+                            rank = 1;
+                        } else {
+                            rank = 0;
+                        }
+
+                        return { ...user, ranking: index + 1, rank };
+                    });
+                    setUsers(rankedData);
+                } else {
+                    console.error('Received data is not an array');
+                }
+            })
+            .catch(error => console.error('Error:', error));
+    }, []);
+
+    const myId = 1; // 본인의 ID를 설정합니다.
+    let [myRankings, setMyRankings] = useState([]);
+
+    useEffect(() => {
+        fetch("http://localhost:3001/users")
+            .then(res => {
+                return res.json();
+            })
+            .then(data => {
+                if (Array.isArray(data)) {
+                    const sortedData = data.sort((a, b) => b.score - a.score);
+                    const rankedData = sortedData.map((user, index) => {
+                        let rank;
+                        if (user.score >= 200) {
+                            rank = 3;
+                        } else if (user.score >= 150) {
+                            rank = 2;
+                        } else if (user.score >= 100) {
+                            rank = 1;
+                        } else {
+                            rank = 0;
+                        }
+
+                        return { ...user, ranking: index + 1, rank };
+                    });
+
+                    // 내 랭킹을 찾아서 그 주변의 랭킹만 가져옵니다.
+                    const myIndex = rankedData.findIndex(user => user.id === myId);
+                    let startIdx, endIdx;
+
+                    if (myIndex === 0) { // 첫 번째 순위인 경우
+                        startIdx = myIndex;
+                        endIdx = Math.min(rankedData.length - 1, myIndex + 1);
+                    } else if (myIndex === rankedData.length - 1) { // 마지막 순위인 경우
+                        startIdx = Math.max(0, myIndex - 1);
+                        endIdx = myIndex;
+                    } else { // 그 외의 경우
+                        startIdx = Math.max(0, myIndex - 1);
+                        endIdx = Math.min(rankedData.length - 1, myIndex + 1);
+                    }
+
+                    setMyRankings(rankedData.slice(startIdx, endIdx + 1));
+
+                } else {
+                    console.error('Received data is not an array');
+                }
+            })
+            .catch(error => console.error('Error:', error));
+    }, []);
 
 
-const Card = ({ ranking, nickname, rank, score, image }) => {
-    return (
-        <div className="ranking-card">
-            <img className="ranking-card-image" src={image} alt={`Rank ${ranking}`} />
-            <div className={`ranking-card-content rank-${ranking}`}>
-                <span className="ranking-card-ranking">{`${ranking}위`}</span>
-                <span className="ranking-card-nickname">{"닉네임:" + nickname}</span>
-                <span className="ranking-card-rank">{`랭크:${rank}단계`}</span>
-                <span className="ranking-card-score">{`점수:${score}점`}</span>
+    const Card = ({ ranking, nickname, rank, score, image }) => {
+        return (
+            <div className="ranking-card">
+                <img className="ranking-card-image" src={image} alt={`Rank ${ranking}`} />
+                <div className={`ranking-card-content rank-${ranking}`}>
+                    <span className="ranking-card-ranking">{`${ranking}위`}</span>
+                    <span className="ranking-card-nickname">{"닉네임:" + nickname}</span>
+                    <span className="ranking-card-rank">{`랭크:${rank}단계`}</span>
+                    <span className="ranking-card-score">{`점수:${score}점`}</span>
+                </div>
             </div>
-        </div>
-    );
-};
+        );
+    };
 
-const RankingUserList = () => {
     const topThreeImages = [
         "gold.png",
         "silver.png",
         "bronze.png"
     ];
 
-    const topThree = rankings.slice(0, 3);
-    const rest = rankings.slice(3);
+    const topThree = users.slice(0, 3);
+    const rest = users.slice(3);
     const myRest = myRankings.slice(0);
 
     return (
@@ -111,20 +176,17 @@ const RankingUserList = () => {
                             <tbody>
                                 {/* Display only up to the rank of #10 for dummy data*/}
                                 {myRest.map((ranking, index) =>
-                                    // Start counting from #11 because this is a continuation of the previous ranking
                                     index <= 2 &&
                                         index === 1 ?
                                         (<tr key={index} style={{ fontWeight: 'bold' }}>
-                                            {/* So it's (index+11) */}
-                                            <td>{index + 10 + "위"}</td>
+                                            <td>{ranking.ranking + "위"}</td>
                                             <td>{ranking.nickname}</td>
                                             <td>{ranking.rank + "단계"}</td>
                                             <td>{ranking.score + "점수"}</td>
                                         </tr>)
                                         :
                                         (<tr key={index}>
-                                            {/* So it's (index+11) */}
-                                            <td>{index + 10 + "위"}</td>
+                                            <td>{ranking.ranking + "위"}</td>
                                             <td>{ranking.nickname}</td>
                                             <td>{ranking.rank + "단계"}</td>
                                             <td>{ranking.score + "점수"}</td>
