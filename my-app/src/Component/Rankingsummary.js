@@ -6,7 +6,7 @@ function RankingSummary() {
         { rank: 2, level: "3단계", nickname: "UserB", totalScore: 430 },
         { rank: 3, level: "3단계", nickname: "UserC", totalScore: 320 },
         { rank: 4, level: "2단계", nickname: "UserD", totalScore: 299},
-        { rank: 5, level: "1단계", nickname: "UserE", totalScore: 149 },
+        { rank: 5, level: "2단계", nickname: "UserE", totalScore: 249 },
     ]);
 
     useEffect(() => {
@@ -67,7 +67,7 @@ function WrongQuestions() {
             <table>
                 <thead>
                     <tr>
-                        <th>문제번호</th>
+                        <th>순위</th>
                         <th>문제카테고리</th>
                         <th>문제제목</th>
                         <th>오답률</th>

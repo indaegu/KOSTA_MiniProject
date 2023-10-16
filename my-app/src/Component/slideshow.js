@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import '../App.css';
 
 function Slideshow() {
+  const [isAnimating, setIsAnimating] = useState(true);  // 애니메이션 상태 추가
   const [current, setCurrent] = useState(0);
   const slides = [
     "banner2.jpg",
@@ -22,13 +23,26 @@ function Slideshow() {
   };
 
   const nextSlide = () => {
-    setCurrent(current === slides.length - 1 ? 0 : current + 1);
+    if (current === slides.length - 1) {  // 마지막 슬라이드일 경우
+      setIsAnimating(false);  // 애니메이션 잠시 끄기
+      setCurrent(0);  // 첫 번째 슬라이드로 즉시 변경
+
+      setTimeout(() => {  // 약간의 딜레이 후 애니메이션 다시 켜기
+        setIsAnimating(true);
+      }, 50);
+    } else {
+      setCurrent(current + 1);
+    }
   };
 
 
   return (
     <div className="slideShow">
-      <div className="slides" style={{ transform: `translateX(-${current * 33.3333}%)` }}>
+      {/* 조건부 스타일링 적용 */}
+      <div className="slides" style={{
+        transform: `translateX(-${current * 33.3333}%)`,
+        transition: isAnimating ? 'transform 0.5s ease-in-out' : 'none'
+      }}>
         {slides.map((slide, index) => (
           <img key={index} src={slide} alt={`Slide ${index}`} />
         ))}

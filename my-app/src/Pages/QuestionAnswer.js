@@ -3,7 +3,7 @@ import '../App.css';
 import Header from "../Component/Header";
 import Footer from "../Component/Footer";
 import Chatbot from '../Component/ChatBot';
-
+import Modal2 from '../Component/Modal2';
 
 const QuestionAnswer = () => {
     const [comment, setComment] = useState("");
@@ -81,7 +81,7 @@ const QuestionAnswer = () => {
                     <br />
                     {explanation.description.map(desc => <span key={desc}>{desc}<br /></span>)}
                 </p>
-                <button className="edit-request-btn">수정 요청</button>
+                <Modal2 />
                 <button onClick={handleCopyExplanation}>문제해설복사하기</button>
             </div>
             <div className="comment-section">
@@ -98,7 +98,7 @@ const QuestionAnswer = () => {
                         <div className="comment-author">{comment.author}</div>
                         <div className="comment-content">{comment.content}</div>
                         <div className="comment-date">{comment.date}</div>
-                        <button className="reply-btn">답글쓰기</button>
+                        {/* <button className="reply-btn">답글쓰기</button> */}
                     </div>
                 ))}
             </div>
@@ -106,6 +106,7 @@ const QuestionAnswer = () => {
             <Footer />
         </div>
     );
+
 }
 
 export default QuestionAnswer;
