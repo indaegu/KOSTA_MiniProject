@@ -17,21 +17,20 @@ const rankings = [
     { category: '언어-JavaScript', title: '프로토타입 구현하기', rate: 50 },
     { category: '정보처리기사', title: '20년 1회 19번', rate: 90 },
     { category: 'SQLD', title: '데이터 모델링', rate: 45 },
-    { category: '정보처리기사', title: '21년 2회 13번', rate: 40 },
 ].sort((a, b) => b.rate - a.rate); // Sort by score in descending order
 
 
 const Card = ({ ranking, category, title, rate, image }) => {
     return (
-      <div className="ranking-card">
-        <img className="ranking-card-image" src={image} alt={`Rank ${ranking}`} />
-        <div className={`ranking-card-content rank-${ranking}`}>
-          <span className="ranking-card-ranking">{`${ranking}위`}</span>
-          <span className="ranking-card-category">{"문제카테고리:"+category}</span>
-          <span className="ranking-card-title">{"문제제목:"+title}</span>
-          <span className="ranking-card-rate">{`오답률:${rate}%`}</span>
+        <div className="ranking-card">
+            <img className="ranking-card-image" src={image} alt={`Rank ${ranking}`} />
+            <div className={`ranking-card-content rank-${ranking}`}>
+                <span className="ranking-card-ranking">{`${ranking}위`}</span>
+                <span className="ranking-card-category">{"문제카테고리:" + category}</span>
+                <span className="ranking-card-title">{"문제제목:" + title}</span>
+                <span className="ranking-card-rate">{`오답률:${rate}%`}</span>
+            </div>
         </div>
-      </div>
     );
 };
 
@@ -56,7 +55,7 @@ const RankingQuestionList = () => {
                                 <Card key={ranking.title}
                                     image={topThreeImages[index]}
                                     title={ranking.title}
-                                    ranking={`${index +1}`}
+                                    ranking={`${index + 1}`}
                                     category={ranking.category}
                                     rate={ranking.rate}
                                 />
@@ -72,22 +71,23 @@ const RankingQuestionList = () => {
                                 <th>오답률</th>
                             </tr>
                         </thead>
-
-                        {/* Display only up to the rank of #10 */}
-                        {rest.slice(0, 7).map((ranking, index) => (
-                            // Start counting from #4
-                            // because the top three are displayed separately
-                            index <= 6 &&
-                            <tr key={index}>
-                                {/* The actual ranking is (index + current length of topThree + 1) */}
-                                {/* Here it's (index + 3 + 1), which starts from #4 */}
-                                {/* So it's (index+4) */}
-                                <td>{index + 4+"위"}</td>
-                                <td>{ranking.category}</td>
-                                <td>{ranking.title}</td>
-                                <td>{ranking.rate+"%"}</td>
-                            </tr>
-                        ))}
+                        <tbody>
+                            {/* Display only up to the rank of #10 */}
+                            {rest.slice(0, 7).map((ranking, index) => (
+                                // Start counting from #4
+                                // because the top three are displayed separately
+                                index <= 6 &&
+                                <tr key={index}>
+                                    {/* The actual ranking is (index + current length of topThree + 1) */}
+                                    {/* Here it's (index + 3 + 1), which starts from #4 */}
+                                    {/* So it's (index+4) */}
+                                    <td>{index + 4 + "위"}</td>
+                                    <td>{ranking.category}</td>
+                                    <td>{ranking.title}</td>
+                                    <td>{ranking.rate + "%"}</td>
+                                </tr>
+                            ))}
+                        </tbody>
                     </table>
                 </div>
             </div>

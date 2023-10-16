@@ -19,7 +19,7 @@ const MyPageInfoEditComplete = () => {
             <Header />
             <div className="content complete-content">
                 정보 수정이 완료되었습니다.
-                <button id="button-tag" onClick={handleButtonClick}>정보 수정으로</button>
+                <button id="button-tag" className="complete-btn" onClick={handleButtonClick}>정보 수정으로</button>
             </div>
             <Footer />
         </div>

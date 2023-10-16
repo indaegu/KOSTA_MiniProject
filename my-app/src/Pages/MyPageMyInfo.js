@@ -10,11 +10,11 @@ const MyPageMyInfo = () => {
     const dummyData = [
         {
           id: 1,
-          nickname: "뤼튼",
+          nickname: "창민",
           email: "example@example.com",
-          ranking: 48,
-          rank: 3,
-          score: 100,
+          ranking: 11,
+          rank: 2,
+          score: 213,
         },
     ];
 
@@ -55,7 +55,7 @@ const MyPageMyInfo = () => {
                         </div>
                         <br/>
                         {/* 카드형 UI로 순위와 점수와 닉네임 조회 */}
-                        <Card nickname={user.nickname+"님의"} ranking={"순위는 "+user.ranking+"위이며 "} rank={"랭크는 "+user.rank+"입니다."} score={"점수:"+user.score+"점"} />
+                        <Card nickname={user.nickname+"님의 "} ranking={"순위는 "+user.ranking+"위이며 "} rank={"랭크는 "+user.rank+"입니다."} score={"점수: "+user.score+"점"} />
                     </div>
                 ))}
             </div>

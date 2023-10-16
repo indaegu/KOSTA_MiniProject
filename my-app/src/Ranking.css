@@ -1,124 +1,217 @@
 /* RankingTable.css */
 .ranking-table {
-    width: 100%;
-    border-collapse: collapse;
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+  margin-bottom: 30px;
 }
 
 .ranking-table th,
 .ranking-table td {
-    border: 1px solid #ddd;
-    padding: 8px;
+  border: 1px solid #ddd;
+  padding: 8px;
 }
 
 .ranking-table tr:nth-child(even) {
-    background-color: #f2f2f2;
+  background-color: #f2f2f2;
 }
 
-.ranking-table th {
-    padding-top: 12px;
-    padding-bottom: 12px;
+/* 애니메이션 효과 추가 */
+@keyframes slideDown {
+  0%,
+  20%,
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  10% {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+}
+
+.ranking-table tbody tr {
+  animation: slideDown 7s infinite;
+  /* 각 행의 애니메이션 총 지속 시간 */
+}
+
+.ranking-table tbody tr:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.ranking-table tbody tr:nth-child(2) {
+  animation-delay: 1s;
+}
+
+.ranking-table tbody tr:nth-child(3) {
+  animation-delay: 2s;
+}
+
+.ranking-table tbody tr:nth-child(4) {
+  animation-delay: 3s;
+}
+
+.ranking-table tbody tr:nth-child(5) {
+  animation-delay: 4s;
+}
+
+.ranking-table tbody tr:nth-child(6) {
+  animation-delay: 5s;
+}
+
+.ranking-table tbody tr:nth-child(7) {
+  animation-delay: 6s;
+}
+
+.my-ranking-table th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
+
+.my-ranking-table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+  margin-bottom: 30px;
+}
+
+.my-ranking-table th,
+.my-ranking-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+.my-ranking-table tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.my-ranking-table th {
+  padding-top: 12px;
+  padding-bottom: 12px;
 }
 
 .top-rankings {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
 }
 
 .top-ranking {
-    margin-right: 20px;
+  margin-right: 20px;
 }
 
 .rank-1 {
-    order: 2;
-    color:#FFD700; /* gold */
+  order: 2;
+  color: #FFD700;
+  /* gold */
 }
 
 .rank-2 {
-    order: 1;
-    color: silver;
+  order: 1;
+  color: silver;
 }
 
 .rank-3 {
-    order: 3;
-    color: #cd7f32;
-    /* bronze */
+  order: 3;
+  color: #cd7f32;
+  /* bronze */
 }
 
 .ranking-card {
-    border: 1px solid #ccc;
-    border-radius: 4px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.ranking-card-image {
+  width: 25%;
+  /* Adjust as needed */
+  height: auto;
+  /* Keeps aspect ratio */
+}
+
+@media (min-width:576px) {
+
+  /* Small devices (landscape phones, less than or equal to576px) */
+  .ranking-card {
     width: 100%;
     height: auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
   }
+}
 
-  .ranking-card-image {
-    width: 25%; /* Adjust as needed */
-    height: auto; /* Keeps aspect ratio */
-  }
-  
-  @media (min-width:576px) { /* Small devices (landscape phones, less than or equal to576px) */
-    .ranking-card {
-      width:100%;
-      height:auto; 
-    }
-  }
-  
-  @media (min-width:768px) { /* Medium devices (tablets, less than or equal to768px) */
-    .ranking-card {
-      width:100%;
-      height:auto; 
-    }
-  }
-    
-  @media (min-width:992px) { /* Large devices (desktops, less than or equal to992px)*/
-    .ranking-card {
-      width:100%;
-      height:auto; 
-    }
-  }
-    
-  @media (min-width :1200px){ /* Extra large devices(large desktops, greater than1200 px)*/
-    .ranking-card{
-      width :100%; 
-      height :150 px ; 
-    }   
-  }
-    
-  .ranking-card-content {
-    padding: 8px;
-    margin: 10px;
-    font-weight:bold;
-    text-align:center;
-  }
-  
-  .ranking-card-ranking {
-    display:block; 
-  }
+@media (min-width:768px) {
 
-  .ranking-card-nickname {
-    display:block; 
+  /* Medium devices (tablets, less than or equal to768px) */
+  .ranking-card {
+    width: 100%;
+    height: auto;
   }
-    
-  .ranking-card-rank {
-    display:block; 
-  }
-  
-  .ranking-card-score {
-    display:block; 
-  }
+}
 
-  .ranking-card-category {
-    display:block; 
+@media (min-width:992px) {
+
+  /* Large devices (desktops, less than or equal to992px)*/
+  .ranking-card {
+    width: 100%;
+    height: auto;
   }
-    
-  .ranking-card-title {
-    display:block; 
+}
+
+@media (min-width :1200px) {
+
+  /* Extra large devices(large desktops, greater than1200 px)*/
+  .ranking-card {
+    width: 100%;
+    height: 150 px;
   }
-  
-  .ranking-card-rate {
-    display:block; 
-  }
+}
+
+.ranking-card-content {
+  padding: 8px;
+  margin: 10px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.ranking-card-ranking {
+  display: block;
+}
+
+.ranking-card-nickname {
+  display: block;
+}
+
+.ranking-card-rank {
+  display: block;
+}
+
+.ranking-card-score {
+  display: block;
+}
+
+.ranking-card-category {
+  display: block;
+}
+
+.ranking-card-title {
+  display: block;
+}
+
+.ranking-card-rate {
+  display: block;
+}
+
+.ranking-div {
+  border: 1px solid #cfbfbfc7;
+}
+
+.ranking-p-tag {
+  text-align: center;
+  font-weight: bold;
+  margin-top: 10px;
+}

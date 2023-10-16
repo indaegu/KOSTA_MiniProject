@@ -72,8 +72,8 @@ const Header = () => {
                 <div className="category-item">
                     랭킹 ▼
                     <div className="category-dropdown">
-                        <a href="/RankingUserList">유저</a> <br />
-                        <a href="/RankingQuestionList">문제</a>
+                        <a href="/RankingUserList">유저 랭킹</a> <br />
+                        <a href="/RankingQuestionList">문제 랭킹</a>
                     </div>
                 </div>
             </nav>

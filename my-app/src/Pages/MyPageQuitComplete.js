@@ -20,7 +20,7 @@ const MyPageQuitComplete = () => {
             <div className="content complete-content">
                 회원 탈퇴가 완료되었습니다.
                 <span className="complete-span-tag">보다 나은 코글로 다시 만나뵐 수 있기를 바랍니다.</span>
-                <button id="quit-button" onClick={handleButtonClick}>로그인으로</button>
+                <button id="quit-button" className="complete-btn" onClick={handleButtonClick}>로그인으로</button>
             </div>
             <Footer />
         </div>
