@@ -19,11 +19,7 @@ const QuestionDetailComponent = ({ setId }) => {
     const [isModalOpen, setIsModalOpen] = useState(false); // 모달의 상태
     const [modalQuestionId, setModalQuestionId] = useState(null); // 모달에 표시될 문제의 ID
     const [questions, setQuestions] = useState([]); // 초기 값을 빈 배열로 설정
-    const [problemSet, setProblemSet] = useState(null); // 문제 세트 정보를 저장할 상태 변수 추가
-
-
-
-
+    const [problemSet, setProblemSet] = useState(null); // 문제 세트 정보를 저장할 상태 변수 추
 
     const prevScoreRef = useRef();  // 이전 점수를 추적하기 위한 ref
     const [scoreClass, setScoreClass] = useState('');  // 점수 증감에 따른 클래스 상태
@@ -142,14 +138,14 @@ const QuestionDetailComponent = ({ setId }) => {
             setModalQuestionId(questionId);
         } else {
             // 이미 채점된 경우, 직접 해설 페이지로 이동합니다.
-            window.location.href = `/QuestionAnswer`;
+            window.location.href = `/QuestionAnswer/${questionId}`;
         }
     };
 
     const handleModalConfirm = (questionScore) => {
         setIsModalOpen(false);
-        setScore(score - questionScore);
-        window.location.href = `/QuestionAnswer`;
+        setScore(score - questionScore); // 점수 차감
+        window.location.href = `/QuestionAnswer/${modalQuestionId}`; // 이동
     };
 
     const handleModalCancel = () => {
@@ -159,13 +155,11 @@ const QuestionDetailComponent = ({ setId }) => {
     return (
         <div className="question-detail-container">
             {isModalOpen && (
-                <>
-                    <Modal
-                        message="채점하기전 해설 및 토론버튼을 누르면 점수가 차감됩니다!"
-                        onConfirm={() => handleModalConfirm(questions.find(q => q.id === modalQuestionId).score)}
-                        onCancel={handleModalCancel}
-                    />
-                </>
+                <Modal
+                    message="채점하기전 해설 및 토론버튼을 누르면 점수가 차감됩니다!"
+                    onConfirm={() => handleModalConfirm(questions.find(q => q.id === modalQuestionId).score)}
+                    onCancel={handleModalCancel}
+                />
             )}
             <h1>{problemSet?.title || "제목 없음"}</h1>
             <div className={`score-board ${scoreClass}`} data-text={`Score: ${score}`}></div>
@@ -192,11 +186,10 @@ const QuestionDetailComponent = ({ setId }) => {
                         >
                             {feedbackMessages[question.id]}
                         </div>
-                        <Link to={`/QuestionAnswer/${question.id}`}  onClick={(e) => { e.preventDefault(); handleDiscussionClick(question.id, question.score); }}>
-                            <button style={{ marginRight: '10px' }}>
-                                해설 및 토론
-                            </button>
-                        </Link>
+                        <button onClick={() => handleDiscussionClick(question.id, question.score)}>
+                            해설 및 토론
+                        </button>
+
                         <button onClick={() => handleFavorite(question.id)}>즐겨찾기</button>
                         <div
                             className={`feedback-message ${favoriteFeedback[question.id] ? 'visible hide-after-2s' : ''}`}

@@ -61,7 +61,6 @@
 
 /* 로고 영역 스타일링 */
 .logo {
-  flex-grow: 1;                   /* 남은 공간을 로고 영역이 차지하게 설정 */
   display: flex;                  /* 로고 이미지를 중앙에 정렬하기 위해 flex 사용 */
   align-items: center;            /* 로고 이미지를 세로 방향 중앙에 정렬 */
 }
@@ -130,6 +129,7 @@
   position: relative;
   max-width: 800px;
   width: 100%;
+  margin: auto;  /* 중앙 정렬을 위한 추가된 스타일 */
 }
 
 .search-bar {
@@ -171,24 +171,69 @@
 
 /* 반응형 디자인: 화면 너비가 768px 이하일 때의 스타일링 */
 @media (max-width: 768px) {
+  .logo {
+    flex-grow: 0;                /* flex-grow를 0으로 설정하여 로고가 상위 컨테이너의 너비를 차지하지 않게 합니다. */
+    justify-content: center;     /* 로고 이미지를 가로 방향으로 중앙에 정렬합니다. */
+    width: 100%;                 /* 로고 영역의 너비를 상위 컨테이너의 전체 너비로 설정합니다. */
+  }
   .top-section {
     flex-direction: column;       /* 상단 섹션의 주 축을 세로로 변경 */
     gap: 10px;                    /* 내부 아이템들 사이의 간격 설정 */
+    align-items: center;
   }
 
   .user-info {
     width: 100%;                  /* 사용자 정보 영역의 너비를 부모 요소의 전체 너비로 설정 */
-    justify-content: space-between; /* 내부 아이템들 사이에 균일한 간격을 둠 */
+    justify-content: center;      /* 내부 아이템들을 중앙에 정렬 */
+    margin-top: 10px;             /* 상단 여백 추가 */
   }
+
   .logo img {
     max-width: 70%;               /* 로고 이미지의 최대 너비를 조절 */
+    height: auto;
+  }
+
+  .search-container {
+    width: 90%;                   /* 검색바의 너비 조정 */
+    margin-top: 15px;             /* 상단 여백 추가 */
   }
 
   .search-bar {
-    padding: 10px 10px;           /* 검색바 내부 여백 조절 */
+    font-size: 18px;              /* 텍스트 크기 조절 */
+    padding-right: 40px;          /* 오른쪽 패딩 값 조절 */
+  }
+
+  .search-icon {
+    width: 30px;                  /* 아이콘 크기 조절 */
+    height: 30px;
+  }
+
+  .search-button {
+    right: 10px;                  /* 오른쪽 패딩 값 조절 */
+  }
+
+  .categories {
+    flex-wrap: wrap;              /* 메뉴 항목이 넘치면 다음 줄로 이동 */
+    gap: 5px;                     /* 메뉴 항목 간의 간격 조정 */
+  }
+
+  .category-item {
+    flex: 1 1 auto;               /* 메뉴 항목의 크기와 유연성 조정 */
+    text-align: center;           /* 텍스트 중앙 정렬 */
+  }
+
+  .category-dropdown {
+    left: 0;                      /* 드롭다운 메뉴의 위치 조정 */
+    transform: none;              /* 위치 변환 제거 */
+  }
+  .logo a {
+    display: flex;                /* a 태그를 flex 컨테이너로 설정 */
+    justify-content: center;     /* 가로 방향 중앙 정렬 */
+    align-items: center;         /* 세로 방향 중앙 정렬 */
+    width: 100%;                 /* a 태그의 너비를 최대로 설정 */
+    height: 100%;                /* a 태그의 높이를 최대로 설정 */
   }
 }
-
 
 
 
@@ -216,6 +261,20 @@
   border-radius: 20px;         /* 모서리 둥글게 */
   font-size: 16px;             /* 글자 크기 */
   z-index: 3;                  /* 다른 요소 위에 표시 */
+}
+@media (max-width: 768px) {
+  .slideCounter {
+    position: absolute;          /* 절대 위치 설정 */
+    top: 5px;                /* 슬라이드 하단에서 10px 위에 위치 */
+    left: 10%;                   /* 슬라이드 중앙에 위치 */
+    transform: translateX(-50%); /* 정확한 중앙 정렬을 위해 */
+    background-color: rgba(0, 0, 0, 0.6); /* 반투명한 배경색 */
+    color: white;                /* 글자색은 흰색 */
+    padding: 5px 10px;           /* 내부 패딩 */
+    border-radius: 20px;         /* 모서리 둥글게 */
+    font-size: 10px;             /* 글자 크기 */
+    z-index: 3;                  /* 다른 요소 위에 표시 */
+  }
 }
 
 /* 각각의 슬라이드 이미지 설정 */
@@ -259,7 +318,11 @@
 }
 
 
+.ranking-content {
+  display: flex;
+  padding: 20px;                  /* 컨텐츠 영역의 내부 패딩 설정 */
 
+}
 
 .content {
   display: flex;                  /* 컨텐츠 영역 내부의 아이템들을 한 행에 배치 */
@@ -335,6 +398,37 @@
   border-radius: 5px;
 }
 
+/* 반응형 디자인: 화면 너비가 768px 이하일 때의 스타일링 */
+@media (max-width: 768px) {
+  .ranking-content {
+    display: flex;
+    flex-direction: column;  /* 자식 요소들을 세로로 정렬 */
+  }
+
+  .ranking-summary, .wrong-questions {
+    width: 100%;             /* 각 섹션의 너비를 100%로 설정 */
+  }
+  .ranking-summary, .wrong-questions {
+    width: 100%;                  /* 섹션의 너비를 100%로 설정 */
+    padding: 15px;                /* 섹션의 패딩을 조절 */
+  }
+
+  .ranking-summary h2, .wrong-questions h2 {
+    font-size: 18px;              /* 제목의 글자 크기를 조절 */
+  }
+
+  .ranking-summary th, .wrong-questions th,
+  .ranking-summary td, .wrong-questions td {
+    padding: 5px;                 /* 테이블 셀의 패딩을 조절 */
+    font-size: 14px;              /* 테이블 셀의 글자 크기를 조절 */
+  }
+
+  .more-link {
+    font-size: 12px;              /* 링크의 글자 크기를 조절 */
+    padding: 4px 8px;             /* 링크의 패딩을 조절 */
+  }
+}
+
 
 
 
@@ -378,6 +472,31 @@
 }
 
 
+/* 반응형 디자인: 화면 너비가 768px 이하일 때의 스타일링 */
+@media (max-width: 768px) {
+  .footer {
+    flex-direction: column;       /* 푸터 내부의 아이템들을 세로로 배치 */
+    align-items: center;          /* 푸터 내부의 아이템들을 가로로 중앙에 정렬 */
+    padding: 20px;                /* 푸터의 내부 패딩을 조절 */
+  }
+
+  .footer-section {
+    flex-basis: auto;             /* 각 푸터 섹션의 기본 너비를 auto로 설정 */
+    margin-bottom: 20px;         /* 각 푸터 섹션의 하단 여백을 설정 */
+    text-align: center;          /* 텍스트를 중앙에 정렬 */
+  }
+
+  .footer-section h4 {
+    font-size: 18px;              /* 제목의 글자 크기를 조절 */
+  }
+
+  .footer-section p, .footer-section ul li a {
+    font-size: 14px;              /* 텍스트와 링크의 글자 크기를 조절 */
+  }
+}
+
+
+
 /* 기타 영역 */
 h2 {
   border-bottom: 2px solid #ddd;  /* h2 요소의 하단 테두리 설정 */
@@ -414,8 +533,6 @@ nav a {
 .icon {
   width: 50px;
   height: 50px;
-  background-color: rgba(0, 0, 0, 0.5);
-  border-radius: 50%; /* 원형으로 만들기 위한 설정 */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -435,6 +552,7 @@ nav a {
 
 /* 문제들의 컨테이너 스타일링 */
 .questions {
+  width: 100%;
   display: flex;
   gap: 10px;
   flex-wrap: wrap;
@@ -447,7 +565,7 @@ nav a {
 /* 문제 카드 스타일링 */
 .question {
   flex-basis: calc(16.66% - 10px);
-  padding: 10px;
+  padding: 7px;
   border: 1px solid #e0e0e0;
   border-radius: 5px;
   background-color: #f9f9f9;
@@ -455,12 +573,10 @@ nav a {
   cursor: pointer;
   transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
    /* 카드의 높이를 동일하게 설정 */
-   min-height: 80px;  /* 예시 값으로, 실제 웹사이트에 맞게 조절할 필요가 있습니다. */
-   max-height: 100px;  /* 예시 값으로, 실제 웹사이트에 맞게 조절할 필요가 있습니다. */
-   min-width: 200px;  /* 예시 값으로, 실제 웹사이트에 맞게 조절할 필요가 있습니다. */
-   max-width: 300px;  /* 예시 값으로, 실제 웹사이트에 맞게 조절할 필요가 있습니다. */
-
-
+   min-height: 100px;  /* 예시 값으로, 실제 웹사이트에 맞게 조절할 필요가 있습니다. */
+   max-height: 130px;  /* 예시 값으로, 실제 웹사이트에 맞게 조절할 필요가 있습니다. */
+   min-width: 150px;  /* 예시 값으로, 실제 웹사이트에 맞게 조절할 필요가 있습니다. */
+   max-width: 250px;  /* 예시 값으로, 실제 웹사이트에 맞게 조절할 필요가 있습니다. */
 }
 
 .question:hover {
@@ -471,6 +587,9 @@ nav a {
 .question-title {
   font-weight: bold;
   margin-bottom: 10px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 /* 문제의 설명 스타일링 */

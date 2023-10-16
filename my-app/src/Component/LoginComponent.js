@@ -43,6 +43,7 @@ function LoginComponent() {
             const users = JSON.parse(this.responseText);
             if (users.length > 0) {
                 alert("로그인 성공");
+                localStorage.setItem('userId', users[0].id);
                 window.location.href = '/Main';
             } else {
                 alert("존재하지 않는 계정입니다!");
