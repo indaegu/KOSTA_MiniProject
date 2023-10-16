@@ -19,11 +19,7 @@ const QuestionDetailComponent = ({ setId }) => {
     const [isModalOpen, setIsModalOpen] = useState(false); // 모달의 상태
     const [modalQuestionId, setModalQuestionId] = useState(null); // 모달에 표시될 문제의 ID
     const [questions, setQuestions] = useState([]); // 초기 값을 빈 배열로 설정
-    const [problemSet, setProblemSet] = useState(null); // 문제 세트 정보를 저장할 상태 변수 추가
-
-
-
-
+    const [problemSet, setProblemSet] = useState(null); // 문제 세트 정보를 저장할 상태 변수 추
 
     const prevScoreRef = useRef();  // 이전 점수를 추적하기 위한 ref
     const [scoreClass, setScoreClass] = useState('');  // 점수 증감에 따른 클래스 상태
@@ -192,7 +188,7 @@ const QuestionDetailComponent = ({ setId }) => {
                         >
                             {feedbackMessages[question.id]}
                         </div>
-                        <Link to={`/QuestionAnswer/${question.id}`} onClick={(e) => { e.preventDefault(); handleDiscussionClick(question.id, question.score); }}>
+                        <Link to={`/QuestionAnswer/${question.id}`}>
                             <button style={{ marginRight: '10px' }}>
                                 해설 및 토론
                             </button>

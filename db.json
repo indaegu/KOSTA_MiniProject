@@ -181,7 +181,7 @@
     {
       "id": 10,
       "content": "정보처리기사 관련 문제 내용 1",
-      "score":5,
+      "score": 5,
       "answer": "해당문제의 정답 1",
       "explanation": "해당 문제의 해설 1",
       "problem_set_id": 16,
@@ -238,7 +238,6 @@
       "wrong_count": 3,
       "attempt_count": 8
     },
-
     {
       "id": 64,
       "content": "SQL 문제 1 (SQL 문제세트 1)",
@@ -493,9 +492,44 @@
     {
       "id": 3,
       "user_id": 3,
-      "problem_id": 3,
+      "problem_id": 9,
       "content": "Javascript는 재미있어요!",
       "created_at": "2023-10-15T12:00:00Z"
+    },
+    {
+      "id": 4,
+      "user_id": 4,
+      "problem_id": 9,
+      "content": "Javascript는 재미없어요!",
+      "created_at": "2023-10-15T12:00:00Z"
+    },
+    {
+      "id": 5,
+      "user_id": 5,
+      "problem_id": 9,
+      "content": "Javascript는 재미있나요!",
+      "created_at": "2023-10-15T12:00:00Z"
+    },
+    {
+      "user_id": 1,
+      "problem_id": 9,
+      "content": "ㅁㄴㅇ",
+      "created_at": "2023-10-16T08:24:12.376Z",
+      "id": 6
+    },
+    {
+      "user_id": 1,
+      "problem_id": 9,
+      "content": "안녕!!!",
+      "created_at": "2023-10-16T08:24:21.051Z",
+      "id": 7
+    },
+    {
+      "user_id": 1,
+      "problem_id": 9,
+      "content": "댓글 테스트 중입니다!!",
+      "created_at": "2023-10-16T08:26:41.605Z",
+      "id": 8
     }
   ],
   "favorite_problems": [
