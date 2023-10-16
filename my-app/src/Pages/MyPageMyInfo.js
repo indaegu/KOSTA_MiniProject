@@ -8,7 +8,22 @@ import SideMenu from "../Component/SideMenu";
 
 function MyPageMyInfo() {
     const [users, setUsers] = useState([]);
-    console.log(users[0]);
+    const [loggedInUserId, setLoggedInUserId] = useState(localStorage.getItem('userId'));
+    useEffect(() => {
+        // Fetch all users
+        const xhrUsers = new XMLHttpRequest();
+        xhrUsers.open('GET', `http://localhost:3001/users`, true);
+        xhrUsers.onreadystatechange = () => {
+            if (xhrUsers.readyState === 4 && xhrUsers.status === 200) {
+                const allUsers = JSON.parse(xhrUsers.responseText);
+                setUsers(allUsers);
+            } else {
+                console.error('Failed to fetch users:', xhrUsers.statusText);
+            }
+        };
+        xhrUsers.send();
+    }, []);
+    
     useEffect(() => {
         fetch("http://localhost:3001/users")
             .then(res => {
@@ -64,21 +79,21 @@ function MyPageMyInfo() {
             <Header />
             <div className="content">
                 <SideMenu />
-                {users[0] && ( // users의 첫 번째 요소가 존재하는지 확인
-                    <div key={users[0].id} className="my-page-info">
+                {parseInt(loggedInUserId) && ( // users의 첫 번째 요소가 존재하는지 확인
+                    <div key={parseInt(loggedInUserId)} className="my-page-info">
                         <h3 id="h-tag">내 정보</h3>
                         {/* 닉네임, 이메일 조회 */}
                         <div>
                             <p id="p-tag" className="label">닉네임</p>
-                            <input id="input-tag" type="text" value={users[0].nickname} readOnly />
+                            <input id="input-tag" type="text" value={parseInt(loggedInUserId).nickname} readOnly />
                         </div>
                         <div>
                             <p id="p-tag" className="label">이메일</p>
-                            <input id="input-tag" type="email" value={users[0].email} readOnly />
+                            <input id="input-tag" type="email" value={parseInt(loggedInUserId).email} readOnly />
                         </div>
                         <br />
                         {/* 카드형 UI로 순위와 점수와 닉네임 조회 */}
-                        <Card nickname={users[0].nickname + "님의 "} ranking={"순위는 " + users[0].ranking + "위이며 "} rank={"랭크는 " + users[0].rank + "입니다."} score={"점수: " + users[0].score + "점"} />
+                        <Card nickname={parseInt(loggedInUserId).nickname + "님의 "} ranking={"순위는 " + parseInt(loggedInUserId).ranking + "위이며 "} rank={"랭크는 " + parseInt(loggedInUserId).rank + "입니다."} score={"점수: " + parseInt(loggedInUserId).score + "점"} />
                     </div>
                 )}
             </div>
