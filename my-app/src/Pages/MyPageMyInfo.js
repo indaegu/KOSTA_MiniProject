@@ -7,22 +7,41 @@ import SideMenu from "../Component/SideMenu";
 //import Chatbot from "../Component/ChatBot";
 
 function MyPageMyInfo() {
-    const [users, setUsers] = useState([]); 
+    const [users, setUsers] = useState([]);
+    const [loggedInUser, setLoggedInUser] = useState(null); // 추가
+    const loggedInUserId = localStorage.getItem('userId'); //추가
+
+
 
     useEffect(() => {
         fetch("http://localhost:3001/users")
-        .then(res => {
-            return res.json();
-          })
-          .then(data => {
-            if (Array.isArray(data)) { // data가 배열인지 확인
-                setUsers(data);
-            } else {
-                console.error('Received data is not an array');
-            }
-          })
-          .catch(error => console.error('Error:', error));
-      }, []);
+            .then(res => {
+                return res.json();
+            })
+            .then(data => {
+                if (Array.isArray(data)) { // data가 배열인지 확인
+                    setUsers(data);
+                } else {
+                    console.error('Received data is not an array');
+                }
+            })
+            .catch(error => console.error('Error:', error));
+    }, []);
+
+    useEffect(() => {
+        fetch("http://localhost:3001/users")
+            .then(res => res.json())
+            .then(data => {
+                if (Array.isArray(data)) {
+                    setUsers(data);
+                    const user = data.find(user => user.id === parseInt(loggedInUserId)); // 해당 id를 가진 유저 찾기
+                    setLoggedInUser(user); // 찾은 유저를 loggedInUser 상태에 저장
+                } else {
+                    console.error('Received data is not an array');
+                }
+            })
+            .catch(error => console.error('Error:', error));
+    }, [loggedInUserId]); // useEffect의 종속성 배열에 loggedInUserId 추가
 
     const Card = ({ /*ranking,*/ score, nickname, rank }) => {
         return (
@@ -47,22 +66,20 @@ function MyPageMyInfo() {
             <Header />
             <div className="content">
                 <SideMenu />
-                {users[0] && ( // users의 첫 번째 요소가 존재하는지 확인
-                <div key={users[0].id} className="my-page-info">
-                    <h3 id="h-tag">내 정보</h3>
-                    {/* 닉네임, 이메일 조회 */}
-                    <div>
-                        <p id="p-tag" className="label">닉네임</p>
-                        <input id="input-tag" type="text" value={users[0].nickname} readOnly />
+                {loggedInUser && (
+                    <div key={loggedInUser.id} className="my-page-info">
+                        <h3 id="h-tag">내 정보</h3>
+                        <div>
+                            <p id="p-tag" className="label">닉네임</p>
+                            <input id="input-tag" type="text" value={loggedInUser.nickname} readOnly />
+                        </div>
+                        <div>
+                            <p id="p-tag" className="label">이메일</p>
+                            <input id="input-tag" type="email" value={loggedInUser.email} readOnly />
+                        </div>
+                        <br />
+                        <Card nickname={loggedInUser.nickname + "님의 "} rank={"랭크는 " + loggedInUser.rank + "입니다."} score={"점수: " + loggedInUser.score + "점"} />
                     </div>
-                    <div>
-                        <p id="p-tag" className="label">이메일</p>
-                        <input id="input-tag" type="email" value={users[0].email} readOnly />
-                    </div>
-                    <br />
-                    {/* 카드형 UI로 순위와 점수와 닉네임 조회 */}
-                    <Card nickname={users[0].nickname + "님의 "} /*ranking={"순위는 "+ranking+"위이며 "}*/ rank={"랭크는 " + users[0].rank + "입니다."} score={"점수: " + users[0].score + "점"} />
-                </div>
                 )}
             </div>
             <Footer />
