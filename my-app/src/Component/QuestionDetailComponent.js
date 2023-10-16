@@ -138,14 +138,14 @@ const QuestionDetailComponent = ({ setId }) => {
             setModalQuestionId(questionId);
         } else {
             // 이미 채점된 경우, 직접 해설 페이지로 이동합니다.
-            window.location.href = `/QuestionAnswer`;
+            window.location.href = `/QuestionAnswer/${questionId}`;
         }
     };
 
     const handleModalConfirm = (questionScore) => {
         setIsModalOpen(false);
-        setScore(score - questionScore);
-        window.location.href = `/QuestionAnswer`;
+        setScore(score - questionScore); // 점수 차감
+        window.location.href = `/QuestionAnswer/${modalQuestionId}`; // 이동
     };
 
     const handleModalCancel = () => {
@@ -155,13 +155,11 @@ const QuestionDetailComponent = ({ setId }) => {
     return (
         <div className="question-detail-container">
             {isModalOpen && (
-                <>
-                    <Modal
-                        message="채점하기전 해설 및 토론버튼을 누르면 점수가 차감됩니다!"
-                        onConfirm={() => handleModalConfirm(questions.find(q => q.id === modalQuestionId).score)}
-                        onCancel={handleModalCancel}
-                    />
-                </>
+                <Modal
+                    message="채점하기전 해설 및 토론버튼을 누르면 점수가 차감됩니다!"
+                    onConfirm={() => handleModalConfirm(questions.find(q => q.id === modalQuestionId).score)}
+                    onCancel={handleModalCancel}
+                />
             )}
             <h1>{problemSet?.title || "제목 없음"}</h1>
             <div className={`score-board ${scoreClass}`} data-text={`Score: ${score}`}></div>
@@ -188,11 +186,9 @@ const QuestionDetailComponent = ({ setId }) => {
                         >
                             {feedbackMessages[question.id]}
                         </div>
-                        <Link to={`/QuestionAnswer/${question.id}`}>
-                            <button style={{ marginRight: '10px' }}>
-                                해설 및 토론
-                            </button>
-                        </Link>
+                        <button onClick={() => handleDiscussionClick(question.id, question.score)}>
+                            해설 및 토론
+                        </button>
 
                         <button onClick={() => handleFavorite(question.id)}>즐겨찾기</button>
                         <div

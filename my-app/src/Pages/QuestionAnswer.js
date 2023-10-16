@@ -13,6 +13,8 @@ const QuestionAnswer = () => {
     const { id } = useParams();
     const explanationRef = useRef(null); // Move useRef outside of conditional logic
     const [users, setUsers] = useState([]);
+    const [loggedInUserId, setLoggedInUserId] = useState(localStorage.getItem('userId'));
+
 
     useEffect(() => {
         // Fetch all comments
@@ -79,7 +81,7 @@ const QuestionAnswer = () => {
         }
     
         const newComment = {
-            user_id: 1, // 현재 로그인 된 사용자의 ID로 변경해야 합니다.
+            user_id: parseInt(loggedInUserId), 
             problem_id: parseInt(id),
             content: comment,
             created_at: new Date().toISOString()
@@ -104,7 +106,11 @@ const QuestionAnswer = () => {
         };
         xhr.send(JSON.stringify(newComment));
     
-        setComment("");
+        setComments(prevComments => {
+            const updatedComments = [...prevComments, newComment];
+            console.log("Updated comments:", updatedComments);  // 콘솔에 업데이트된 댓글 배열 로깅
+            return updatedComments;
+        });
     };
     
     return (
