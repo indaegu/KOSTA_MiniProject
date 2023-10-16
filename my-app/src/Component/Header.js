@@ -44,30 +44,30 @@ const Header = () => {
                 <div className="category-item">
                     언어 ▼
                     <div className="category-dropdown">
-                        <a href="#">Java</a> <br />
-                        <a href="#">JavaScript</a> <br />
-                        <a href="#">C</a>
+                        <a href="/QuestionList/Java">Java</a> <br />
+                        <a href="/QuestionList/Javascript">JavaScript</a> <br />
+                        <a href="/QuestionList/C">C</a>
                     </div>
                 </div>
                 <div className="category-item">
                     정보처리기사 ▼
                     <div className="category-dropdown">
-                        <a href="/QuestionList">기출 문제</a> <br />
-                        <a href="#">시험 일정</a>
+                        <a href="/QuestionList/InfoProcessing">기출 문제</a> <br />
+                        <a href="/ExamSchedule/InfoProcessing">시험 일정</a>
                     </div>
                 </div>
                 <div className="category-item">
                     SQLD ▼
                     <div className="category-dropdown">
-                        <a href="/QuestionList">기출 문제</a> <br />
-                        <a href="#">시험 일정</a>
+                        <a href="/QuestionList/SQL">기출 문제</a> <br />
+                        <a href="/ExamSchedule/SQL">시험 일정</a>
                     </div>
                 </div>
                 <div className="category-item">
-                    <a href="#">알고리즘</a> <br />
+                    <a href="/QuestionList/Algorithm">알고리즘</a> <br />
                 </div>
                 <div className="category-item">
-                    <a href="#">CS</a> <br />
+                    <a href="/QuestionList/CS">CS</a> <br />
                 </div>
                 <div className="category-item">
                     랭킹 ▼
