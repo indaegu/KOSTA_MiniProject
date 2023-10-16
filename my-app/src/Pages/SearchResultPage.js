@@ -17,7 +17,7 @@ function SearchResultPage() {
     const searchParams = new URLSearchParams(location.search);
     const keyword = searchParams.get('keyword');
     const [currentPage, setCurrentPage] = useState(1); // 현재 페이지 상태
-    const questionsPerPage = 3; // 페이지당 보여줄 결과 수
+    const questionsPerPage = 5; // 페이지당 보여줄 결과 수
 
     const paginate = pageNumber => setCurrentPage(pageNumber);
 

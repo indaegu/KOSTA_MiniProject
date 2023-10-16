@@ -67,7 +67,7 @@ function WrongQuestions() {
             <table>
                 <thead>
                     <tr>
-                        <th>문제번호</th>
+                        <th>순위</th>
                         <th>문제카테고리</th>
                         <th>문제제목</th>
                         <th>오답률</th>

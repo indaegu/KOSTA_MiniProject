@@ -98,7 +98,7 @@ const QuestionAnswer = () => {
                         <div className="comment-author">{comment.author}</div>
                         <div className="comment-content">{comment.content}</div>
                         <div className="comment-date">{comment.date}</div>
-                        <button className="reply-btn">답글쓰기</button>
+                        {/* <button className="reply-btn">답글쓰기</button> */}
                     </div>
                 ))}
             </div>
