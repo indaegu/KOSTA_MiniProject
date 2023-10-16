@@ -366,6 +366,7 @@
       "nickname": "UserOne",
       "password": "1",
       "score": 50,
+      "rank" : 0,
       "is_deleted": false
     },
     {
@@ -374,6 +375,7 @@
       "nickname": "UserTwo",
       "password": "hashed_password2",
       "score": 200,
+      "rank" : 3,
       "is_deleted": false
     },
     {
@@ -382,6 +384,7 @@
       "nickname": "Admin",
       "password": "hashed_password3",
       "score": 250,
+      "rank" : 3,
       "is_deleted": false
     },
     {
@@ -390,6 +393,7 @@
       "nickname": "성창민",
       "password": "123",
       "score": 220,
+      "rank" : 3,
       "is_deleted": false
     },
     {
@@ -398,6 +402,7 @@
       "nickname": "이동건",
       "password": "123",
       "score": 210,
+      "rank" : 3,
       "is_deleted": false
     },
     {
@@ -406,6 +411,7 @@
       "nickname": "UserFour",
       "password": "123",
       "score": 190,
+      "rank" : 2,
       "is_deleted": false
     },
     {
@@ -414,6 +420,7 @@
       "nickname": "UserFive",
       "password": "123",
       "score": 180,
+      "rank" : 2,
       "is_deleted": false
     },
     {
@@ -422,6 +429,7 @@
       "nickname": "UserSix",
       "password": "123",
       "score": 175,
+      "rank" : 2,
       "is_deleted": false
     },
     {
@@ -430,6 +438,7 @@
       "nickname": "UserSeven",
       "password": "123",
       "score": 170,
+      "rank" : 2,
       "is_deleted": false
     },
     {
@@ -438,6 +447,7 @@
       "nickname": "UserEight",
       "password": "123",
       "score": 160,
+      "rank" : 2,
       "is_deleted": false
     },
     {
@@ -446,6 +456,7 @@
       "nickname": "UserNine",
       "password": "123",
       "score": 150,
+      "rank" : 2,
       "is_deleted": false
     },
     {
@@ -454,6 +465,7 @@
       "nickname": "UserTen",
       "password": "123",
       "score": 120,
+      "rank" : 1,
       "is_deleted": false
     },
     {
@@ -462,6 +474,7 @@
       "nickname": "UserEleven",
       "password": "123",
       "score": 90,
+      "rank" : 0,
       "is_deleted": false
     },
     {
