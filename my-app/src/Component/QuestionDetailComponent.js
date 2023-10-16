@@ -192,11 +192,12 @@ const QuestionDetailComponent = ({ setId }) => {
                         >
                             {feedbackMessages[question.id]}
                         </div>
-                        <Link to={`/QuestionAnswer/${question.id}`}  onClick={(e) => { e.preventDefault(); handleDiscussionClick(question.id, question.score); }}>
+                        <Link to={`/QuestionAnswer/${question.id}`} onClick={(e) => { e.preventDefault(); handleDiscussionClick(question.id, question.score); }}>
                             <button style={{ marginRight: '10px' }}>
                                 해설 및 토론
                             </button>
                         </Link>
+
                         <button onClick={() => handleFavorite(question.id)}>즐겨찾기</button>
                         <div
                             className={`feedback-message ${favoriteFeedback[question.id] ? 'visible hide-after-2s' : ''}`}

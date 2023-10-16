@@ -131,7 +131,7 @@
     {
       "id": 5,
       "content": "C 언어에서 포인터의 기본 자료형은?",
-      "score": 15,
+      "score": 10,
       "answer": "int*",
       "explanation": "C 언어의 포인터 자료형은 변수 타입 뒤에 *를 붙입니다.",
       "problem_set_id": 2,
@@ -141,7 +141,7 @@
     {
       "id": 6,
       "content": "C 언어에서 포인터의 기본 자료형은?",
-      "score": 15,
+      "score": 5,
       "answer": "int*",
       "explanation": "C 언어의 포인터 자료형은 변수 타입 뒤에 *를 붙입니다.",
       "problem_set_id": 2,
@@ -181,7 +181,7 @@
     {
       "id": 10,
       "content": "정보처리기사 관련 문제 내용 1",
-      "score": 15,
+      "score":5,
       "answer": "해당문제의 정답 1",
       "explanation": "해당 문제의 해설 1",
       "problem_set_id": 16,
@@ -191,7 +191,7 @@
     {
       "id": 11,
       "content": "정보처리기사 관련 문제 내용 1",
-      "score": 15,
+      "score": 5,
       "answer": "해당문제의 정답 1",
       "explanation": "해당 문제의 해설 1",
       "problem_set_id": 16,
