@@ -22,7 +22,7 @@
     },
     {
       "id": 5,
-      "name": "InfoProcessing",
+      "name": "정보처리",
       "parent_id": null
     },
     {
@@ -52,19 +52,19 @@
     },
     {
       "id": 16,
-      "title": "InfoProcessing 문제세트 1",
+      "title": "정보처리 문제세트 1",
       "category_id": 5,
       "created_at": "2023-10-16"
     },
     {
       "id": 17,
-      "title": "InfoProcessing 문제세트 2",
+      "title": "정보처리 문제세트 2",
       "category_id": 5,
       "created_at": "2023-10-16"
     },
     {
       "id": 18,
-      "title": "InfoProcessing 문제세트 3",
+      "title": "정보처리 문제세트 3",
       "category_id": 5,
       "created_at": "2023-10-16"
     },
@@ -170,10 +170,10 @@
     },
     {
       "id": 9,
-      "content": "정보처리기사 관련 문제 내용 1 여기선 1+1은?",
+      "content": "다음에서 설명하는 개념을 쓰시오. 사람의 감정이나 경험을 나타내는 개념. 사용자 인터페이스. 예로는 CLI이 있다.",
       "score": 15,
-      "answer": "2",
-      "explanation": "1+1은 2일 확률이 굉장히 높습니다!",
+      "answer": "UI",
+      "explanation": "이유는 잘모르겠습니다..",
       "problem_set_id": 16,
       "wrong_count": 3,
       "attempt_count": 8

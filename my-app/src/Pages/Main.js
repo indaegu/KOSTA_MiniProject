@@ -12,7 +12,7 @@ const Main = () => {
         <div className="main-container">
             <Header />
             <Slideshow />
-            <div className="content">
+            <div className="ranking-content">
                 <RankingSummary />
                 <WrongQuestions />
             </div>

@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+
 
 const Header = () => {
     const [searchKeyword, setSearchKeyword] = useState("");
@@ -56,8 +58,8 @@ const Header = () => {
                 <div className="category-item">
                     정보처리기사 ▼
                     <div className="category-dropdown">
-                        <a href="/QuestionList/InfoProcessing">기출 문제</a> <br />
-                        <a href="/ExamSchedule/InfoProcessing">시험 일정</a>
+                        <a href="/QuestionList/정보처리">기출 문제</a> <br />
+                        <a href="/ExamSchedule/정보처리">시험 일정</a>
                     </div>
                 </div>
                 <div className="category-item">
