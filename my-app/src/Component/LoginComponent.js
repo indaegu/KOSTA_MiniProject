@@ -32,7 +32,9 @@ function LoginComponent() {
         xhr.send(JSON.stringify({
             email,
             nickname: username,
-            password
+            password,
+            rank : 0,
+            score : 100
         }));
     }
 

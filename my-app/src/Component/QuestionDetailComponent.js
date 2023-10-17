@@ -7,7 +7,7 @@ import Modal from './Modal'; // 새로운 모달 컴포넌트를 import 합니�
 
 
 const QuestionDetailComponent = ({ setId }) => {
-    const [score, setScore] = useState(100);
+    const [score, setScore] = useState(0);
     const [ListScore, setListScore] = useState(0);
     const [userAnswers, setUserAnswers] = useState({});
     const [correctAnswers, setCorrectAnswers] = useState([]);
@@ -20,9 +20,25 @@ const QuestionDetailComponent = ({ setId }) => {
     const [modalQuestionId, setModalQuestionId] = useState(null); // 모달에 표시될 문제의 ID
     const [questions, setQuestions] = useState([]); // 초기 값을 빈 배열로 설정
     const [problemSet, setProblemSet] = useState(null); // 문제 세트 정보를 저장할 상태 변수 추
-
     const prevScoreRef = useRef();  // 이전 점수를 추적하기 위한 ref
     const [scoreClass, setScoreClass] = useState('');  // 점수 증감에 따른 클래스 상태
+    const [loggedInUser, setLoggedInUser] = useState(null); // 로그인한 유저의 정보를 저장
+    const [loggedInUserId, setLoggedInUserId] = useState(null);
+
+    useEffect(() => {
+        const loggedInUserId = localStorage.getItem('userId');
+
+        if (loggedInUserId) {
+            fetch(`http://localhost:3001/users/${loggedInUserId}`)
+                .then(res => res.json())
+                .then(data => {
+                    setLoggedInUserId(loggedInUserId)
+                    setLoggedInUser(data);
+                    setScore(data.score); // 로그인한 유저의 score로 상태 초기화
+                })
+                .catch(error => console.error('Error:', error));
+        }
+    }, []);
 
     useEffect(() => {
         if (prevScoreRef.current !== undefined) {  // 초기화를 위해 undefined 체크
@@ -81,17 +97,34 @@ const QuestionDetailComponent = ({ setId }) => {
         let newScore;  // 새로운 점수 값을 저장할 변수
 
         if (userAnswers[questionId] === correctAnswer) {
-            newScore = score + questionScore;  // 직접 새 점수 계산
-            setScore(newScore);  // 상태 업데이트
-            setListScore(prevScore => prevScore + questionScore);
-            feedback = `맞았습니다! (+${questionScore}점)`;  // 점수 정보를 추가
+            newScore = score + questionScore;
+            feedback = `맞았습니다! (+${questionScore}점)`;
             setCorrectAnswers(prev => [...prev, questionId]);
         } else {
-            newScore = score - questionScore;  // 직접 새 점수 계산
-            setScore(newScore);  // 상태 업데이트
-            setListScore(prevScore => prevScore - questionScore);
-            feedback = `틀렸습니다! (-${questionScore}점)`;  // 점수 정보를 추가
+            newScore = score - questionScore;
+            feedback = `틀렸습니다! (-${questionScore}점)`;
             setIncorrectAnswers(prev => [...prev, questionId]);
+        }
+
+        setScore(newScore); // 로컬 상태 업데이트
+
+        // 로그인한 유저의 점수 업데이트 (DB에 반영)
+        if (loggedInUser) {
+            const xhr = new XMLHttpRequest();
+            xhr.open('PUT', `http://localhost:3001/users/${loggedInUserId}`, true);
+            xhr.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
+            xhr.onload = function () {
+                if (xhr.status === 200) {
+                    const updatedUser = JSON.parse(xhr.responseText);
+                    setLoggedInUser(updatedUser); // 상태 업데이트
+                } else {
+                    console.error('Error updating user score:', xhr.responseText);
+                }
+            };
+            xhr.send(JSON.stringify({
+                ...loggedInUser,
+                score: newScore
+            }));
         }
 
         prevScoreRef.current = score;  // 현재 점수를 ref에 바로 저장합니다.
@@ -111,6 +144,7 @@ const QuestionDetailComponent = ({ setId }) => {
 
         setGradedQuestions(prev => [...prev, questionId]);
     };
+
 
     const handleFavorite = (questionId) => {
         let feedback = "";

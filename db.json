@@ -506,6 +506,20 @@
       "email": "",
       "rank": "",
       "score": ""
+    },
+    {
+      "email": "scm8572@naver.com",
+      "nickname": "성창민",
+      "password": "123",
+      "id": 17
+    },
+    {
+      "email": "Test@gmail.com",
+      "nickname": "Tester",
+      "password": "123",
+      "rank": 0,
+      "score": 75,
+      "id": 18
     }
   ],
   "comments": [
