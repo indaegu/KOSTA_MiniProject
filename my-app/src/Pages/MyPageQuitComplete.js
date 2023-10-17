@@ -1,16 +1,32 @@
-import React from 'react';
-import { useNavigate } from 'react-router-dom'; // react-router-dom에서 useNavigate import
+import React, { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom'; 
 import '../App.css';
 import '../MyPage.css';
 import Header from "../Component/HeaderQuit";
 import Footer from "../Component/Footer";
-//import Chatbot from "../Component/ChatBot";
 
 const MyPageQuitComplete = () => {
+    const navigate = useNavigate();
 
-    const navigate = useNavigate();  // useNavigate 훅 사용
+    useEffect(() => {
+        // 페이지에 처음 들어왔을 때 history 스택에 같은 페이지를 추가
+        window.history.pushState(null, document.title, window.location.href);
+        
+        // popstate 이벤트 리스너 추가
+        window.addEventListener('popstate', handlePopState);
 
-    const handleButtonClick = () => {  // 버튼 클릭 시 이벤트 핸들러
+        return () => {
+            // 컴포넌트 unmount 시 이벤트 리스너 제거
+            window.removeEventListener('popstate', handlePopState);
+        };
+    }, []);
+
+    const handlePopState = (event) => {
+        // 뒤로 가기 시도 시 다시 같은 페이지를 history 스택에 추가
+        window.history.pushState(null, document.title, window.location.href);
+    };
+
+    const handleButtonClick = () => {  
         navigate('/');  // index.js로 이동
     };
 

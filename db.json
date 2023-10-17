@@ -365,7 +365,7 @@
       "email": "1",
       "nickname": "1",
       "password": "1",
-      "score": 150,
+      "score": 110,
       "rank": 1,
       "is_deleted": false
     },
@@ -520,6 +520,15 @@
       "rank": 0,
       "score": 75,
       "id": 18
+    },
+    {
+      "email": "1",
+      "nickname": "1",
+      "password": "1",
+      "rank": 0,
+      "score": 100,
+      "is_deleted": false,
+      "id": 19
     }
   ],
   "comments": [
