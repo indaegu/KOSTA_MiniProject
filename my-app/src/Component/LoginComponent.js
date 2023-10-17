@@ -47,7 +47,7 @@ function LoginComponent() {
             console.log(users)
             if (users.length > 0) {
                 if (users[0].is_deleted) {
-                    alert("삭제된 계정입니다!");
+                    alert("탈퇴된 계정입니다!");
                 } else {
                     alert("로그인 성공");
                     localStorage.setItem('userId', users[0].id);

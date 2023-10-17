@@ -390,8 +390,8 @@
     {
       "id": 4,
       "email": "asd123@gmail.com",
-      "nickname": "성창민",
-      "password": "123",
+      "nickname": "성창민1",
+      "password": "1234",
       "score": 220,
       "rank": 3,
       "is_deleted": false
@@ -425,12 +425,12 @@
     },
     {
       "id": 7,
-      "email": "asd123@gmail.com",
+      "email": "bsd123@gmail.com",
       "nickname": "UserSix",
       "password": "123",
       "score": 175,
       "rank": 2,
-      "is_deleted": false
+      "is_deleted": true
     },
     {
       "id": 8,
@@ -484,7 +484,7 @@
       "password": "123",
       "score": 30,
       "rank": 0,
-      "is_deleted": true
+      "is_deleted": false
     },
     {
       "id": 14,
