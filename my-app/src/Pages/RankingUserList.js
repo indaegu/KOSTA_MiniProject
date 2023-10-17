@@ -25,31 +25,31 @@ function RankingUserList() {
                         return { ...user, ranking: index + 1 };
                     });
                     setUsers(rankedData);
-                /// 로그인된 사용자의 랭킹 찾기 및 저장
-                const myRankingIndex = rankedData.findIndex(user => user.id === parseInt(loggedInUserId));
-                
-                if(myRankingIndex !== -1){
-                    let surroundingRankings = [];
-                    if(myRankingIndex > 0){
-                        surroundingRankings.push(rankedData[myRankingIndex-1]); // Add the user above me.
+                    /// 로그인된 사용자의 랭킹 찾기 및 저장
+                    const myRankingIndex = rankedData.findIndex(user => user.id === parseInt(loggedInUserId));
+
+                    if (myRankingIndex !== -1) {
+                        let surroundingRankings = [];
+                        if (myRankingIndex > 0) {
+                            surroundingRankings.push(rankedData[myRankingIndex - 1]); // Add the user above me.
+                        }
+
+                        surroundingRankings.push(rankedData[myRankingIndex]); // Add me.
+
+                        if (myRankingIndex < rankedData.length - 1) {
+                            surroundingRankings.push(rankedData[myRankingIndex + 1]); // Add the user below me.
+                        }
+
+                        setMyRankings(surroundingRankings);
+                    } else {
+                        console.error('Could not find the logged in user in the rankings');
                     }
-                    
-                    surroundingRankings.push(rankedData[myRankingIndex]); // Add me.
-                    
-                    if(myRankingIndex < rankedData.length-1){
-                        surroundingRankings.push(rankedData[myRankingIndex+1]); // Add the user below me.
-                    }
-                    
-                    setMyRankings(surroundingRankings); 
-                 } else{
-                     console.error('Could not find the logged in user in the rankings');
-                 }
-            } else {
-               console.error('Received data is not an array');
-            }
-        })
-        .catch(error => console.error('Error:', error));
-}, []);
+                } else {
+                    console.error('Received data is not an array');
+                }
+            })
+            .catch(error => console.error('Error:', error));
+    }, []);
 
     const Card = ({ ranking, nickname, rank, score, image }) => {
         return (

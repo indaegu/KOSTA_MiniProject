@@ -1,20 +1,27 @@
 import React, { useState, useEffect } from 'react';
 
 function RankingSummary() {
-    const [users, setUsers] = useState([
-        { rank: 1, level: "3단계", nickname: "UserA", totalScore: 500 },
-        { rank: 2, level: "3단계", nickname: "UserB", totalScore: 430 },
-        { rank: 3, level: "3단계", nickname: "UserC", totalScore: 320 },
-        { rank: 4, level: "2단계", nickname: "UserD", totalScore: 299},
-        { rank: 5, level: "2단계", nickname: "UserE", totalScore: 249 },
-    ]);
+    const [users, setUsers] = useState([]);
 
     useEffect(() => {
-        const shuffleInterval = setInterval(() => {
-            setUsers(prevUsers => prevUsers.sort(() => Math.random() - 0.5));
-        }, 3000);
-
-        return () => clearInterval(shuffleInterval);
+        fetch("http://localhost:3001/users")
+            .then(res => {
+                return res.json();
+            })
+            .then(data => {
+                if (Array.isArray(data)) { // data가 배열인지 확인
+                    // score 기준으로 내림차순 정렬
+                    const sortedData = data.sort((a, b) => b.score - a.score);
+                    // 각 유저에게 랭킹 정보 추가
+                    const rankedData = sortedData.map((user, index) => {
+                        return { ...user, ranking: index + 1 };
+                    });
+                    setUsers(rankedData);
+                } else {
+                    console.error('Received data is not an array');
+                }
+            })
+            .catch(error => console.error('Error:', error));
     }, []);
 
     return (
@@ -30,12 +37,12 @@ function RankingSummary() {
                     </tr>
                 </thead>
                 <tbody>
-                    {users.map(user => (
-                        <tr key={user.rank}>
+                    {users.slice(0, 5).map(user => (
+                        <tr key={user.ranking}>
+                            <td>{user.ranking}</td>
                             <td>{user.rank}</td>
-                            <td>{user.level}</td>
                             <td>{user.nickname}</td>
-                            <td>{user.totalScore}점</td>
+                            <td>{user.score}점</td>
                         </tr>
                     ))}
                 </tbody>
