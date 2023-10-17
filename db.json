@@ -484,7 +484,7 @@
       "password": "123",
       "score": 30,
       "rank": 0,
-      "is_deleted": false
+      "is_deleted": true
     },
     {
       "id": 14,

@@ -34,7 +34,8 @@ function LoginComponent() {
             nickname: username,
             password,
             rank : 0,
-            score : 100
+            score : 100,
+            is_deleted : false
         }));
     }
 
@@ -43,16 +44,22 @@ function LoginComponent() {
         xhr.open('GET', `http://localhost:3001/users?email=${email}&password=${password}`, true);
         xhr.onload = function () {
             const users = JSON.parse(this.responseText);
+            console.log(users)
             if (users.length > 0) {
-                alert("로그인 성공");
-                localStorage.setItem('userId', users[0].id);
-                window.location.href = '/Main';
+                if (users[0].is_deleted) {
+                    alert("삭제된 계정입니다!");
+                } else {
+                    alert("로그인 성공");
+                    localStorage.setItem('userId', users[0].id);
+                    window.location.href = '/Main';
+                }
             } else {
                 alert("존재하지 않는 계정입니다!");
             }
         };
         xhr.send();
     }
+    
 
     return (
         <div id="container" className={`${styles.container} ${isSignIn ? styles['sign-in'] : styles['sign-up']}`}>

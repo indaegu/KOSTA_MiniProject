@@ -1,7 +1,7 @@
 // Pagination.js
 
 import React from 'react';
-import '../../../../Kosta_MiniProject/my-app/src/App.css';
+import '../App.css';
 
 const Pagination = ({ totalQuestions, questionsPerPage, paginate }) => {
     const pageNumbers = [];
