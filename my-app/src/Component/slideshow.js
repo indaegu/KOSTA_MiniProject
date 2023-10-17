@@ -5,9 +5,9 @@ function Slideshow() {
   const [isAnimating, setIsAnimating] = useState(true);  // 애니메이션 상태 추가
   const [current, setCurrent] = useState(0);
   const slides = [
-    "banner2.jpg",
-    "banner3.jpg",
-    "banner4.jpg"
+    "banner2.png",
+    "banner3.png",
+    "banner4.png"
   ];
 
   useEffect(() => {
