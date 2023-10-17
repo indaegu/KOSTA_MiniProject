@@ -44,7 +44,6 @@ function LoginComponent() {
         xhr.open('GET', `http://localhost:3001/users?email=${email}&password=${password}`, true);
         xhr.onload = function () {
             const users = JSON.parse(this.responseText);
-            console.log(users)
             if (users.length > 0) {
                 if (users[0].is_deleted) {
                     alert("탈퇴된 계정입니다!");

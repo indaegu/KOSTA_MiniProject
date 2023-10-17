@@ -1,14 +1,27 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 
 
 const Header = () => {
     const [searchKeyword, setSearchKeyword] = useState("");
+    const [loggedInUser, setLoggedInUser] = useState(null);  // 로그인한 유저의 정보를 저장하는 상태
 
     const handleSearch = () => {
         console.log("handleSearch 함수 호출됨");
         console.log("검색어:", searchKeyword);
         window.location.href = `/SearchResult?keyword=${searchKeyword}`;
     };
+
+    useEffect(() => {
+        const userId = localStorage.getItem('userId');
+        if (userId) {
+            fetch(`http://localhost:3001/users/${userId}`)
+                .then(res => res.json())
+                .then(data => {
+                    setLoggedInUser(data);
+                })
+                .catch(error => console.error('Error fetching user:', error));
+        }
+    }, []);
 
     const handleKeyPress = (e) => {
         if (e.key === "Enter") {
@@ -42,7 +55,10 @@ const Header = () => {
                 </div>
 
                 <div className="user-info">
-                    <span><a href="/MyPageMyInfo">마이페이지로</a><a href="/" onClick={handleLogout}>Logout</a> </span>
+                    <span>
+                        <a href="/MyPageMyInfo">{loggedInUser ? loggedInUser.nickname : 'Loading...'}</a>
+                        <a href="/" onClick={handleLogout}>Logout</a>
+                    </span>
                 </div>
             </div>
             <nav className="categories">
