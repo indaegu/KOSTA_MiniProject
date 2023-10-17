@@ -365,16 +365,16 @@
       "email": "1",
       "nickname": "1",
       "password": "1",
-      "score": 50,
-      "rank": 0,
-      "is_deleted": true
+      "score": 150,
+      "rank": 1,
+      "is_deleted": false
     },
     {
       "id": 2,
       "email": "user2@example.com",
       "nickname": "UserTwo",
       "password": "hashed_password2",
-      "score": 200,
+      "score": 320,
       "rank": 3,
       "is_deleted": false
     },
@@ -383,16 +383,16 @@
       "email": "user3@example.com",
       "nickname": "Admin",
       "password": "hashed_password3",
-      "score": 250,
+      "score": 500,
       "rank": 3,
       "is_deleted": false
     },
     {
       "id": 4,
       "email": "asd123@gmail.com",
-      "nickname": "성창민1",
+      "nickname": "성창민",
       "password": "1234",
-      "score": 220,
+      "score": 450,
       "rank": 3,
       "is_deleted": false
     },
@@ -401,7 +401,7 @@
       "email": "asd123@gmail.com",
       "nickname": "이동건",
       "password": "123",
-      "score": 210,
+      "score": 350,
       "rank": 3,
       "is_deleted": false
     },
@@ -410,7 +410,7 @@
       "email": "asd123@gmail.com",
       "nickname": "UserFour",
       "password": "123",
-      "score": 190,
+      "score": 290,
       "rank": 2,
       "is_deleted": false
     },
@@ -419,8 +419,8 @@
       "email": "asd123@gmail.com",
       "nickname": "UserFive",
       "password": "123",
-      "score": 180,
-      "rank": 2,
+      "score": 300,
+      "rank": 3,
       "is_deleted": false
     },
     {
@@ -428,7 +428,7 @@
       "email": "bsd123@gmail.com",
       "nickname": "UserSix",
       "password": "123",
-      "score": 175,
+      "score": 275,
       "rank": 2,
       "is_deleted": true
     },
@@ -437,7 +437,7 @@
       "email": "asd123@gmail.com",
       "nickname": "UserSeven",
       "password": "123",
-      "score": 170,
+      "score": 270,
       "rank": 2,
       "is_deleted": false
     },
@@ -446,7 +446,7 @@
       "email": "asd123@gmail.com",
       "nickname": "UserEight",
       "password": "123",
-      "score": 160,
+      "score": 260,
       "rank": 2,
       "is_deleted": false
     },
@@ -455,7 +455,7 @@
       "email": "asd123@gmail.com",
       "nickname": "UserNine",
       "password": "123",
-      "score": 150,
+      "score": 250,
       "rank": 2,
       "is_deleted": false
     },
@@ -464,8 +464,8 @@
       "email": "asd123@gmail.com",
       "nickname": "UserTen",
       "password": "123",
-      "score": 120,
-      "rank": 1,
+      "score": 220,
+      "rank": 2,
       "is_deleted": false
     },
     {
@@ -473,8 +473,8 @@
       "email": "asd123@gmail.com",
       "nickname": "UserEleven",
       "password": "123",
-      "score": 90,
-      "rank": 0,
+      "score": 190,
+      "rank": 1,
       "is_deleted": false
     },
     {
