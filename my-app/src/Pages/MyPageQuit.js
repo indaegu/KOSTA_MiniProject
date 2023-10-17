@@ -1,4 +1,4 @@
-import React, { useState} from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom'; // react-router-dom에서 useNavigate import
 import '../App.css';
 import '../MyPage.css';
@@ -9,18 +9,48 @@ import SideMenu from "../Component/SideMenu";
 
 const MyPageQuit = () => {
     const [showPopup, setShowPopup] = useState(false); // 팝업 창 표시 여부를 관리하는 상태값
-
+    const [loggedInUser, setLoggedInUser] = useState(null); // 추가
+    const loggedInUserId = localStorage.getItem('userId'); //추가
     const navigate = useNavigate(); // useNavigate 훅 사용
+
+    useEffect(() => {
+        fetch("http://localhost:3001/users")
+            .then(res => res.json())
+            .then(data => {
+                if (Array.isArray(data)) {
+                    const user = data.find(user => user.id === parseInt(loggedInUserId)); // 해당 id를 가진 유저 찾기
+                    setLoggedInUser(user); // 찾은 유저를 loggedInUser 상태에 저장
+                } else {
+                    console.error('Received data is not an array');
+                }
+            })
+            .catch(error => console.error('Error:', error));
+    }, [loggedInUserId]); // useEffect의 종속성 배열에 loggedInUserId 추가
 
     const handleQuitClick = () => {
         setShowPopup(true);  // 탈퇴하기 버튼이 클릭되면 팝업 창을 표시합니다.
     };
 
-    const handleYesClick = () => {  // 예 버튼 클릭 시 이벤트 핸들러
+    const handleYesClick = async () => {  // 예 버튼 클릭 시 이벤트 핸들러
         setShowPopup(false);
-        navigate('/MyPageQuitComplete');  // MyPageQuitComplete.js로 이동
+    
+        try {
+            await fetch(`http://localhost:3001/users/${loggedInUserId}`, {
+                method: 'PATCH', // or 'PUT'
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    is_deleted: true
+                })
+            });
+            
+            //alert('탈퇴되었습니다.');
+            navigate('/MyPageQuitComplete');  // MyPageQuitComplete.js로 이동
+        } catch (error) {
+            console.error(error);
+            alert('탈퇴 실패');
+        }
     };
-
+    
     const handleNoClick = () => {  // 아니오 버튼 클릭 시 이벤트 핸들러
         setShowPopup(false);
         navigate('/main');  // main.js로 이동

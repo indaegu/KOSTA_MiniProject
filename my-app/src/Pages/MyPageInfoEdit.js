@@ -43,8 +43,12 @@ function MyPageInfoEdit() {
         setPasswordConfirm(e.target.value);
     };
 
-    const handleEditClick = async () => {
+    const handleEditClick = () => {
         setShowPopup(true);
+    };
+
+    const handleYesClick = async () => {  // 예 버튼 클릭 시 이벤트 핸들러
+        setShowPopup(false);
     
         try {
             await fetch(`http://localhost:3001/users/${loggedInUserId}`, {
@@ -55,14 +59,13 @@ function MyPageInfoEdit() {
                     password
                 })
             });
+            
+            //alert('수정되었습니다.');
+            navigate('/MyPageInfoEditComplete');  // MyPageInfoEditComplete.js로 이동
         } catch (error) {
             console.error(error);
             alert('수정 실패');
         }
-    };
-    const handleYesClick = () => {  // 예 버튼 클릭 시 이벤트 핸들러
-        setShowPopup(false);
-        navigate('/MyPageInfoEditComplete');  // MyPageInfoEditComplete.js로 이동
     };
 
     const handleNoClick = () => {  // 아니오 버튼 클릭 시 이벤트 핸들러

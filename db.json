@@ -363,11 +363,11 @@
     {
       "id": 1,
       "email": "1",
-      "nickname": "4",
-      "password": "4",
+      "nickname": "1",
+      "password": "1",
       "score": 50,
       "rank": 0,
-      "is_deleted": false
+      "is_deleted": true
     },
     {
       "id": 2,
